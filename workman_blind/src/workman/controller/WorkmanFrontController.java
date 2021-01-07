@@ -98,22 +98,22 @@ public class WorkmanFrontController extends HttpServlet {
 				} else if (command.equals("ptlistdelete")) {
 					ptlistdelete(request, response);
 
-				} else if (command.equals("PtEvalAll")) {
+				} else if (command.equals("ptevalall")) {
 					PTEvalAll(request, response);
 
-				} else if (command.equals("PtEval")) {
+				} else if (command.equals("pteval")) {
 					PTEval(request, response);
 
-				} else if (command.equals("PtEvalInsert")) {
+				} else if (command.equals("ptevalinsert")) {
 					PTEvalInsert(request, response);
 
-				} else if (command.equals("PtEvalUpdateReq")) {
+				} else if (command.equals("ptevalupdatereq")) {
 					PTEvalUpdateReq(request, response);
 
-				} else if (command.equals("PtEvalUpdateExperience")) {
+				} else if (command.equals("ptevalupdateexperience")) {
 					PTEvalUpdateExperience(request, response);
 
-				} else if (command.equals("PtEvalDelete")) {
+				} else if (command.equals("ptevaldelete")) {
 					PTEvalDelete(request, response);
 				} else {
 					request.setAttribute("msg", "유효하지 않은 command입니다.");
@@ -578,8 +578,8 @@ public class WorkmanFrontController extends HttpServlet {
 
 		try {
 
-			request.getSession().setAttribute("Ptevalall", WorkmanService.getAllPTEval());
-			url = "Ptevalall.jsp";
+			request.getSession().setAttribute("ptevalall", WorkmanService.getAllPTEval());
+			url = "ptevalall.jsp";
 
 		} catch (Exception s) {
 
@@ -623,8 +623,8 @@ public class WorkmanFrontController extends HttpServlet {
 		try {
 
 			request.getSession().setAttribute("successMsg", "등록 완료");
-//			WorkmanService.addPTEval(proscons, wage, environment, incline, workdif, experience);
-//			개선필요 url = "Ptevaldetail.jsp";
+			WorkmanService.addPTEval(proscons, wage, environment, incline, workdif, experience);
+			url = "ptevaldetail.jsp";
 
 		} catch (Exception s) {
 
@@ -641,9 +641,9 @@ public class WorkmanFrontController extends HttpServlet {
 
 		try {
 
-//			request.getSession().setAttribute("Texteval",
-//					WorkmanService.getPTEval(Long.valueOf(request.getParameter("texteval"))));
-//			url = "Ptevalupdate.jsp";
+			request.getSession().setAttribute("Texteval",
+					WorkmanService.getPTEval(Long.valueOf(request.getParameter("texteval"))));
+			url = "ptevalupdate.jsp";
 
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
@@ -663,7 +663,7 @@ public class WorkmanFrontController extends HttpServlet {
 		try {
 //			WorkmanService.updatePTEvalExp(texteval, experience);
 //			request.getSession().setAttribute("Pteval", WorkmanService.getPTEval(texteval));
-			url = "Ptevaldetail.jsp";
+			url = "ptevaldetail.jsp";
 
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
@@ -682,8 +682,8 @@ public class WorkmanFrontController extends HttpServlet {
 			if (texteval > 0) {
 
 //				WorkmanService.deletePTEval(texteval);
-				request.getSession().setAttribute("Ptevalall", WorkmanService.getAllPTEval());
-				url = "Ptevalall.jsp";
+				request.getSession().setAttribute("ptevalall", WorkmanService.getAllPTEval());
+				url = "ptevalall.jsp";
 
 			} else {
 				request.setAttribute("msg", "다시 시도하세요");
