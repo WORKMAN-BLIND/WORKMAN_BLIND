@@ -256,7 +256,7 @@ public class ParttimeEvalDAO {
 	}
 
 	public static ArrayList<ParttimeEval> getAllPTEval() {
-
+		
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -264,10 +264,8 @@ public class ParttimeEvalDAO {
 		ArrayList<ParttimeEval> ptevallist = null;
 
 		try {
-
 			ptevallist = (ArrayList<ParttimeEval>) em
 					.createNativeQuery("select * from parttimeeval", ParttimeEval.class).getResultList();
-
 		} catch (Exception e) {
 
 			e.printStackTrace();
