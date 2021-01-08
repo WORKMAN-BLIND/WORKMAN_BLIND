@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>¸ÞÀÎ ¿öÅ©¸Ç ÆäÀÌÁö</title>
+<title>ë©”ì¸ ì›Œí¬ë§¨ íŽ˜ì´ì§€</title>
 <link
 	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
 	rel="stylesheet" />
@@ -23,10 +23,10 @@
 					<a href="workman?command=companyupdatereq" class="id"> <i
 						class="far fa-building" style="font-size: 30px; color: white;"></i>
 						${sessionScope.id}
-					</a> (±â¾÷ È¸¿ø)´Ô &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
+					</a> (ê¸°ì—… íšŒì›)ë‹˜ &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
 						style="font-size: 30px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
-						[·Î±×¾Æ¿ô]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+						[ë¡œê·¸ì•„ì›ƒ]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:when>
@@ -36,10 +36,10 @@
 				<p style="text-align: right; color: white;">
 					<a href="workman?command=memberupdatereq" class="id"> <i
 						class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
-					(ÀÏ¹Ý È¸¿ø)´Ô &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
+					(ì¼ë°˜ íšŒì›)ë‹˜ &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
 						class="fas fa-sign-out-alt" style="font-size: 25px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
-						[·Î±×¾Æ¿ô]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+						[ë¡œê·¸ì•„ì›ƒ]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:otherwise>
@@ -58,7 +58,7 @@
 				</h1>
 			</center>
 
-			<!-- <h4 style="display: inline-block" style="text-align:right">·Î±×ÀÎ</h4> -->
+			<!-- <h4 style="display: inline-block" style="text-align:right">ë¡œê·¸ì¸</h4> -->
 
 		</div>
 
@@ -68,12 +68,12 @@
 		<center>
 			<ul>
 				<li><a href="partTimeListView2.jsp" accesskey="1"
-					title="parttimestory">¾Ë¹Ù½ºÅä¸®</a></li>
-				<li><a href="#" accesskey="2" title="">±â¾÷½ºÅä¸®</a></li>
+					title="parttimestory">ì•Œë°”ìŠ¤í† ë¦¬</a></li>
+				<li><a href="#" accesskey="2" title="">ê¸°ì—…ìŠ¤í† ë¦¬</a></li>
 				<li><a href="workman?command=ptlistall" class="id"
-					accesskey="3" title="">¾Ë¹Ù¸®ºä</a></li>
-				<li><a href="#" accesskey="4" title="">ÀÌ·Â¼­µî·Ï/°ü¸®</a></li>
-				<li><a href="#" accesskey="5" title="">Áö¿ø°ü¸®</a></li>
+					accesskey="3" title="">ì•Œë°”ë¦¬ë·°</a></li>
+				<li><a href="#" accesskey="4" title="">ì´ë ¥ì„œë“±ë¡/ê´€ë¦¬</a></li>
+				<li><a href="#" accesskey="5" title="">ì§€ì›ê´€ë¦¬</a></li>
 
 				<!-- onclick="location.href='${pageContext.request.contextPath}/probono?command=activistUpdateReq'" -->
 				<!-- http://localhost:8081/workman_blind/'$%7BpageContext.request.contextPath%7D/workman?command=PTListAll%27 -->
@@ -92,8 +92,8 @@
 					<span
 						style="font-style: italic; font-weight: bold; font-size: 3em; line-height: 1.0em; color: #0000FF; font-family: arial;">
 						<h3>
-							¾Ë¹ÙµµÁß <span style="color: red">Å»ÁÖ</span>¸»°í <span
-								style="color: #ffe200">¸®ºä</span>º¸°í <span style="color: #ffe200">±¤¸í</span>Ã£ÀÚ
+							ì•Œë°”ë„ì¤‘ <span style="color: red">íƒˆì£¼</span>ë§ê³  <span
+								style="color: #ffe200">ë¦¬ë·°</span>ë³´ê³  <span style="color: #ffe200">ê´‘ëª…</span>ì°¾ìž
 						</h3>
 					</span> <br>
 					<br>
@@ -113,7 +113,7 @@
 		<div id="three-column" class="container">
 			<center>
 				<center>
-					<h1>ÃÖ±Ù¿¡ ¿Ã¶ó¿Â REVIEW!</h1>
+					<h1>ìµœê·¼ì— ì˜¬ë¼ì˜¨ REVIEW!</h1>
 					<br>
 					<br>
 					<br>
@@ -125,30 +125,30 @@
 					<div class="title">
 						<a href="#"><img src="images/pc.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>¼§¶¼ pc¹æ</h2>
+						<h2>ìƒ¹ë–¼ pcë°©</h2>
 					</div>
-					<p>¿ù±ÞÀÌ ¾È¹Ð·Á¿ä. »çÀå´ÔÀÌ Ä£ÀýÇØ¿ä ¡¦</p>
-					<a href="#" class="button" style="color: white;">´õº¸±â</a>
+					<p>ì›”ê¸‰ì´ ì•ˆë°€ë ¤ìš”. ì‚¬ìž¥ë‹˜ì´ ì¹œì ˆí•´ìš” â€¦</p>
+					<a href="#" class="button" style="color: white;">ë”ë³´ê¸°</a>
 				</div>
 				<div id="tbox2" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/twosome.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>Åõ½æÇÃ·¹ÀÌ½º</h2>
+						<h2>íˆ¬ì¸í”Œë ˆì´ìŠ¤</h2>
 					</div>
-					<p>Ä®Åð°¡´É. »çÀå´ÔÀÌ ±ñ±ñÇØ¿ä ¡¦</p>
-					<a href="#" class="button">´õº¸±â</a>
+					<p>ì¹¼í‡´ê°€ëŠ¥. ì‚¬ìž¥ë‹˜ì´ ê¹ê¹í•´ìš” â€¦</p>
+					<a href="#" class="button">ë”ë³´ê¸°</a>
 				</div>
 				<div id="tbox3" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/cu.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>CU ÃæÁ¤·ÎÇÁ¶û½ºÁ¡</h2>
+						<h2>CU ì¶©ì •ë¡œí”„ëž‘ìŠ¤ì </h2>
 					</div>
-					<p>Ä®Åð °¡´ÉÇØ¿ä. ½Ä»çÁ¦°øÇØ¿ä ¡¦</p>
-					<a class="button" onclick="moreview3()">´õº¸±â</a>
-					<!-- <button onclick="moreview3()">´õº¸±â</button> -->
-					<div id="addView"></div>
+					<p>ì¹¼í‡´ ê°€ëŠ¥í•´ìš”. ì‹ì‚¬ì œê³µí•´ìš” â€¦</p>
+					<a class="button" onclick="moreview3()">ë”ë³´ê¸°</a>
+					<!-- <button onclick="moreview3()">ë”ë³´ê¸°</button> -->
+					<div id="addView" class="hidden"></div>
 				</div>
 			</center>
 		</div>
@@ -161,7 +161,7 @@
 		<div id="portfolio" class="container">
 			<center>
 				<center>
-					<h1>ÃÖ±Ù¿¡ ¿Ã¶ó¿Â °ø°í!</h1>
+					<h1>ìµœê·¼ì— ì˜¬ë¼ì˜¨ ê³µê³ !</h1>
 					<br>
 					<br>
 					<br>
@@ -170,52 +170,52 @@
 					<div class="box">
 						<a href="#"><img src="images/hansot.jpg" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>ÇÑ¼Üµµ½Ã¶ô(ºÎ»ê´ëºÏ¹®Á¡)</h3>
-						<p>¸®ºä ÃÑ 1°³</p>
+						<h3>í•œì†¥ë„ì‹œë½(ë¶€ì‚°ëŒ€ë¶ë¬¸ì )</h3>
+						<p>ë¦¬ë·° ì´ 1ê°œ</p>
 						<br>
-						<p>´Ü±â</p>
+						<p>ë‹¨ê¸°</p>
 						<br>
-						<p>Ã¤¿ëÁß</p>
-						<br> <a href="#" class="button button-small">´õ ¾Ë¾Æº¸±â</a>
+						<p>ì±„ìš©ì¤‘</p>
+						<br> <a href="#" class="button button-small">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 				<div class="column2" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/gs25.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>GS25 ´ë±¸¿ªÀÚÀÌÁ¡</h3>
-						<p>¸®ºä ÃÑ 1°³</p>
+						<h3>GS25 ëŒ€êµ¬ì—­ìžì´ì </h3>
+						<p>ë¦¬ë·° ì´ 1ê°œ</p>
 						<br>
-						<p>Àå±â</p>
+						<p>ìž¥ê¸°</p>
 						<br>
-						<p>Ã¤¿ë¸¶°¨</p>
-						<br> <a href="#" class="button button-small">´õ ¾Ë¾Æº¸±â</a>
+						<p>ì±„ìš©ë§ˆê°</p>
+						<br> <a href="#" class="button button-small">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 				<div class="column3" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/innisfree.jpg" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>ÀÌ¸¶Æ® Ãµ¾È¼­ºÏÁ¡ ÀÌ´Ï½ºÇÁ¸®</h3>
-						<p>¸®ºä ÃÑ 2°³</p>
+						<h3>ì´ë§ˆíŠ¸ ì²œì•ˆì„œë¶ì  ì´ë‹ˆìŠ¤í”„ë¦¬</h3>
+						<p>ë¦¬ë·° ì´ 2ê°œ</p>
 						<br>
-						<p>½Ã°£Á¦</p>
+						<p>ì‹œê°„ì œ</p>
 						<br>
-						<p>Ã¤¿ëÁß</p>
-						<br> <a href="#" class="button button-small">´õ ¾Ë¾Æº¸±â</a>
+						<p>ì±„ìš©ì¤‘</p>
+						<br> <a href="#" class="button button-small">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 				<div class="column4" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/twosome.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>Åõ½æÇÃ·¹ÀÌ½º</h3>
-						<p>¸®ºä ÃÑ 754°³</p>
+						<h3>íˆ¬ì¸í”Œë ˆì´ìŠ¤</h3>
+						<p>ë¦¬ë·° ì´ 754ê°œ</p>
 						<br>
-						<p>´Ü±â</p>
+						<p>ë‹¨ê¸°</p>
 						<br>
-						<p>Ã¤¿ë¸¶°¨</p>
-						<br> <a href="#" class="button button-small">´õ ¾Ë¾Æº¸±â</a>
+						<p>ì±„ìš©ë§ˆê°</p>
+						<br> <a href="#" class="button button-small">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 		</div>
@@ -233,7 +233,7 @@
 				<i class="fas fa-map-marker-alt" style="font-size: 50px"></i><br>
 				<br>
 				<br>
-				<br> <span>¼­¿ïÆ¯º°½Ã ¼­ÃÊ±¸ ¼­ÃÊµ¿ ¼­ÃÊ´ë·Î 1±æ <br />102È£ ¿öÅ©¸Ç º»»ç
+				<br> <span>ì„œìš¸íŠ¹ë³„ì‹œ ì„œì´ˆêµ¬ ì„œì´ˆë™ ì„œì´ˆëŒ€ë¡œ 1ê¸¸ <br />102í˜¸ ì›Œí¬ë§¨ ë³¸ì‚¬
 				</span>
 			</div>
 			<div class="fbox1">
@@ -257,11 +257,18 @@
 				command : "add"
 			}
 		}).then(response => {
-			document.getElementById("addView").innerHTML = "<div class='txtBox'><a href='partTimeEvalView2.jsp' class='button-small'>ÀÚ¼¼È÷º¸±â</a> "+response.data+"</div>";
+			document.getElementById("addView").innerHTML = "<div class='txtBox'>"+response.data+"<a href='partTimeEvalView2.jsp' class='button-small'>ìžì„¸ížˆë³´ê¸°</a></div>";
 		}).catch(error => {
-			console.log("¿¹¿Ü¹ß»ý" + error);
+			console.log("ì˜ˆì™¸ë°œìƒ" + error);
 		});
 	}
+	//<a href='partTimeEvalView2.jsp' class='button-small'>ìžì„¸ížˆë³´ê¸°</a>
+	//<button onclick="partTimeEvalView2.jsp">ìžì„¸ížˆë³´ê¸°</button>
+	
+	function showhide() {
+            var div = document.getElementById("try");
+            div.classList.toggle('hidden');
+        }
 	
 </script>
 

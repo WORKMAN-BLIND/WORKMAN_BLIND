@@ -7,8 +7,14 @@
 <c:forEach items="${requestScope.add}" var="eval">
 	<tr>
 		<td>${eval.proscons}</td>
+		</tr>
+		<tr>
 		<td>${eval.wagedelay}</td>
+		</tr>
+		<tr>
 		<td>${eval.environment}</td>
+		</tr>
+		<tr>
 		<td>${eval.incline}</td>
 	</tr>
 </c:forEach>
