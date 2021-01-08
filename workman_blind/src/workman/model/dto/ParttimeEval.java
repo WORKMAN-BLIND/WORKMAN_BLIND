@@ -59,7 +59,7 @@ public class ParttimeEval {
 	private String incline;
 	
 	// 추가 의견
-	@Column(name = "comment")
-	private String comment;
+	@Column(name = "opinion")
+	private String opinion;
 	
 }

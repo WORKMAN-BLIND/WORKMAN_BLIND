@@ -14,7 +14,7 @@ import workman.model.dto.ParttimeEval;
 
 public class ParttimeEvalDAO {
 
-	public static boolean addPTEval(String userid, String companyname, String proscons, String wagedelay, String environment, String incline, String comment)
+	public static boolean addPTEval(String userid, String companyname, String proscons, String wagedelay, String environment, String incline, String opinion)
 			 {
 
 		EntityManager em = PublicCommon.getEntityManager();
@@ -28,7 +28,7 @@ public class ParttimeEvalDAO {
 			Company company = em.find(Company.class, companyname);
 			
 			ParttimeEval pteval = ParttimeEval.builder().userid(member).companyname(company).proscons(proscons).wagedelay(wagedelay).environment(environment)
-					.incline(incline).comment(comment).build();
+					.incline(incline).opinion(opinion).build();
 			
 			member.getParttimeevals().add(pteval);
 			company.getParttimeevals().add(pteval);
@@ -170,7 +170,7 @@ public class ParttimeEvalDAO {
 		return result;
 	}
 
-	public static boolean updatePTEvalComment(int evalnum, String comment) {
+	public static boolean updatePTEvalComment(int evalnum, String opinion) {
 
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -182,7 +182,7 @@ public class ParttimeEvalDAO {
 
 			ParttimeEval pteval = em.find(ParttimeEval.class, evalnum);
 
-			pteval.setComment(comment);
+			pteval.setOpinion(opinion);
 			tx.commit();
 
 			result = true;

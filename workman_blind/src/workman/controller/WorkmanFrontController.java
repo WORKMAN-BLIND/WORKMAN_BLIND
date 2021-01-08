@@ -30,7 +30,7 @@ public class WorkmanFrontController extends HttpServlet {
 		HttpSession session = request.getSession();
 		try {
 			if ((String) session.getAttribute("id") == null && !(command.equals("clogin") || command.equals("mlogin"))
-					&& !(command.equals("companyinsert") || command.equals("memberinsert"))) {
+					&& !(command.equals("companyinsert") || command.equals("memberinsert") ||!(command.equals("ptevalinsert")))) {
 				request.setAttribute("msg", "로그인하세요");
 				request.getRequestDispatcher("view/error.jsp").forward(request, response);
 			} else {
@@ -612,27 +612,36 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-
-		String proscons = request.getParameter("Procons");
-		long wage = Long.valueOf(request.getParameter("Wage"));
-		String environment = request.getParameter("Environment");
-		String incline = request.getParameter("Incline");
-		String workdif = request.getParameter("Workdif");
-		String experience = request.getParameter("Experience");
+		
+		String userid = request.getParameter("userid");
+		String companyname = request.getParameter("companyname");
+		String proscons = request.getParameter("proscons");
+		String wage = request.getParameter("wagedelay");
+		String environment = request.getParameter("env");
+		String incline = request.getParameter("incline");
+		String opinion = request.getParameter("opinion");
 
 		try {
 
 			request.getSession().setAttribute("successMsg", "등록 완료");
-			WorkmanService.addPTEval(proscons, wage, environment, incline, workdif, experience);
-			url = "ptevaldetail.jsp";
+			if(WorkmanService.addPTEval(userid, companyname, proscons, wage, environment, incline, opinion)) {
+				request.setAttribute("msg","알바 평가글 등록 완료");
+				url = "ptevaldetail.jsp";
+			}else {
+				request.setAttribute("msg", "알바 평가글 등록 실패");
+			}
+			
 
 		} catch (Exception s) {
 
 			request.setAttribute("msg", s.getMessage());
-			log.info("평가글 등록 성공");
+			log.info("알바 평가글 등록 성공");
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
+	
+	
+
 
 	public void PTEvalUpdateReq(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

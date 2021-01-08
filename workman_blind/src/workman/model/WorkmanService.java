@@ -146,9 +146,9 @@ public class WorkmanService {
 	// parttimeeval
 
 	public static boolean addPTEval(String userid, String companyname, String proscons, String wagedelay, String environment, String incline,
-			String comment) {
+			String opinion) {
 
-		return ParttimeEvalDAO.addPTEval(userid, companyname, proscons, wagedelay, environment, incline, comment);
+		return ParttimeEvalDAO.addPTEval(userid, companyname, proscons, wagedelay, environment, incline, opinion);
 	}
 
 	public static boolean updatePTEvalProCon(int evalnum, String proscons) {
@@ -191,4 +191,6 @@ public class WorkmanService {
 
 		return ParttimeEvalDAO.getAllPTEval();
 	}
+
+	
 }
