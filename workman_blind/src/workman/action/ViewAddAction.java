@@ -1,4 +1,4 @@
-package workman.controller;
+package workman.action;
 
 import java.io.IOException;
 
@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 import workman.model.ParttimeEvalDAO;
 
 @Slf4j
-public class ViewAction {
+public class ViewAddAction {
 
-	private static ViewAction instance = new ViewAction();
-	private ViewAction() {};
-	public static ViewAction getInstance() {
+	private static ViewAddAction instance = new ViewAddAction();
+	private ViewAddAction() {};
+	public static ViewAddAction getInstance() {
 		return instance;
 	}
 	

@@ -95,12 +95,16 @@
 							알바도중 <span style="color: red">탈주</span>말고 <span
 								style="color: #ffe200">리뷰</span>보고 <span style="color: #ffe200">광명</span>찾자
 						</h3>
+						
 					</span> <br>
 					<br>
 					<br>
 					<br>
 					<br>
-					<br> <img src="images/workmain.PNG" width="1000" height="300">
+					<br> <img src="images/workmain.PNG" width="1000" height="300" onclick = "settimeoutUtube()">
+					<br>
+					<br>
+					<div id="utubeView"></div>
 				</center>
 			</div>
 		</div>
@@ -257,11 +261,31 @@
 				command : "add"
 			}
 		}).then(response => {
+			alert(response.data);
 			document.getElementById("addView").innerHTML = response.data;
 		}).catch(error => {
 			console.log("예외발생" + error);
 		});
 	}
+	
+	function settimeoutUtube() {
+		setTimeout(function utubeview() {
+			axios.get('make', {
+				params : {
+					command : "utube"
+				}
+			}).then(response => {
+				document.getElementById("utubeView").innerHTML = response.data;
+			}).catch(error => {
+				console.log("예외발생" + error);
+			});
+		}, 3000);
+	}
+	
+	/* function myFunction() {
+		  setTimeout(function(){ alert("Hello"); }, 3000);
+		} */
+	
 </script>
 </body>
 </html>

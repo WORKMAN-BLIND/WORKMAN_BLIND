@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
+import workman.action.ViewAddAction;
+import workman.action.ViewUtubeAction;
 import workman.model.CompanyDAO;
 import workman.model.WorkmanService;
 
@@ -25,7 +27,11 @@ public class ViewController extends HttpServlet {
 		
 		if(command != null) {
 			if(command.equals("add")) {
-				ViewAction action = ViewAction.getInstance();
+				ViewAddAction action = ViewAddAction.getInstance();
+				action.service(request, response);
+			}
+			if(command.equals("utube")) {
+				ViewUtubeAction action = ViewUtubeAction.getInstance();
 				action.service(request, response);
 			}
 		}
