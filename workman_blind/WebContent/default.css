@@ -281,7 +281,23 @@
    
    .button-small
    {
+     display: inline-block;
+      margin-top: 2em;
+      padding: 0.4em 1em;
+      background: #6f6f6f;
+      line-height: 1.8em;
+      letter-spacing: 1px;
+      text-decoration: none;
+      font-size: 1em;
+      color: #FFF;
    }
+   
+   .txtBox {
+	padding: 5em 5em;
+    border-radius: .750em;
+	word-break: break-all;	
+	background-color: #f2f4f6;
+}
       
 /*********************************************************************************/
 /* Heading Titles                                                                */

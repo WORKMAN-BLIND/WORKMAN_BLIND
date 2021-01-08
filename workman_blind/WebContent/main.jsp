@@ -250,18 +250,20 @@
 	</div>
 
 <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" >
 	function moreview3() {
 		axios.get('make', {
 			params : {
 				command : "add"
 			}
 		}).then(response => {
-			document.getElementById("addView").innerHTML = response.data;
+			document.getElementById("addView").innerHTML = "<div class='txtBox'><a href='partTimeEvalView2.jsp' class='button-small'>자세히보기</a> "+response.data+"</div>";
 		}).catch(error => {
 			console.log("예외발생" + error);
 		});
 	}
+	
 </script>
+
 </body>
 </html>
