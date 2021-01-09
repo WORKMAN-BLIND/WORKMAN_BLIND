@@ -158,7 +158,6 @@ public class ParttimeEvalDAO {
 		ArrayList<ParttimeEval> ptevallist = null;
 
 		try {
-
 			ptevallist = (ArrayList<ParttimeEval>) em
 					.createNativeQuery("select * from parttimeeval where company_name = ?", ParttimeEval.class)
 					.setParameter(1, companyname).getResultList();

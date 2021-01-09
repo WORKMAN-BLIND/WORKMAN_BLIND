@@ -40,11 +40,11 @@ public class ParttimeEval implements Serializable {
 	private int evalnum;
 		
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id", nullable=false)
 	private Member userid; 
 	
 	@ManyToOne
-	@JoinColumn(name = "company_name")
+	@JoinColumn(name = "company_name", nullable=false)
 	private Company companyname;
 	
 	@Column(name = "pros_cons")

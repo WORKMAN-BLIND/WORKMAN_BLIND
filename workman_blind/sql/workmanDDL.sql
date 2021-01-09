@@ -12,11 +12,11 @@ DROP TABLE company cascade constraint;
 
 
 CREATE TABLE company (
-	company_name		 VARCHAR2(50)	 PRIMARY KEY,
-	company_pw		 VARCHAR2(20)	 NOT NULL,	
-	company_loc		 VARCHAR2(50)	 NOT NULL,
-	company_num		 VARCHAR2(50)	 NOT NULL,
-	category			 VARCHAR2(50)	 NOT NULL	
+   company_name      VARCHAR2(50)    PRIMARY KEY,
+   company_pw        VARCHAR2(20)    NOT NULL,   
+   company_loc       VARCHAR2(200)    NOT NULL,
+   company_num       VARCHAR2(30)    NOT NULL,
+   category          VARCHAR2(40)    NOT NULL   
 );
 
 
