@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>���� ��ũ�� ������</title>
+<meta charset="UTF-8">
+<title>메인 페이지</title>
 <link
 	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
 	rel="stylesheet" />
@@ -23,10 +23,10 @@
 					<a href="workman?command=companyupdatereq" class="id"> <i
 						class="far fa-building" style="font-size: 30px; color: white;"></i>
 						${sessionScope.id}
-					</a> (��� ȸ��)�� &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
+					</a> (占쏙옙占� 회占쏙옙)占쏙옙 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
 						style="font-size: 30px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
-						[�α׾ƿ�]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+						[占싸그아울옙]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:when>
@@ -36,10 +36,10 @@
 				<p style="text-align: right; color: white;">
 					<a href="workman?command=memberupdatereq" class="id"> <i
 						class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
-					(�Ϲ� ȸ��)�� &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
+					(占싹뱄옙 회占쏙옙)占쏙옙 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
 						class="fas fa-sign-out-alt" style="font-size: 25px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
-						[�α׾ƿ�]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+						[占싸그아울옙]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:otherwise>
@@ -58,7 +58,7 @@
 				</h1>
 			</center>
 
-			<!-- <h4 style="display: inline-block" style="text-align:right">�α���</h4> -->
+			<!-- <h4 style="display: inline-block" style="text-align:right">占싸깍옙占쏙옙</h4> -->
 
 		</div>
 
@@ -68,12 +68,12 @@
 		<center>
 			<ul>
 				<li><a href="partTimeListView2.jsp" accesskey="1"
-					title="parttimestory">�˹ٽ��丮</a></li>
-				<li><a href="#" accesskey="2" title="">������丮</a></li>
+					title="parttimestory">占싯바쏙옙占썰리</a></li>
+				<li><a href="#" accesskey="2" title="">占쏙옙占쏙옙占쏙옙訝�</a></li>
 				<li><a href="workman?command=ptlistall" class="id"
-					accesskey="3" title="">�˹ٸ���</a></li>
-				<li><a href="#" accesskey="4" title="">�̷¼����/����</a></li>
-				<li><a href="#" accesskey="5" title="">��������</a></li>
+					accesskey="3" title="">占싯바몌옙占쏙옙</a></li>
+				<li><a href="#" accesskey="4" title="">占싱력쇽옙占쏙옙占�/占쏙옙占쏙옙</a></li>
+				<li><a href="#" accesskey="5" title="">占쏙옙占쏙옙占쏙옙占쏙옙</a></li>
 
 				<!-- onclick="location.href='${pageContext.request.contextPath}/probono?command=activistUpdateReq'" -->
 				<!-- http://localhost:8081/workman_blind/'$%7BpageContext.request.contextPath%7D/workman?command=PTListAll%27 -->
@@ -92,8 +92,8 @@
 					<span
 						style="font-style: italic; font-weight: bold; font-size: 3em; line-height: 1.0em; color: #0000FF; font-family: arial;">
 						<h3>
-							�˹ٵ��� <span style="color: red">Ż��</span>���� <span
-								style="color: #ffe200">����</span>���� <span style="color: #ffe200">����</span>ã��
+							占싯바듸옙占쏙옙 <span style="color: red">탈占쏙옙</span>占쏙옙占쏙옙 <span
+								style="color: #ffe200">占쏙옙占쏙옙</span>占쏙옙占쏙옙 <span style="color: #ffe200">占쏙옙占쏙옙</span>찾占쏙옙
 						</h3>
 						
 					</span> <br>
@@ -117,7 +117,7 @@
 		<div id="three-column" class="container">
 			<center>
 				<center>
-					<h1>�ֱٿ� �ö�� REVIEW!</h1>
+					<h1>占쌍근울옙 占시띰옙占� REVIEW!</h1>
 					<br>
 					<br>
 					<br>
@@ -129,29 +129,29 @@
 					<div class="title">
 						<a href="#"><img src="images/pc.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>���� pc��</h2>
+						<h2>占쏙옙占쏙옙 pc占쏙옙</h2>
 					</div>
-					<p>������ �ȹз���. ������� ģ���ؿ� ��</p>
-					<a href="#" class="button" style="color: white;">������</a>
+					<p>占쏙옙占쏙옙占쏙옙 占싫밀뤄옙占쏙옙. 占쏙옙占쏙옙占쏙옙占� 친占쏙옙占쌔울옙 占쏙옙</p>
+					<a href="#" class="button" style="color: white;">占쏙옙占쏙옙占쏙옙</a>
 				</div>
 				<div id="tbox2" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/twosome.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>�����÷��̽�</h2>
+						<h2>占쏙옙占쏙옙占시뤄옙占싱쏙옙</h2>
 					</div>
-					<p>Į�𰡴�. ������� ����ؿ� ��</p>
-					<a href="#" class="button">������</a>
+					<p>칼占쏜가댐옙. 占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙萬占� 占쏙옙</p>
+					<a href="#" class="button">占쏙옙占쏙옙占쏙옙</a>
 				</div>
 				<div id="tbox3" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/cu.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>CU ��������������</h2>
+						<h2>CU 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙</h2>
 					</div>
-					<p>Į�� �����ؿ�. �Ļ������ؿ� ��</p>
-					<a class="button" onclick="moreview3()">������</a>
-					<!-- <button onclick="moreview3()">������</button> -->
+					<p>칼占쏙옙 占쏙옙占쏙옙占쌔울옙. 占식삼옙占쏙옙占쏙옙占쌔울옙 占쏙옙</p>
+					<a class="button" onclick="moreview3()">占쏙옙占쏙옙占쏙옙</a>
+					<!-- <button onclick="moreview3()">占쏙옙占쏙옙占쏙옙</button> -->
 					<div id="addView"></div>
 				</div>
 			</center>
@@ -165,7 +165,7 @@
 		<div id="portfolio" class="container">
 			<center>
 				<center>
-					<h1>�ֱٿ� �ö�� ����!</h1>
+					<h1>占쌍근울옙 占시띰옙占� 占쏙옙占쏙옙!</h1>
 					<br>
 					<br>
 					<br>
@@ -174,52 +174,52 @@
 					<div class="box">
 						<a href="#"><img src="images/hansot.jpg" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>�Ѽܵ��ö�(�λ��Ϲ���)</h3>
-						<p>���� �� 1��</p>
+						<h3>占싼솥듸옙占시띰옙(占싸삼옙占싹뱄옙占쏙옙)</h3>
+						<p>占쏙옙占쏙옙 占쏙옙 1占쏙옙</p>
 						<br>
-						<p>�ܱ�</p>
+						<p>占쌤깍옙</p>
 						<br>
-						<p>ä����</p>
-						<br> <a href="#" class="button button-small">�� �˾ƺ���</a>
+						<p>채占쏙옙占쏙옙</p>
+						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
 					</div>
 				</div>
 				<div class="column2" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/gs25.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>GS25 �뱸��������</h3>
-						<p>���� �� 1��</p>
+						<h3>GS25 占쎈구占쏙옙占쏙옙占쏙옙占쏙옙</h3>
+						<p>占쏙옙占쏙옙 占쏙옙 1占쏙옙</p>
 						<br>
-						<p>���</p>
+						<p>占쏙옙占�</p>
 						<br>
-						<p>ä�븶��</p>
-						<br> <a href="#" class="button button-small">�� �˾ƺ���</a>
+						<p>채占쎈마占쏙옙</p>
+						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
 					</div>
 				</div>
 				<div class="column3" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/innisfree.jpg" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>�̸�Ʈ õ�ȼ����� �̴Ͻ�����</h3>
-						<p>���� �� 2��</p>
+						<h3>占싱몌옙트 천占싫쇽옙占쏙옙占쏙옙 占싱니쏙옙占쏙옙占쏙옙</h3>
+						<p>占쏙옙占쏙옙 占쏙옙 2占쏙옙</p>
 						<br>
-						<p>�ð���</p>
+						<p>占시곤옙占쏙옙</p>
 						<br>
-						<p>ä����</p>
-						<br> <a href="#" class="button button-small">�� �˾ƺ���</a>
+						<p>채占쏙옙占쏙옙</p>
+						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
 					</div>
 				</div>
 				<div class="column4" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/twosome.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>�����÷��̽�</h3>
-						<p>���� �� 754��</p>
+						<h3>占쏙옙占쏙옙占시뤄옙占싱쏙옙</h3>
+						<p>占쏙옙占쏙옙 占쏙옙 754占쏙옙</p>
 						<br>
-						<p>�ܱ�</p>
+						<p>占쌤깍옙</p>
 						<br>
-						<p>ä�븶��</p>
-						<br> <a href="#" class="button button-small">�� �˾ƺ���</a>
+						<p>채占쎈마占쏙옙</p>
+						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
 					</div>
 				</div>
 		</div>
@@ -237,7 +237,7 @@
 				<i class="fas fa-map-marker-alt" style="font-size: 50px"></i><br>
 				<br>
 				<br>
-				<br> <span>����Ư���� ���ʱ� ���ʵ� ���ʴ�� 1�� <br />102ȣ ��ũ�� ����
+				<br> <span>占쏙옙占쏙옙특占쏙옙占쏙옙 占쏙옙占십깍옙 占쏙옙占십듸옙 占쏙옙占십댐옙占� 1占쏙옙 <br />102호 占쏙옙크占쏙옙 占쏙옙占쏙옙
 				</span>
 			</div>
 			<div class="fbox1">
@@ -261,9 +261,9 @@
 				command : "add"
 			}
 		}).then(response => {
-			document.getElementById("addView").innerHTML = "<div class='txtBox'><a href='partTimeEvalView2.jsp' class='button-small'>�ڼ�������</a> "+response.data+"</div>";
+			document.getElementById("addView").innerHTML = "<div class='txtBox'><a href='partTimeEvalView2.jsp' class='button-small'>占쌘쇽옙占쏙옙占쏙옙占쏙옙</a> "+response.data+"</div>";
 		}).catch(error => {
-			console.log("���ܹ߻�" + error);
+			console.log("폼보기 에러" + error);
 		});
 	}
 	
@@ -276,7 +276,7 @@
 			}).then(response => {
 				document.getElementById("utubeView").innerHTML = response.data;
 			}).catch(error => {
-				console.log("���ܹ߻�" + error);
+				console.log("폼보기 에러" + error);
 			});
 		}, 3000);
 	}
