@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>해당 알바 구인글 출력</title>
+<title>해당 알바 리뷰글 출력</title>
 </head>
 <body>
 <c:choose>
@@ -38,68 +38,65 @@
 		</c:otherwise>
 	</c:choose>
 	
-		<span id="Location"><a href="main.jsp">홈으로</a></span> 
-	<hr>
-	<br>
-	<br>
+	<div id="Location">
+			<a href="${pageContext.request.contextPath}/main.jsp">홈으로</a>
+			<!-- &gt; -->
+			<!--  <a href="/story/">알바스토리</a> &gt; <strong>알바리뷰</strong> -->
+		</div>
 
-	
+	<br>
+	<br>
+	<br>
 	<center>
 
 
-		<h3>${sessionScope.ptlist.objective}</h3>
-
-		<table border="1">
-			<tr>
-				<th>근무시간</th>
-				<th>시급</th>
-				<th>근무기간</th>
-			</tr>
-			<tr>
-				<td>${sessionScope.ptlist.worktime}</td>
-				<td>${sessionScope.ptlist.hourlywage}</td>
-				<td>${sessionScope.ptlist.workperiod}</td>
-			</tr>
-		</table>
-
-		<br>
-		<br>
+		<h3>${sessionScope.ptevalcom.companyname.companyname}</h3>
 		<hr>
-		<br>
-
-		<h3>해당 기업 정보</h3>
-
+		<p>
 		<table border="1">
 			<tr>
-				<th>기업명</th>
-				<th>업종</th>
-				<th>주소</th>
-				<th>전화번호</th>
+				<th>글번호</th>
+				<th>작성자 ID</th>
+				<th>장단점</th>
+				<th>급여지불</th>
+				<th>근무환경</th>
+				<th>관리자 성향</th>
+				<th>추가의견</th>
 			</tr>
 			<tr>
-				<td>${sessionScope.company.companyname}</td>
-				<td>${sessionScope.company.category}</td>
-				<td>${sessionScope.company.companyloc}</td>
-				<td>${sessionScope.company.companynum}</td>
+				<td>${sessionScope.ptevalcom.evalnum}</td>
+				<td>${sessionScope.ptevalcom.userid.userid}</td>
+				<td>${sessionScope.ptevalcom.proscons}</td>
+				<td>${sessionScope.ptevalcom.wagedelay}</td>
+				<td>${sessionScope.ptevalcom.environment}</td>
+				<td>${sessionScope.ptevalcom.incline}</td>
+				<td>${sessionScope.ptevalcom.opinion}</td>
 			</tr>
 		</table>
-		<br>
-		<c:choose>
-			<c:when
-				test="${sessionScope.id == sessionScope.company.companyname}">
-				<a href="plcrud/plupdate.jsp">해당 글 수정</a> &nbsp;
-				<a href="workman?command=ptlistdelete&listnum=${sessionScope.ptlist.listnum}">해당 건 마감</a>
-			</c:when>
-			<c:otherwise>
 
-			</c:otherwise>
+		<br> <br> 
 
-		</c:choose>
-		<br><hr>
-		<a href="workman?command=ptevalallcom&companyname=${sessionScope.company.companyname}">이 기업의  생생한 알바 리뷰 </a>
+		<hr>
+		<p>
 
-
-		&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/main.jsp">메인 화면 이동</a>
+			<br>
+			<c:choose>
+				<c:when test="${sessionScope.type == 2 && sessionScope.id == sessionScope.ptevalcom.userid.userid}">
+					<button type="button"
+						onclick="location.href='${pageContext.request.contextPath}/workman?evalnum=${sessionScope.ptevalcom.evalnum}&command=ptevalupdatereq'">
+						수정하기</button>
+					<br>
+					<button type="button"
+						onclick="location.href='${pageContext.request.contextPath}/workman?evalnum=${sessionScope.ptevalcom.evalnum}&command=ptevaldelete'">
+						삭제하기</button>
+				</c:when>
+				
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
+			
+			<br>
+		<hr>
 
 	</center>
 </body>

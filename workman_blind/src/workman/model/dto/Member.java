@@ -37,6 +37,10 @@ public class Member {
 	@Column(name = "user_id")
 	private String userid;
 	
+	@ManyToOne // 회사명
+	@JoinColumn(name="company_name")
+	private Company companyname;
+	
 	@Column(name = "user_pw")
 	private String userpw;
 	
@@ -45,7 +49,7 @@ public class Member {
 	
 	@Column(name = "user_num")
 	private String usernum;
-
+	
 	@OneToMany(mappedBy = "userid")
 	private List<ParttimeEval> parttimeevals;
 

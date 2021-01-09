@@ -1,10 +1,7 @@
 package workman.model;
 
-import java.sql.SQLException;
-
 import java.util.ArrayList;
 
-import workman.exception.NotExistException;
 import workman.model.dto.Company;
 import workman.model.dto.Member;
 import workman.model.dto.ParttimeEval;
@@ -27,12 +24,12 @@ public class WorkmanService {
 
 		return CompanyDAO.updateCompanyPW(companyname, companypw);
 	}
-	
+
 	public static boolean updateCompanyCategory(String companyname, String category) {
 
 		return CompanyDAO.updateCompanyCategory(companyname, category);
 	}
-	
+
 	public static boolean updateCompanyNum(String companyname, String companynum) {
 
 		return CompanyDAO.updateCompanyNum(companyname, companynum);
@@ -64,8 +61,8 @@ public class WorkmanService {
 		return MemberDAO.mlogin(id, pw);
 	}
 
-	public static String addMember(String userid, String userpw, String username, String usernum) {
-		return MemberDAO.addMember(userid, userpw, username, usernum);
+	public static String addMember(String userid, String companyname, String userpw, String username, String usernum) {
+		return MemberDAO.addMember(userid, companyname, userpw, username, usernum);
 	}
 
 	public static boolean updateMemberPW(String userid, String userpw) {
@@ -99,15 +96,14 @@ public class WorkmanService {
 
 	}
 
-	// parttimelist  (add가 회원과 기업만 boolean 아니고 string 반환, 이것들만 성공메세지 페이지로 가기 위해)
+	// parttimelist (add가 회원과 기업만 boolean 아니고 string 반환, 이것들만 성공메세지 페이지로 가기 위해)
 
-	public static boolean addPTList(String companyname, String worktime, int hourlywage,
-			String workperiod, String objective) {
+	public static boolean addPTList(String companyname, String worktime, int hourlywage, String workperiod,
+			String objective) {
 		return ParttimelistDAO.addPTList(companyname, worktime, hourlywage, workperiod, objective);
 	}
 
-	public static boolean updatePTListWorktime(int listnum, String worktime)
-			 {
+	public static boolean updatePTListWorktime(int listnum, String worktime) {
 
 		return ParttimelistDAO.updatePTListWorktime(listnum, worktime);
 	}
@@ -116,17 +112,16 @@ public class WorkmanService {
 
 		return ParttimelistDAO.updatePTListHourlywage(listnum, hourlywage);
 	}
-	
+
 	public static boolean updatePTListWorkperiod(int listnum, String workperiod) {
 
 		return ParttimelistDAO.updatePTListWorkperiod(listnum, workperiod);
 	}
-	
+
 	public static boolean updatePTListObjective(int listnum, String objective) {
 
 		return ParttimelistDAO.updatePTListObjective(listnum, objective);
 	}
-
 
 	public static boolean deletePTList(int listnum) {
 
@@ -145,52 +140,32 @@ public class WorkmanService {
 
 	// parttimeeval
 
-	public static boolean addPTEval(String userid, String companyname, String proscons, String wagedelay, String environment, String incline,
-			String opinion) {
+	public static boolean addPTEval(String userid, String companyname, String[] pclist, String[] wagelist,
+			String[] envlist, String[] inclist, String opinion) {
 
-		return ParttimeEvalDAO.addPTEval(userid, companyname, proscons, wagedelay, environment, incline, opinion);
+		return ParttimeEvalDAO.addPTEval(userid, companyname, pclist, wagelist, envlist, inclist, opinion);
 	}
 
-	public static boolean updatePTEvalProCon(int evalnum, String proscons) {
+	public static boolean updatePTEval(int evalnum, String[] pclist, String[] wagelist, String[] envlist,
+			String[] inclist, String opinion) {
 
-		return ParttimeEvalDAO.updatePTEvalProCon(evalnum, proscons);
+		return ParttimeEvalDAO.updatePTEval(evalnum, pclist, wagelist, envlist, inclist, opinion);
 	}
 
-	public static boolean updatePTEvalWagedelay(int evalnum, String wagedelay) {
-
-		return ParttimeEvalDAO.updatePTEvalWagedelay(evalnum, wagedelay);
-	}
-
-	public static boolean updatePTEvalEnv(int evalnum, String environment)  {
-
-		return ParttimeEvalDAO.updatePTEvalEnv(evalnum, environment);
-	}
-
-	public static boolean updatePTEvalInc(int evalnum, String incline)  {
-
-		return ParttimeEvalDAO.updatePTEvalInc(evalnum, incline);
-	}
-
-	public static boolean updatePTEvalComment(int evalnum, String comment)  {
-
-		return ParttimeEvalDAO.updatePTEvalComment(evalnum, comment);
-	}
-
-	public static boolean deletePTEval(int evalnum)  {
+	public static boolean deletePTEval(int evalnum) {
 
 		return ParttimeEvalDAO.deletePTEval(evalnum);
 	}
 
-	public static ParttimeEval getPTEval(int evalnum)  {
+	public static ParttimeEval getPTEval(int evalnum) {
 
 		return ParttimeEvalDAO.getPTEval(evalnum);
 
 	}
 
-	public static ArrayList<ParttimeEval> getAllPTEval()  {
+	public static ArrayList<ParttimeEval> getAllComPTEval(String companyname) {
 
-		return ParttimeEvalDAO.getAllPTEval();
+		return ParttimeEvalDAO.getAllComPTEval(companyname);
 	}
 
-	
 }

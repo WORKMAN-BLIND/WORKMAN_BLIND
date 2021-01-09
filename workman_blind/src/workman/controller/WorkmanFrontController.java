@@ -1,6 +1,8 @@
 ﻿package workman.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import workman.model.CompanyDAO;
 import workman.model.WorkmanService;
+import workman.model.dto.Member;
+import workman.model.dto.ParttimeEval;
 
 @Slf4j
 @WebServlet("/workman")
@@ -25,14 +29,18 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 
 		String command = request.getParameter("command");
-		HttpSession session = request.getSession();
+		
 		try {
+			
 			if ((String) session.getAttribute("id") == null && !(command.equals("clogin") || command.equals("mlogin"))
-					&& !(command.equals("companyinsert") || command.equals("memberinsert") ||!(command.equals("ptevalinsert")))) {
+					&& !(command.equals("companyinsert") || command.equals("memberinsert"))) {
+			
 				request.setAttribute("msg", "로그인하세요");
 				request.getRequestDispatcher("view/error.jsp").forward(request, response);
+			
 			} else {
 
 				if (command.equals("clogin")) {
@@ -65,9 +73,6 @@ public class WorkmanFrontController extends HttpServlet {
 				} else if (command.equals("companydelete")) {
 					companydelete(request, response);
 
-				} else if (command.equals("memberall")) {
-					memberall(request, response);
-
 				} else if (command.equals("member")) {
 					member(request, response);
 
@@ -91,49 +96,58 @@ public class WorkmanFrontController extends HttpServlet {
 
 				} else if (command.equals("ptlistinsert")) {
 					ptlistinsert(request, response);
-					
+
 				} else if (command.equals("ptlistupdate")) {
 					ptlistupdate(request, response);
 
 				} else if (command.equals("ptlistdelete")) {
 					ptlistdelete(request, response);
 
-				} else if (command.equals("ptevalall")) {
-					PTEvalAll(request, response);
-
-				} else if (command.equals("pteval")) {
-					PTEval(request, response);
+				} else if (command.equals("ptevalallcom")) {
+					ptevalallcom(request, response);
+					
+				} else if (command.equals("ptevalcom")) {
+					ptevalcom(request, response);
 
 				} else if (command.equals("ptevalinsert")) {
-					PTEvalInsert(request, response);
+					ptevalinsert(request, response);
 
 				} else if (command.equals("ptevalupdatereq")) {
-					PTEvalUpdateReq(request, response);
+					ptevalupdatereq(request, response);
 
-				} else if (command.equals("ptevalupdateexperience")) {
-					PTEvalUpdateExperience(request, response);
+				} else if (command.equals("ptevalupdate")) {
+					ptevalupdate(request, response);
 
 				} else if (command.equals("ptevaldelete")) {
-					PTEvalDelete(request, response);
+					ptevaldelete(request, response);
+					
 				} else {
+					
 					request.setAttribute("msg", "유효하지 않은 command입니다.");
 					request.getRequestDispatcher("view/error.jsp").forward(request, response);
+				
 				}
-
 			}
 		} catch (Exception e) {
+			
 			e.printStackTrace();
+			
 			request.setAttribute("msg", e.getMessage());
 			request.getRequestDispatcher("view/error.jsp").forward(request, response);
+		
 		}
 	}
 
 	private void main(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		req.getRequestDispatcher("main.jsp").forward(req, res);
+		
 	}
 
 	private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		req.getRequestDispatcher("logout.jsp").forward(req, res);
+	
 	}
 
 	public void clogin(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -173,9 +187,10 @@ public class WorkmanFrontController extends HttpServlet {
 		} catch (Exception s) {
 
 			request.setAttribute("msg", "모든 회사 조회 실패");
-			log.info("모든 회사 조회 에러 발생");
+			log.info("모든 기업회원 조회 에러 발생");
 
 		}
+		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -185,15 +200,16 @@ public class WorkmanFrontController extends HttpServlet {
 
 		try {
 
-			request.getSession().setAttribute("company",
-					WorkmanService.getCompany(request.getParameter("companyname")));
+			request.getSession().setAttribute("company", WorkmanService.getCompany(request.getParameter("companyname")));
 			url = "companydetail.jsp";
 
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
-			log.info("특정 회사 조회 에러 발생");
+			request.setAttribute("msg", "기업회원 조회 에러 발생");
+			log.info("기업회원 조회 에러 발생");
+			
 		}
+		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -208,24 +224,28 @@ public class WorkmanFrontController extends HttpServlet {
 		String loc = request.getParameter("companyloc");
 		String num = request.getParameter("companynum");
 
-		HttpSession session = request.getSession();
-
 		try {
+			
 			String result = WorkmanService.addCompany(name, pw, category, loc, num);
+			
 			if (result.equals("success")) {
 
-				session.setAttribute("successMsg", "기업회원 가입 완료");
-				session.setAttribute("company", WorkmanService.getCompany(name));
+				request.getSession().setAttribute("company", WorkmanService.getCompany(name));
+				request.setAttribute("msg", "기업회원 가입 완료");
 				url = "comcrud/comsuccess.jsp";
 
 			} else {
+				
 				request.setAttribute("msg", "다시 시도하세요");
+				
 			}
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
+			request.setAttribute("msg", "기업회원 가입 실패");
 			log.info("기업회원 가입 실패");
+			
 		}
+		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -233,15 +253,20 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-		HttpSession session = request.getSession();
+		
 		try {
-			session.setAttribute("company", WorkmanService.getCompany(String.valueOf(session.getAttribute("id"))));
+
+			request.getSession().setAttribute("company",
+					WorkmanService.getCompany(String.valueOf(request.getSession().getAttribute("id"))));
 			url = "comcrud/companyupdate.jsp";
 
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
+
+			request.setAttribute("msg", "기업회원 정보 갱신 요청 실패");
 			log.info("기업회원 정보 갱신 요청 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -257,17 +282,25 @@ public class WorkmanFrontController extends HttpServlet {
 		String num = request.getParameter("companynum");
 
 		try {
-			WorkmanService.updateCompanyPW(name, pw);
-			WorkmanService.updateCompanyCategory(name, category);
-			WorkmanService.updateCompanyLoc(name, loc);
-			WorkmanService.updateCompanyNum(name, num);
 
-			request.setAttribute("msg", "기업회원 갱신 완료");
-			url = "view/message.jsp";
+			if (WorkmanService.updateCompanyPW(name, pw) && WorkmanService.updateCompanyCategory(name, category)
+					&& WorkmanService.updateCompanyLoc(name, loc) && WorkmanService.updateCompanyNum(name, num)) {
+
+				request.setAttribute("msg", "기업회원 갱신 완료");
+				url = "view/message.jsp";
+
+			} else {
+
+				request.setAttribute("msg", "다시 시도 하세요");
+
+			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
+
+			request.setAttribute("msg", "기업회원 정보 갱신 실패");
 			log.info("기업회원 정보 갱신 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -275,65 +308,72 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-		HttpSession session = request.getSession();
-		String name = String.valueOf(session.getAttribute("id"));
+
+		String name = String.valueOf(request.getSession().getAttribute("id"));
 
 		try {
+
 			if (WorkmanService.deleteCompany(name)) {
+
 				request.setAttribute("msg", "기업회원 삭제 성공");
 				url = "view/message.jsp";
+
 			} else {
+
 				request.setAttribute("msg", "기업회원 삭제 실패");
+
 			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
+
+			request.setAttribute("msg", "기업회원 삭제 실패");
 			log.info("기업회원 삭제 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	// member
 
 	public void mlogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+
 		String url = "view/error.jsp";
 		HttpSession session = request.getSession();
+
 		try {
+
 			String loginresult = WorkmanService.mlogin(id, pw);
+
 			if (loginresult.equals("success")) {
+
 				session.setAttribute("id", id);
 				session.setAttribute("pw", pw);
 				session.setAttribute("type", 2);
+
+				Member user = WorkmanService.getMember(id);
+				String comname = user.getCompanyname().getCompanyname();
+				session.setAttribute("comname", comname);
+
 				url = "main.jsp";
-				log.info(id + " 로그인 성공");
+
 			} else if (loginresult.equals("id")) {
+
 				request.setAttribute("msg", "ID를 다시 확인해주세요");
+
 			} else if (loginresult.equals("pw")) {
+
 				request.setAttribute("msg", "비밀번호를 다시 확인해주세요");
+
 			}
 		} catch (Exception e) {
-			request.setAttribute("msg", "DB 조회 실패");
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-	}
 
-	public void memberall(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String url = "view/error.jsp";
-
-		try {
-
-			request.getSession().setAttribute("Memberall", WorkmanService.getAllMember());
-			url = "Memberlist.jsp";
-
-		} catch (Exception s) {
-
-			request.setAttribute("msg", s.getMessage());
-			log.info("모든 회원 조회 에러 발생");
+			request.setAttribute("msg", "로그인 실패");
 
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -348,9 +388,11 @@ public class WorkmanFrontController extends HttpServlet {
 
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
-			log.info("특정 회원 조회 에러 발생");
+			request.setAttribute("msg", "일반 회원 조회 에러 발생");
+			log.info("일반 회원 조회 에러 발생");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -360,31 +402,33 @@ public class WorkmanFrontController extends HttpServlet {
 		String url = "view/error.jsp";
 
 		String id = request.getParameter("userid");
+		String comname = request.getParameter("companyname");
 		String pw = request.getParameter("userpw");
 		String name = request.getParameter("username");
 		String num = request.getParameter("usernum");
 
-		HttpSession session = request.getSession();
 		try {
-			String result = WorkmanService.addMember(id, pw, name, num);
+
+			String result = WorkmanService.addMember(id, comname, pw, name, num);
 
 			if (result.equals("success")) {
 
-				session.setAttribute("id", id);
-				session.setAttribute("pw", pw);
-
-				session.setAttribute("successMsg", "등록 완료");
-				session.setAttribute("member", WorkmanService.getMember(id));
+				request.getSession().setAttribute("member", WorkmanService.getMember(id));
+				request.setAttribute("msg", "일반회원 가입 성공");
 				url = "memcrud/meminssuccess.jsp";
 
 			} else {
+
 				request.setAttribute("msg", "다시 시도하세요");
+
 			}
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
-			log.info("회원 등록 성공");
+			request.setAttribute("msg", "일반회원 가입 실패");
+			log.info("일반회원 가입 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -395,14 +439,17 @@ public class WorkmanFrontController extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		try {
-			session.setAttribute("member",
-					WorkmanService.getMember(String.valueOf(session.getAttribute("id"))));
+
+			session.setAttribute("member", WorkmanService.getMember(String.valueOf(session.getAttribute("id"))));
 			url = "memcrud/memberupdate.jsp";
 
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("회원 정보 갱신 요청 실패");
+
+			request.setAttribute("msg", "일반회원 정보 갱신 요청 실패");
+			log.info("일반회원 정보 갱신 요청 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -410,24 +457,32 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-		
+
 		String id = request.getParameter("userid");
 		String pw = request.getParameter("userpw");
 		String name = request.getParameter("username");
 		String num = request.getParameter("usernum");
 
 		try {
-			WorkmanService.updateMemberPW(id, pw);
-			WorkmanService.updateMemberName(id, name);
-			WorkmanService.updateMemberNum(id, num);
-			
-			request.setAttribute("msg", "일반회원 갱신 완료");
-			url = "view/message.jsp";
 
+			if (WorkmanService.updateMemberPW(id, pw) && WorkmanService.updateMemberName(id, name)
+					&& WorkmanService.updateMemberNum(id, num)) {
+
+				request.setAttribute("msg", "일반회원 갱신 완료");
+				url = "view/message.jsp";
+
+			} else {
+
+				request.setAttribute("msg", "다시 시도하세요");
+
+			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("일반회원 정보 변경 실패");
+
+			request.setAttribute("msg", "일반회원 정보 갱신 실패");
+			log.info("일반회원 정보 갱신 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -435,44 +490,49 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-		HttpSession session = request.getSession();
-		String id = String.valueOf(session.getAttribute("id"));
+		String id = String.valueOf(request.getSession().getAttribute("id"));
 
 		try {
+
 			if (WorkmanService.deleteMember(id)) {
 
 				request.setAttribute("msg", "일반회원 삭제 성공");
 				url = "view/message.jsp";
 
 			} else {
+
 				request.setAttribute("msg", "일반회원 삭제 실패");
+
 			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("회원 삭제 실패");
+
+			request.setAttribute("msg", "회원 삭제 실패");
+			log.info("일반회원 삭제 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	// PTLIST
-	
+
 	public void ptlistall(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-		HttpSession session = request.getSession();
 
 		try {
 
-			session.setAttribute("ptlistall", WorkmanService.getAllPTList());
+			request.getSession().setAttribute("ptlistall", WorkmanService.getAllPTList());
 			url = "plcrud/plview.jsp";
 
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
-			log.info("전체 알바 리스트 조회 에러 발생");
+			request.setAttribute("msg", "전체 알바 구인글 조회 에러 발생");
+			log.info("전체 알바 구인글 조회 에러 발생");
 
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -480,18 +540,21 @@ public class WorkmanFrontController extends HttpServlet {
 
 		String url = "view/error.jsp";
 		HttpSession session = request.getSession();
-		
+
 		try {
 
-			session.setAttribute("ptlist", WorkmanService.getPTList(Integer.valueOf((String) request.getParameter("listnum"))));
+			session.setAttribute("ptlist",
+					WorkmanService.getPTList(Integer.valueOf((String) request.getParameter("listnum"))));
 			session.setAttribute("company", WorkmanService.getCompany((String) request.getParameter("companyname")));
 			url = "plcrud/plviewone.jsp";
-			
+
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
-			log.info("특정 알바글 조회 에러 발생");
+			request.setAttribute("msg", "해당 알바 구인 글 조회 에러 발생");
+			log.info("해당 알바 구인 글 조회 에러 발생");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -507,19 +570,24 @@ public class WorkmanFrontController extends HttpServlet {
 		String objective = request.getParameter("objective");
 
 		try {
-			if(WorkmanService.addPTList(name, time, wage, period, objective)) {
+
+			if (WorkmanService.addPTList(name, time, wage, period, objective)) {
+
 				request.setAttribute("msg", "알바 구인글 등록 완료");
 				url = "view/message.jsp";
+
 			} else {
+
 				request.setAttribute("msg", "알바 구인글 등록 실패");
+
 			}
-
-
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
+			request.setAttribute("msg", "알바 구인글 등록 실패");
 			log.info("알바 구인글 등록 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -535,17 +603,27 @@ public class WorkmanFrontController extends HttpServlet {
 		String objective = request.getParameter("objective");
 
 		try {
-			WorkmanService.updatePTListWorktime(listnum, time);
-			WorkmanService.updatePTListHourlywage(listnum, wage);			
-			WorkmanService.updatePTListWorkperiod(listnum, period);
-			WorkmanService.updatePTListObjective(listnum, objective);
 
-			request.setAttribute("msg", "알바 구인글 갱신 완료");
-			url = "view/message.jsp";
+			if (WorkmanService.updatePTListWorktime(listnum, time)
+					&& WorkmanService.updatePTListHourlywage(listnum, wage)
+					&& WorkmanService.updatePTListWorkperiod(listnum, period)
+					&& WorkmanService.updatePTListObjective(listnum, objective)) {
+
+				request.setAttribute("msg", "알바 구인글 갱신 완료");
+				url = "view/message.jsp";
+
+			} else {
+
+				request.setAttribute("msg", "다시 시도하세요");
+
+			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("알바 구인글 갱신 실패");
+
+			request.setAttribute("msg", "알바 구인 글 갱신 실패");
+			log.info("알바 구인 글 갱신 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
@@ -553,154 +631,193 @@ public class WorkmanFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
+
 		int listnum = Integer.valueOf(request.getParameter("listnum"));
 
 		try {
+
 			if (WorkmanService.deletePTList(listnum)) {
 
 				request.setAttribute("msg", "알바 구인글 삭제 완료");
 				url = "view/message.jsp";
 
 			} else {
+
 				request.setAttribute("msg", "다시 시도하세요");
+
 			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("알바글 삭제 실패");
+
+			request.setAttribute("msg", "알바 구인 글 삭제 실패");
+			log.info("알바 구인 글 삭제 실패");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
-	public void PTEvalAll(HttpServletRequest request, HttpServletResponse response)
+	public void ptevalcom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
 
-		try {
-
-			request.getSession().setAttribute("ptevalall", WorkmanService.getAllPTEval());
-			url = "ptevalall.jsp";
-
-		} catch (Exception s) {
-
-			request.setAttribute("msg", s.getMessage());
-			log.info("모든  평가글 조회 에러 발생");
-
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-	}
-
-	public void PTEval(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String url = "view/error.jsp";
+		int evalnum = Integer.valueOf(request.getParameter("evalnum"));
 
 		try {
 
-//			request.getSession().setAttribute("Pteval",
-//					WorkmanService.getPTList(Long.valueOf(request.getParameter("Texteval"))));
-//			url = "Ptevaldetail.jsp";
+			request.getSession().setAttribute("ptevalcom", WorkmanService.getPTEval(evalnum));
+			url = "pecrud/peviewone.jsp";
 
 		} catch (Exception s) {
 
-			request.setAttribute("msg", s.getMessage());
-			log.info("특정 평가글 조회 에러 발생");
+			request.setAttribute("msg", "특정 알바 리뷰글 조회 에러 발생");
+			log.info("특정 알바 리뷰글 조회 에러 발생");
+
 		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
-	protected void PTEvalInsert(HttpServletRequest request, HttpServletResponse response)
+	public void ptevalallcom(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String url = "view/error.jsp";
-		
-		String userid = request.getParameter("userid");
-		String companyname = request.getParameter("companyname");
-		String proscons = request.getParameter("proscons");
-		String wage = request.getParameter("wagedelay");
-		String environment = request.getParameter("env");
-		String incline = request.getParameter("incline");
+
+		String name = request.getParameter("companyname");
+
+		try {
+
+			ArrayList<ParttimeEval> ptevallist = WorkmanService.getAllComPTEval(name);
+
+			request.getSession().setAttribute("ptevalallcom", ptevallist);
+			url = "pecrud/peview.jsp";
+
+		} catch (Exception s) {
+
+			request.setAttribute("msg", "해당 기업 모든 리뷰 글 조회 실패");
+			log.info("해당 기업 모든 리뷰 글 조회 실패");
+
+		}
+
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+
+	protected void ptevalinsert(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String url = "view/error.jsp";
+
+		String id = request.getParameter("userid");
+		String comname = request.getParameter("companyname");
+		String[] pclist = request.getParameterValues("proscons");
+		String[] wagelist = request.getParameterValues("wagedelay");
+		String[] envlist = request.getParameterValues("environment");
+		String[] inclist = request.getParameterValues("incline");
 		String opinion = request.getParameter("opinion");
 
 		try {
 
-			request.getSession().setAttribute("successMsg", "등록 완료");
-			if(WorkmanService.addPTEval(userid, companyname, proscons, wage, environment, incline, opinion)) {
-				request.setAttribute("msg","알바 평가글 등록 완료");
-				url = "ptevaldetail.jsp";
-			}else {
-				request.setAttribute("msg", "알바 평가글 등록 실패");
-			}
-			
+			if (WorkmanService.addPTEval(id, comname, pclist, wagelist, envlist, inclist, opinion)) {
 
-		} catch (Exception s) {
-
-			request.setAttribute("msg", s.getMessage());
-			log.info("알바 평가글 등록 성공");
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-	}
-	
-	
-
-
-	public void PTEvalUpdateReq(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String url = "view/error.jsp";
-
-		try {
-
-			request.getSession().setAttribute("Texteval",
-					WorkmanService.getPTEval(Long.valueOf(request.getParameter("texteval"))));
-			url = "ptevalupdate.jsp";
-
-		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("평가글 정보 갱신 요청 실패");
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-	}
-
-	public void PTEvalUpdateExperience(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String url = "view/error.jsp";
-
-		Long texteval = Long.valueOf(request.getParameter("Texteval"));
-		String experience = request.getParameter("Experience");
-
-		try {
-//			WorkmanService.updatePTEvalExp(texteval, experience);
-//			request.getSession().setAttribute("Pteval", WorkmanService.getPTEval(texteval));
-			url = "ptevaldetail.jsp";
-
-		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("평가글 경험담 변경 실패");
-		}
-		request.getRequestDispatcher(url).forward(request, response);
-	}
-
-	public void PTEvalDelete(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String url = "view/error.jsp";
-		Long texteval = Long.valueOf(request.getParameter("Texteval"));
-
-		try {
-			if (texteval > 0) {
-
-//				WorkmanService.deletePTEval(texteval);
-				request.getSession().setAttribute("ptevalall", WorkmanService.getAllPTEval());
-				url = "ptevalall.jsp";
+				request.setAttribute("msg", "알바 리뷰글 등록 완료");
+				url = "view/message.jsp";
 
 			} else {
+
 				request.setAttribute("msg", "다시 시도하세요");
+
 			}
 		} catch (Exception s) {
-			request.setAttribute("msg", s.getMessage());
-			log.info("평가글 삭제 실패");
+
+			request.setAttribute("msg", "알바 리뷰글 등록 실패");
+			log.info("알바 리뷰 글 등록 실패");
+
 		}
+
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+
+	public void ptevalupdatereq(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String url = "view/error.jsp";
+
+		int evalnum = Integer.valueOf(request.getParameter("evalnum"));
+
+		try {
+
+			request.getSession().setAttribute("peupdate", WorkmanService.getPTEval(evalnum));
+			url = "pecrud/peupdate.jsp";
+
+		} catch (Exception s) {
+
+			request.setAttribute("msg", "알바 리뷰 글 갱신 요청 실패");
+			log.info("알바 리뷰 글 갱신 요청 실패");
+		}
+
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+
+	public void ptevalupdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String url = "view/error.jsp";
+
+		int evalnum = Integer.valueOf(request.getParameter("evalnum"));
+		String[] pclist = request.getParameterValues("proscons");
+		String[] wagelist = request.getParameterValues("wagedelay");
+		String[] envlist = request.getParameterValues("environment");
+		String[] inclist = request.getParameterValues("incline");
+		String opinion = request.getParameter("opinion");
+
+		try {
+
+			if (WorkmanService.updatePTEval(evalnum, pclist, wagelist, envlist, inclist, opinion)) {
+
+				request.setAttribute("msg", "알바 리뷰글 갱신 완료");
+				url = "view/message.jsp";
+
+			} else {
+
+				request.setAttribute("msg", "다시 시도하세요");
+
+			}
+		} catch (Exception s) {
+
+			request.setAttribute("msg", "알바 리뷰글 갱신 실패");
+			log.info("알바 리뷰글 갱신 실패");
+
+		}
+
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+
+	public void ptevaldelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String url = "view/error.jsp";
+
+		int evalnum = Integer.valueOf(request.getParameter("evalnum"));
+
+		try {
+
+			if (WorkmanService.deletePTEval(evalnum)) {
+
+				request.setAttribute("msg", "알바 리뷰글 삭제 완료");
+				url = "view/message.jsp";
+
+			} else {
+
+				request.setAttribute("msg", "다시 시도하세요");
+
+			}
+		} catch (Exception s) {
+
+			request.setAttribute("msg", "알바 리뷰글 삭제 실패");
+			log.info("알바 리뷰글 삭제 실패");
+
+		}
+
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

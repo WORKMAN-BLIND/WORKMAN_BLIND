@@ -49,6 +49,8 @@ public class Company {
 	@Column(name = "company_num")
 	private String companynum;
 	
+	@OneToMany(mappedBy = "companyname")
+	private List<Member> Members;
 	
 	@OneToMany(mappedBy = "companyname")
 	private List<ParttimeList> parttimelists;
@@ -56,5 +58,4 @@ public class Company {
 	@OneToMany(mappedBy = "companyname")
 	private List<ParttimeEval> parttimeevals;
 		
-
 }

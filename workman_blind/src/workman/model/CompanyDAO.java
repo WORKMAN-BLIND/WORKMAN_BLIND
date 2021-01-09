@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.transaction.Transactional;
 
 import workman.model.dto.Company;
 import workman.model.util.PublicCommon;
@@ -12,21 +13,33 @@ import workman.model.util.PublicCommon;
 public class CompanyDAO {
 
 	public static String clogin(String name, String pw) {
+		
 		EntityManager em = PublicCommon.getEntityManager();
+		
 		String result = "success";
 		String comname = null;
 		String compw = null;
+	
 		try {
+			
 			comname = (String) em.createNamedQuery("findcomname").setParameter("companyname", name).getSingleResult();
 			compw = (String) em.createNamedQuery("findcompw").setParameter("companyname", name).getSingleResult();
+			
 			if (!compw.equals(pw)) {
+				
 				result = "pw";
+				
 			}
 		} catch (Exception e) {
+			
 			result = "id";
+			
 		} finally {
+			
 			em.close();
+			
 		}
+		
 		return result;
 	}
 
@@ -56,8 +69,10 @@ public class CompanyDAO {
 		} finally {
 
 			em.close();
+			
 
 		}
+		
 		return result;
 	}
 	
@@ -88,6 +103,7 @@ public class CompanyDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -118,6 +134,7 @@ public class CompanyDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 	
@@ -149,6 +166,7 @@ public class CompanyDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -179,6 +197,7 @@ public class CompanyDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -197,8 +216,11 @@ public class CompanyDAO {
 			int deletesuccess = em.createNativeQuery(sql).setParameter(1, companyname).executeUpdate();
 
 			if (deletesuccess == 1) {
+				
 				result = true;
+				
 			}
+			
 			tx.commit();
 
 
@@ -212,9 +234,10 @@ public class CompanyDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
-
+	
 	public static Company getCompany(String companyname) {
 
 		EntityManager em = PublicCommon.getEntityManager();
@@ -236,18 +259,18 @@ public class CompanyDAO {
 			em.close();
 
 		}
+		
 		return company;
 	}
 
 	public static ArrayList<Company> getAllCompany() {
 
 		EntityManager em = PublicCommon.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 
 		ArrayList<Company> comlist = null;
 
 		try {
+			
 			comlist = (ArrayList<Company>) em.createNativeQuery("select * from company", Company.class).getResultList();
 
 		} catch (Exception e) {
@@ -259,7 +282,8 @@ public class CompanyDAO {
 			em.close();
 
 		}
-		return comlist;
+		
+		return comlist;	
 	}
 
 }

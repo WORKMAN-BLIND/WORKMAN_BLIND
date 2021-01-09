@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.transaction.Transactional;
 
 import workman.model.dto.Company;
 import workman.model.dto.Member;
@@ -12,7 +13,7 @@ import workman.model.util.PublicCommon;
 import workman.model.dto.ParttimeList;
 
 public class ParttimelistDAO {
-
+	
 	public static boolean addPTList(String companyname, String worktime, int hourlywage, String workperiod, String objective) {
 
 		EntityManager em = PublicCommon.getEntityManager();
@@ -22,17 +23,17 @@ public class ParttimelistDAO {
 		boolean result = false;
 		
 		try {
+			
 			Company com = CompanyDAO.getCompany(companyname);
 			ParttimeList ptlist = ParttimeList.builder().companyname(com).worktime(worktime).hourlywage(hourlywage).workperiod(workperiod).objective(objective).build();
 			
-			com.getParttimelists().add(ptlist);
 			
+			com.getParttimelists().add(ptlist);
 			em.persist(ptlist);
 			tx.commit();
 			
 			result = true;
-
-
+ 
 		} catch (Exception e) {
 
 			tx.rollback();
@@ -43,6 +44,7 @@ public class ParttimelistDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -73,6 +75,7 @@ public class ParttimelistDAO {
 
 			em.close();
 		}
+		
 		return result;
 	}
 
@@ -103,6 +106,7 @@ public class ParttimelistDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 	
@@ -133,6 +137,7 @@ public class ParttimelistDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 	
@@ -163,6 +168,7 @@ public class ParttimelistDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -193,54 +199,53 @@ public class ParttimelistDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
 	public static ParttimeList getPTList(int listnum) {
 
 		EntityManager em = PublicCommon.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 
 		ParttimeList ptlist = null;
 
 		try {
 
 			ptlist = (ParttimeList) em.createNamedQuery("findptlist").setParameter("listnum", listnum).getSingleResult();
-
+			
 		} catch (Exception e) {
 
 			e.printStackTrace();
 			
 		} finally {
-
 			em.close();
 
 		}
+		
 		return ptlist;
 	}
 
 	public static ArrayList<ParttimeList> getAllPTList() {
 
 		EntityManager em = PublicCommon.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 
 		ArrayList<ParttimeList> ptlist = null;
 
 		try {
+			
 			ptlist = (ArrayList<ParttimeList>) em.createNativeQuery("select * from parttimelist", ParttimeList.class)
 					.getResultList();
-
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 
 		} finally {
-
+			
 			em.close();
 
 		}
+		
 		return ptlist;
 	}
 
