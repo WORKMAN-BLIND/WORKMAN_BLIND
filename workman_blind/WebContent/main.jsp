@@ -150,7 +150,7 @@
 						<h2>CU 충정로프랑스점</h2>
 					</div>
 					<p>칼퇴 가능해요. 식사제공해요 …</p>
-					<a class="button" onclick="moreview3()">더보기</a>
+					<a class="button" id="cu충정로프랑스점" onclick="moreview3()">더보기</a>
 					<!-- <button onclick="moreview3()">더보기</button> -->
 					<div id="addView"></div>
 				</div>
