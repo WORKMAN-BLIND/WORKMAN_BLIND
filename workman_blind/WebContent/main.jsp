@@ -23,10 +23,10 @@
 					<a href="workman?command=companyupdatereq" class="id"> <i
 						class="far fa-building" style="font-size: 30px; color: white;"></i>
 						${sessionScope.id}
-					</a> (占쏙옙占� 회占쏙옙)占쏙옙 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
+					</a> (기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
 						style="font-size: 30px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
-						[占싸그아울옙]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+						[로그아웃]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:when>
@@ -36,10 +36,10 @@
 				<p style="text-align: right; color: white;">
 					<a href="workman?command=memberupdatereq" class="id"> <i
 						class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
-					(占싹뱄옙 회占쏙옙)占쏙옙 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
+					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
 						class="fas fa-sign-out-alt" style="font-size: 25px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
-						[占싸그아울옙]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+						[로그아웃]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:otherwise>
@@ -68,12 +68,12 @@
 		<center>
 			<ul>
 				<li><a href="partTimeListView2.jsp" accesskey="1"
-					title="parttimestory">占싯바쏙옙占썰리</a></li>
-				<li><a href="#" accesskey="2" title="">占쏙옙占쏙옙占쏙옙訝�</a></li>
+					title="parttimestory">알바스토리</a></li>
+				<li><a href="#" accesskey="2" title="">기업스토리</a></li>
 				<li><a href="workman?command=ptlistall" class="id"
-					accesskey="3" title="">占싯바몌옙占쏙옙</a></li>
-				<li><a href="#" accesskey="4" title="">占싱력쇽옙占쏙옙占�/占쏙옙占쏙옙</a></li>
-				<li><a href="#" accesskey="5" title="">占쏙옙占쏙옙占쏙옙占쏙옙</a></li>
+					accesskey="3" title="">알바리뷰</a></li>
+				<li><a href="#" accesskey="4" title="">이력서등록/관리</a></li>
+				<li><a href="#" accesskey="5" title="">지원관리</a></li>
 
 				<!-- onclick="location.href='${pageContext.request.contextPath}/probono?command=activistUpdateReq'" -->
 				<!-- http://localhost:8081/workman_blind/'$%7BpageContext.request.contextPath%7D/workman?command=PTListAll%27 -->
@@ -92,8 +92,8 @@
 					<span
 						style="font-style: italic; font-weight: bold; font-size: 3em; line-height: 1.0em; color: #0000FF; font-family: arial;">
 						<h3>
-							占싯바듸옙占쏙옙 <span style="color: red">탈占쏙옙</span>占쏙옙占쏙옙 <span
-								style="color: #ffe200">占쏙옙占쏙옙</span>占쏙옙占쏙옙 <span style="color: #ffe200">占쏙옙占쏙옙</span>찾占쏙옙
+							알바도중 <span style="color: red">탈주</span>말고 <span
+								style="color: #ffe200">리뷰</span>보고 <span style="color: #ffe200">광명</span>찾자
 						</h3>
 						
 					</span> <br>
@@ -117,7 +117,7 @@
 		<div id="three-column" class="container">
 			<center>
 				<center>
-					<h1>占쌍근울옙 占시띰옙占� REVIEW!</h1>
+					<h1>최근에 올라온 REVIEW!</h1>
 					<br>
 					<br>
 					<br>
@@ -129,29 +129,29 @@
 					<div class="title">
 						<a href="#"><img src="images/pc.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>占쏙옙占쏙옙 pc占쏙옙</h2>
+						<h2>샹떼 pc방</h2>
 					</div>
-					<p>占쏙옙占쏙옙占쏙옙 占싫밀뤄옙占쏙옙. 占쏙옙占쏙옙占쏙옙占� 친占쏙옙占쌔울옙 占쏙옙</p>
-					<a href="#" class="button" style="color: white;">占쏙옙占쏙옙占쏙옙</a>
+					<p>월급이 안밀려요. 사장님이 친절해요 …</p>
+					<a href="#" class="button" style="color: white;">더보기</a>
 				</div>
 				<div id="tbox2" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/twosome.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>占쏙옙占쏙옙占시뤄옙占싱쏙옙</h2>
+						<h2>투썸플레이스</h2>
 					</div>
-					<p>칼占쏜가댐옙. 占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙萬占� 占쏙옙</p>
-					<a href="#" class="button">占쏙옙占쏙옙占쏙옙</a>
+					<p>칼퇴가능. 사장님이 깐깐해요 …</p>
+					<a href="#" class="button">더보기</a>
 				</div>
 				<div id="tbox3" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/cu.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h2>CU 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙</h2>
+						<h2>CU 충정로프랑스점</h2>
 					</div>
-					<p>칼占쏙옙 占쏙옙占쏙옙占쌔울옙. 占식삼옙占쏙옙占쏙옙占쌔울옙 占쏙옙</p>
-					<a class="button" onclick="moreview3()">占쏙옙占쏙옙占쏙옙</a>
-					<!-- <button onclick="moreview3()">占쏙옙占쏙옙占쏙옙</button> -->
+					<p>칼퇴 가능해요. 식사제공해요 …</p>
+					<a class="button" onclick="moreview3()">더보기</a>
+					<!-- <button onclick="moreview3()">더보기</button> -->
 					<div id="addView"></div>
 				</div>
 			</center>
@@ -165,7 +165,7 @@
 		<div id="portfolio" class="container">
 			<center>
 				<center>
-					<h1>占쌍근울옙 占시띰옙占� 占쏙옙占쏙옙!</h1>
+					<h1>최근에 올라온 공고!</h1>
 					<br>
 					<br>
 					<br>
@@ -174,52 +174,52 @@
 					<div class="box">
 						<a href="#"><img src="images/hansot.jpg" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>占싼솥듸옙占시띰옙(占싸삼옙占싹뱄옙占쏙옙)</h3>
-						<p>占쏙옙占쏙옙 占쏙옙 1占쏙옙</p>
+						<h3>한솥도시락(부산대북문점)</h3>
+						<p>리뷰 총 1개</p>
 						<br>
-						<p>占쌤깍옙</p>
+						<p>단기</p>
 						<br>
-						<p>채占쏙옙占쏙옙</p>
-						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
+						<p>채용중</p>
+						<br> <a href="#" class="button button-small">더 알아보기</a>
 					</div>
 				</div>
 				<div class="column2" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/gs25.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>GS25 占쎈구占쏙옙占쏙옙占쏙옙占쏙옙</h3>
-						<p>占쏙옙占쏙옙 占쏙옙 1占쏙옙</p>
+						<h3>GS25 대구역자이점</h3>
+						<p>리뷰 총 1개</p>
 						<br>
-						<p>占쏙옙占�</p>
+						<p>장기</p>
 						<br>
-						<p>채占쎈마占쏙옙</p>
-						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
+						<p>채용마감</p>
+						<br> <a href="#" class="button button-small">더 알아보기</a>
 					</div>
 				</div>
 				<div class="column3" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/innisfree.jpg" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>占싱몌옙트 천占싫쇽옙占쏙옙占쏙옙 占싱니쏙옙占쏙옙占쏙옙</h3>
-						<p>占쏙옙占쏙옙 占쏙옙 2占쏙옙</p>
+						<h3>이마트 천안서북점 이니스프리</h3>
+						<p>리뷰 총 2개</p>
 						<br>
-						<p>占시곤옙占쏙옙</p>
+						<p>시간제</p>
 						<br>
-						<p>채占쏙옙占쏙옙</p>
-						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
+						<p>채용중</p>
+						<br> <a href="#" class="button button-small">더 알아보기</a>
 					</div>
 				</div>
 				<div class="column4" style="display: inline-block">
 					<div class="box">
 						<a href="#"><img src="images/twosome.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
-						<h3>占쏙옙占쏙옙占시뤄옙占싱쏙옙</h3>
-						<p>占쏙옙占쏙옙 占쏙옙 754占쏙옙</p>
+						<h3>투썸플레이스</h3>
+						<p>리뷰 총 754개</p>
 						<br>
-						<p>占쌤깍옙</p>
+						<p>단기</p>
 						<br>
-						<p>채占쎈마占쏙옙</p>
-						<br> <a href="#" class="button button-small">占쏙옙 占싯아븝옙占쏙옙</a>
+						<p>채용마감</p>
+						<br> <a href="#" class="button button-small">더 알아보기</a>
 					</div>
 				</div>
 		</div>
@@ -237,7 +237,7 @@
 				<i class="fas fa-map-marker-alt" style="font-size: 50px"></i><br>
 				<br>
 				<br>
-				<br> <span>占쏙옙占쏙옙특占쏙옙占쏙옙 占쏙옙占십깍옙 占쏙옙占십듸옙 占쏙옙占십댐옙占� 1占쏙옙 <br />102호 占쏙옙크占쏙옙 占쏙옙占쏙옙
+				<br> <span>서울특별시 서초구 서초동 서초대로 1길 <br />102호 워크맨 본사
 				</span>
 			</div>
 			<div class="fbox1">
@@ -280,10 +280,6 @@
 			});
 		}, 3000);
 	}
-	
-	/* function myFunction() {
-		  setTimeout(function(){ alert("Hello"); }, 3000);
-		} */
 	
 </script>
 

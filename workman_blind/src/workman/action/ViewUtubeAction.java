@@ -25,7 +25,7 @@ public class ViewUtubeAction {
 			url = "utube.jsp";
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
-			log.info("폼 보여주기 실패");
+			log.info("�뤌 蹂댁뿬二쇨린 �떎�뙣");
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
