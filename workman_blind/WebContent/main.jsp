@@ -143,14 +143,50 @@
 					</div>
 					<p>${sessionScope.allcompany[2].category}</p>
 					<a href="#" class="button" style="color: white;">해당 알바</a>
+				</div><br>
+				<!-- 여기부터 밑에세개 -->
+				<div id="tbox3" style="display: inline-block">
+					<div class="title">
+						<a href="#"><img src="images/gs25.png" alt=""
+							class="image image-full" width="300" height="300" /></a>
+						<h2>${sessionScope.allcompany[3].companyname}</h2>
+					</div>
+					<p>${sessionScope.allcompany[3].category}</p>
+					<a href="#" class="button" style="color: white;">해당 알바</a>
+				</div>
+					
+				<div id="tbox3" style="display: inline-block">
+					<div class="title">
+						<a href="#"><img src="images/twosome.png" alt=""
+							class="image image-full" width="300" height="300" /></a>
+						<h2>${sessionScope.allcompany[2].companyname}</h2>
+					</div>
+					<p>${sessionScope.allcompany[4].category}</p>
+		<a href="#" class="button" style="color: white;">해당 알바</a>
+	</div>
+					
+				<div id="tbox3" style="display: inline-block">
+					<div class="title">
+						<a href="#"><img src="images/hansot.jpg" alt=""
+							class="image image-full" width="300" height="300" /></a>
+						<h2>${sessionScope.allcompany[5].companyname}</h2>
+					</div>
+					<p>${sessionScope.allcompany[5].category}</p>
+					<a href="#" class="button" style="color: white;">해당 알바</a>
 				</div>
 
 			</center>
 		</div>
 
-		<br>
+		
+<!--  
 
-
+	<div id="three-column" class="container">
+			<center>
+			
+				<div>
+					<span class="arrow-down"></span>
+				</div>
 
 
 
@@ -187,7 +223,7 @@
 
 	</center>
 	</div>
-
+-->
 
 
 
