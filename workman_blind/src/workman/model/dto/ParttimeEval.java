@@ -1,6 +1,7 @@
 ﻿
 package workman.model.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -31,7 +32,7 @@ import lombok.Setter;
 
 
 @Entity
-public class ParttimeEval {
+public class ParttimeEval implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parteval_seq_gen")

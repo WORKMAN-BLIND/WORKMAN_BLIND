@@ -13,25 +13,37 @@ import workman.model.util.PublicCommon;
 public class MemberDAO {
 
 	public static String mlogin(String id, String pw) {
+		
 		EntityManager em = PublicCommon.getEntityManager();
+		
 		String result = "success";
 		String userid = null;
 		String userpw = null;
+		
 		try {
+			
 			userid = (String) em.createNamedQuery("findmemid").setParameter("userid", id).getSingleResult();
 			userpw = (String) em.createNamedQuery("findmempw").setParameter("userid", id).getSingleResult();
+			
 			if (!userpw.equals(pw)) {
+				
 				result = "pw";
+				
 			}
 		} catch (Exception e) {
+			
 			result = "id";
+			
 		} finally {
+			
 			em.close();
+			
 		}
+		
 		return result;
 	}
 
-	public static String addMember(String userid, String userpw, String username, String usernum) {
+	public static String addMember(String userid, String companyname, String userpw, String username, String usernum) {
 
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -40,9 +52,12 @@ public class MemberDAO {
 		String result = "success";
 
 		try {
+			
+			Company company = em.find(Company.class, companyname);
+			Member member = Member.builder().userid(userid).userpw(userpw).username(username).usernum(usernum).companyname(company).build();
 
-			Member member = Member.builder().userid(userid).userpw(userpw).username(username).usernum(usernum).build();
-
+			company.getMembers().add(member);
+			
 			em.persist(member);
 			tx.commit();
 
@@ -57,6 +72,7 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -86,8 +102,8 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return result;
-
 	}
 
 	public static boolean updateMemberName(String userid, String username) {
@@ -116,8 +132,8 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return result;
-
 	}
 
 	public static boolean updateMemberNum(String userid, String usernum) {
@@ -146,8 +162,8 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return result;
-
 	}
 
 	public static boolean deleteMember(String userid) {
@@ -176,6 +192,7 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return result;
 	}
 
@@ -184,7 +201,7 @@ public class MemberDAO {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-
+		
 		Member member = null;
 
 		try {
@@ -192,7 +209,7 @@ public class MemberDAO {
 			member = em.find(Member.class, userid);
 
 		} catch (Exception e) {
-
+			
 			e.printStackTrace();
 
 		} finally {
@@ -200,14 +217,13 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return member;
 	}
 
 	public static ArrayList<Member> getAllMember() {
 
 		EntityManager em = PublicCommon.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
 
 		ArrayList<Member> memlist = null;
 
@@ -224,6 +240,7 @@ public class MemberDAO {
 			em.close();
 
 		}
+		
 		return memlist;
 	}
 

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
+import workman.action.ViewAddAction;
+import workman.action.ViewUtubeAction;
 import workman.model.CompanyDAO;
 import workman.model.WorkmanService;
 
@@ -17,7 +19,7 @@ import workman.model.WorkmanService;
 @WebServlet("/make")
 public class ViewController extends HttpServlet {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response, String companyname) throws ServletException, IOException {
 
 		request.setCharacterEncoding("utf-8");
 
@@ -25,7 +27,11 @@ public class ViewController extends HttpServlet {
 		
 		if(command != null) {
 			if(command.equals("add")) {
-				ViewAction action = ViewAction.getInstance();
+				ViewAddAction action = ViewAddAction.getInstance();
+				action.service(request, response, companyname);
+			}
+			if(command.equals("utube")) {
+				ViewUtubeAction action = ViewUtubeAction.getInstance();
 				action.service(request, response);
 			}
 		}

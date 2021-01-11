@@ -27,6 +27,6 @@ out.println(request.getAttribute("msg"));
 <p>
 <p>
 <p>
-<button onclick="location.href='index.html'">초기 화면으로 이동</button></center>
+<a href="index.html">로그인 페이지</a> &nbsp; <a href="workman?command=main">홈 페이지</a></center>
 </body>
 </html>

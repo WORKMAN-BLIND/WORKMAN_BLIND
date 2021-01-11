@@ -1,4 +1,4 @@
-package workman.controller;
+package workman.action;
 
 import java.io.IOException;
 
@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 import workman.model.ParttimeEvalDAO;
 
 @Slf4j
-public class ViewAction {
+public class ViewUtubeAction {
 
-	private static ViewAction instance = new ViewAction();
-	private ViewAction() {};
-	public static ViewAction getInstance() {
+	private static ViewUtubeAction instance = new ViewUtubeAction();
+	private ViewUtubeAction() {};
+	public static ViewUtubeAction getInstance() {
 		return instance;
 	}
 	
@@ -22,11 +22,10 @@ public class ViewAction {
 		String url = "view/error.jsp";
 		
 		try {
-			request.setAttribute("add", ParttimeEvalDAO.getAllPTEval());
-			url = "form.jsp";
+			url = "utube.jsp";
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
-			log.info("폼 보여주기 실패");
+			log.info("유튜브 실행 실패");
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
