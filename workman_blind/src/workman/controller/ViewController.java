@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
-import workman.action.ViewAddAction;
+import workman.action.ViewReviewAction;
 import workman.action.ViewUtubeAction;
 import workman.model.CompanyDAO;
 import workman.model.WorkmanService;
@@ -26,14 +26,15 @@ public class ViewController extends HttpServlet {
 		String command = request.getParameter("command");
 		
 		if(command != null) {
-			if(command.equals("add")) {
-				ViewAddAction action = ViewAddAction.getInstance();
+			if(command.equals("ptreview")) {
+				ViewReviewAction action = ViewReviewAction.getInstance();
 				action.service(request, response, companyname);
 			}
 			if(command.equals("utube")) {
 				ViewUtubeAction action = ViewUtubeAction.getInstance();
 				action.service(request, response);
 			}
+			
 		}
 	}
 }

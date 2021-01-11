@@ -6,12 +6,22 @@
 	
 	body
 	{
-		margin: 0px;
-		padding: 0px;
-		background: #64ABD1;
-		font-family: 'Questrial', sans-serif;
-		font-size: 12pt;
-		color: rgba(0,0,0,.6);
+		 width: 100%;  
+  min-height: 100vh;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 	}
 	
 	
@@ -433,13 +443,27 @@
 	.wrapper
 	{
 		overflow: hidden;
-		padding: 0em 0em 5em 0em;
-		background: #FFF;
+	
+		 width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 15px;
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 	}
 
 	#wrapper1
 	{
-		background: #FFF;
+		background: #cc3399;
 	}
 
 	#wrapper2
@@ -528,9 +552,21 @@
 
 	#footer
 	{
-		overflow: hidden;
-		padding: 5em 0em;
-		background: #E3F0F7;
+		
+		 width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 		text-align: center;
 	}
 

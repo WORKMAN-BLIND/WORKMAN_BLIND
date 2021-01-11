@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import workman.model.CompanyDAO;
 import workman.model.WorkmanService;
+import workman.model.dto.Company;
 import workman.model.dto.Member;
 import workman.model.dto.ParttimeEval;
 
@@ -35,8 +36,8 @@ public class WorkmanFrontController extends HttpServlet {
 		
 		try {
 			
-			if ((String) session.getAttribute("id") == null && !(command.equals("clogin") || command.equals("mlogin"))
-					&& !(command.equals("companyinsert") || command.equals("memberinsert"))) {
+			if ((String) session.getAttribute("id") == null && !(command.equals("clogin") || !(command.equals("mlogin")))
+					&& !(command.equals("companyinsert") || !(command.equals("memberinsert")))) {
 			
 				request.setAttribute("msg", "로그인하세요");
 				request.getRequestDispatcher("view/error.jsp").forward(request, response);
@@ -151,22 +152,35 @@ public class WorkmanFrontController extends HttpServlet {
 	}
 
 	public void clogin(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		String name = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		String url = "view/error.jsp";
+		
 		HttpSession session = req.getSession();
 		try {
+			
 			String loginresult = WorkmanService.clogin(name, pw);
 			if (loginresult.equals("success")) {
+				
 				session.setAttribute("id", name);
 				session.setAttribute("pw", pw);
 				session.setAttribute("type", 1);
+				
+				ArrayList<Company> allcompany = WorkmanService.getAllCompany();
+				session.setAttribute("allcompany", allcompany);
+				
 				url = "main.jsp";
 				log.info(name + " 로그인 성공");
+				
 			} else if (loginresult.equals("id")) {
+				
 				req.setAttribute("msg", "ID를 다시 확인해주세요");
+				
 			} else if (loginresult.equals("pw")) {
+				
 				req.setAttribute("msg", "비밀번호를 다시 확인해주세요");
+				
 			}
 		} catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
@@ -182,7 +196,6 @@ public class WorkmanFrontController extends HttpServlet {
 		try {
 
 			request.getSession().setAttribute("companyall", WorkmanService.getAllCompany());
-			url = "companylist.jsp";
 
 		} catch (Exception s) {
 
@@ -201,7 +214,6 @@ public class WorkmanFrontController extends HttpServlet {
 		try {
 
 			request.getSession().setAttribute("company", WorkmanService.getCompany(request.getParameter("companyname")));
-			url = "companydetail.jsp";
 
 		} catch (Exception s) {
 
@@ -356,6 +368,9 @@ public class WorkmanFrontController extends HttpServlet {
 				Member user = WorkmanService.getMember(id);
 				String comname = user.getCompanyname().getCompanyname();
 				session.setAttribute("comname", comname);
+				
+				ArrayList<Company> allcompany = WorkmanService.getAllCompany();
+				session.setAttribute("allcompany", allcompany);
 
 				url = "main.jsp";
 
@@ -369,7 +384,7 @@ public class WorkmanFrontController extends HttpServlet {
 
 			}
 		} catch (Exception e) {
-
+			e.printStackTrace();
 			request.setAttribute("msg", "로그인 실패");
 
 		}
@@ -418,7 +433,7 @@ public class WorkmanFrontController extends HttpServlet {
 				url = "memcrud/meminssuccess.jsp";
 
 			} else {
-
+				
 				request.setAttribute("msg", "다시 시도하세요");
 
 			}
