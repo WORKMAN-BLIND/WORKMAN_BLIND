@@ -5,12 +5,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>알바 구인 글 목록 조회 페이지</title>
-<link href="${pageContext.request.contextPath}/css/test2.css"
-	rel="stylesheet">
+<title>세상 모든 알바! workman</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/images/icons/home.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/util.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/main.css">
+<!--===============================================================================================-->
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+<!-- Additional Header CSS Files -->
+    <link
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
+	rel="stylesheet" />
+    <link rel="stylesheet" type="${pageContext.request.contextPath}/text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="${pageContext.request.contextPath}/text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/templatemo-softy-pinko.css">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    
 </head>
-<body id="ReputeList" class="story albaRepute scroll">
+<body>
+
+ <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo">
+                            <img src="${pageContext.request.contextPath}/assets/images/pinklogo.PNG" alt="Softy Pinko" width="120" height="50"/>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="main.jsp" class="active">홈</a></li>
+                            <li><a href="#work-process">기업스토리</a></li>
+                            <li><a href="workman?command=ptlistall" class="id" accesskey="3" title="">알바 리스트</a></li>
+                            <li><a href="partTimeListView2.jsp" accesskey="1" title="parttimestory">알바 리뷰</a></li>
+                            <li><a href="#blog">이력서 등록/관리</a></li>
+                            <li><a href="#contact-us">지원관리</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
 <c:choose>
 		<c:when test="${sessionScope.type == 1}">
 			<div class="navi" style="font-color: gray">
@@ -39,188 +109,104 @@
 		</c:otherwise>
 	</c:choose>
 
-	<!-- Container -->
-	<div id="Container">
-		<!-- location -->
-		<div id="Location">
-			<a href="${pageContext.request.contextPath}/main.jsp">홈으로</a>
-			<!-- &gt; -->
-			<!--  <a href="/story/">알바스토리</a> &gt; <strong>알바리뷰</strong> -->
-		</div>
-
-
-
-
-
-
-
-		<div class="head"></div>
-
-		<div class="reputeList">
-			<!-- 작성가능한 리뷰기업목록 -->
-			<div id="ReputeCareerList"></div>
-			<script type="text/javascript">
-				ReputeCLS.viewReputeCareerList();
-			</script>
-			<!-- //작성가능한 리뷰기업목록 -->
-
-			<div id="GlobalBannerWrap">
-				<div id="GlobalBanner">
-
-					<center>
-						<p class="sideCenter">
-							<a href="http://vroong.alba.co.kr/job/brand/" target="_blank"><img
-								src="//image.alba.kr/adbanner/pc-sub-480_80/201215_vroong_480-80.jpg"
-								alt="프리미엄 배송 서비스 부릉라이더 모집중"></a>
-						</p>
-					</center>
-
-				</div>
-			</div>
-			<script type="text/javascript">
-				if ($(".repute-select__list li.on").length == 0) {
-					$(".repute-select__list_all").addClass("on");
-				}
-
-				$(".repute-select-next")
-						.click(
-								function(e) {
-									$(".repute-select__list")
-											.stop()
-											.animate(
-													{
-														marginLeft : "-=1002px"
-													},
-													500,
-													function() {
-														$(
-																".repute-select__list")
-																.css(
-																		"margin-left",
-																		"0")
-																.append(
-																		$(".repute-select__list>li:lt(6)"));
-													});
-									e.preventDefault();
-								});
-				$(".repute-select-prev").click(
-						function(e) {
-							$(".repute-select__list").prepend(
-									$(".repute-select__list>li:gt(5)")).css(
-									"margin-left", "-1070px");
-							$(".repute-select__list").stop().animate({
-								marginLeft : "+=1070px"
-							}, 500);
-							e.preventDefault();
-						});
-
-				var objLeft = $(".repute-select__list li.on").position().left;
-				var objWidth = $(".repute-select__list").width() / 2;
-
-				if (objLeft > objWidth) {
-					$(".repute-select__list").stop().animate(
-							{
-								marginLeft : "-=1002px"
-							},
-							50,
-							function() {
-								$(".repute-select__list").css("margin-left",
-										"0").append(
-										$(".repute-select__list>li:lt(6)"));
-							});
-				}
-			</script>
-
-			<form method="get" name="formSrchPublic" id="formSrchPublic"
-				action="/story/repute/ReputeList.asp">
-				<div class="searchBox">
-
-					<span>기업명</span>&nbsp;<input type="text" title="기업명 입력"
-						id="schtext" name="schtext" value="" maxlength="50">&nbsp;&nbsp;
-					<input type="submit" class="searchBtn" title="검색" value="검색">
-
-					<c:choose>
+	
+			
+			
+			<div class="limiter">
+		
+		<div class="container-table100">
+			
+		
+			<div class="wrap-table100">
+			<center>
+			<div class="heading albaRepute" style="width: 630px; height: 180px; background-image: url(https://image.freepik.com/free-vector/long-horizontal-black-friday-sale-banner_73458-639.jpg); margin-bottom: 100px; margin-bottom: 100px;"></div>
+				</center><div class="table100">
+								
+									<c:choose>
 						<c:when test="${sessionScope.type == 1}">
 							<!--  	<a href="plinsert.jsp">알바 구인글 작성 (기업)</a> -->
-							<button type="button"
-								onclick="location.href='plcrud/plinsert.jsp'">알바 구인글 작성
-							</button>
+						<div align = "right">	<button type="button"
+								onclick="location.href='plcrud/plinsert.jsp'" style = "color: #fff;">알바 구인글 작성
+							</button>  </div> <br>
 						</c:when>
 						<c:otherwise>
 						</c:otherwise>
 
 					</c:choose>
-
-					<br>
-				</div>
-				<div class="formList">
-					<div class="listTop">
-						<!--p class="total">총 <span></span>건</p-->
-						<p class="total">
-							<!-- <span class="cntRepute"><span></span> 리뷰수 <em>341,481</em>건</span>
-						<span class="cntCompany"><span></span> 기업수 <em>208,662</em>개</span> 나중에-->
-						</p>
-					</div>
-					<table summary="알바리뷰 기업목록으로 기업의 리뷰정보를 확인할 수 있습니다">
-						<caption>구인글 목록</caption>
+					
+					<table>
 						<thead>
-							<tr>
-								<th scope="col" class="cnt">글번호</th>
-								<th scope="col" class="repcnt"><a>기업명</a></th>
-								<th scope="col" class="workcomnm">공고명</th>
-								<th scope="col" class="repcnt"><a>근무 시간<img
-										src="//image.alba.kr/story/btn_range_down.gif" alt="내림차순"></a></th>
-								<th scope="col" class="jobing"><a>근무기간<img
-										src="//image.alba.kr/story/btn_range_down.gif" alt="내림차순"></a></th>
-								<th scope="col" class="lastregymd"><a>시급<img
-										src="//image.alba.kr/story/btn_range_down.gif" alt="내림차순"></a></th>
+							<tr class="table100-head">
+								<th class="column1">글번호</th>
+								<th class="column2">기업명</th>
+								<th class="column3">공고명</th>
+								<th class="column4">근무 시간</th>
+								<th class="column5">근무 기간</th>
+								<th class="column6">시급</th>
+								
 							</tr>
-
-
 						</thead>
 						<tbody>
-
+						
 							<c:forEach items="${sessionScope.ptlistall}" var="list">
-								<tr>
-									<td class="cnt">${list.listnum}</td>
-									<td class="repcnt">${list.companyname.companyname}</td>
-									<td class="workcomnm"><a
-										href="workman?command=ptlist&listnum=${list.listnum}&companyname=${list.companyname.companyname}"><center>${list.objective}</center></a></td>
-
-									<td class="repcnt">${list.worktime}</td>
-									<td class="repscore">${list.workperiod}</td>
-									<td class="jobing">${list.hourlywage}</td>
-								</tr>
-
+							<tr>
+								<td class="column1">${list.listnum}</td>
+								<td class="column2">${list.companyname.companyname}</td>
+								<td class="column3" onclick="location.href='workman?command=ptlist&listnum=${list.listnum}&companyname=${list.companyname.companyname}'">${list.objective}</td>
+								<td class="column4">${list.worktime}</td>
+								<td class="column5">${list.workperiod}</td>
+								<td class="column6">${list.hourlywage}</td>
+							</tr>
 							</c:forEach>
+							
+				
+			
+							
 						</tbody>
 					</table>
-				</div>
-			</form>
+					
+					
+			
+					<br>
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
-			<!-- 페이징 -->
-			<script type="text/javascript">
-				getPagingJob(1, 208662, 20, 10, "");
-			</script>
-			<div class="pagenation img img4">
-				<span class="page"><a href="?page=1&amp;pagesize=20"
-					class="on">1</a><a href="?page=2&amp;pagesize=20">2</a><a
-					href="?page=3&amp;pagesize=20">3</a><a
-					href="?page=4&amp;pagesize=20">4</a><a
-					href="?page=5&amp;pagesize=20">5</a><a
-					href="?page=6&amp;pagesize=20">6</a><a
-					href="?page=7&amp;pagesize=20">7</a><a
-					href="?page=8&amp;pagesize=20">8</a><a
-					href="?page=9&amp;pagesize=20">9</a><a
-					href="?page=10&amp;pagesize=20">10</a></span><span class="total"
-					onclick="$(this).toggleClass('oneBtn');"><span
-					class="totalBtn"><span class="state">1 / 10434</span><a
-						href="?page=1&amp;pagesize=20" class="first">맨 처음으로</a></span></span><span
-					class="pageBtn"><a href="?page=11&amp;pagesize=20"
-					class="next">&gt;</a> </span>
-			</div>
-			<!-- //페이징 -->
+<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/popper.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+	
+	 <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" >
+	  function ptreview() {
+	     axios.get('make', {
+	        params : {
+	           command : "ptreview"
+	        }
+	     }).then(response => {
+	        document.getElementById("ptreView").innerHTML =response.data;
+	     }).catch(error => {
+	        console.log("예외발생" + error);
+	     });
+	  }
+   
 </body>
 </html>
-
 

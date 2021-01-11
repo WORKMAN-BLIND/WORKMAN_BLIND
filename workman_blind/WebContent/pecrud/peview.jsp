@@ -159,7 +159,6 @@
 							<c:forEach var="list" items="${sessionScope.ptevalallcom}"
 								varStatus="status">
 								<tr>
-									<td class="column1">${status.count}</td>
 									<td class="column2"><a href="workman?command=ptevalcom&evalnum=${list.evalnum}">${list.evalnum}</a></td>
 									<td class="column3">${list.userid.userid}</td>
 									<td class="column4">${list.proscons}</td>

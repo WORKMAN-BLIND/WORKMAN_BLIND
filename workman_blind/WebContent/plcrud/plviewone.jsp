@@ -156,8 +156,8 @@
 					<c:choose>
 						<c:when
 							test="${sessionScope.id == sessionScope.company.companyname}">
-							<a href="plcrud/plupdate.jsp">해당 글 수정</a> &nbsp;
-							<a href="workman?command=ptlistdelete&listnum=${sessionScope.ptlist.listnum}">해당건 마감</a>
+						<center>	<a href="plcrud/plupdate.jsp" style = "color: #fff;">해당 글 수정</a> &nbsp;
+							<a href="workman?command=ptlistdelete&listnum=${sessionScope.ptlist.listnum}" style = "color: #fff;">해당 글 마감</a></center>
 						</c:when>
 						<c:otherwise>
 
