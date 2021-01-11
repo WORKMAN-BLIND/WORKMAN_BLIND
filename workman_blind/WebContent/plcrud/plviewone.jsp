@@ -143,7 +143,7 @@
 						<tbody>
 							<tr>
 								<td class="column1">${sessionScope.company.category}</td>
-								<td class="column2" onclick="ptreview()">${sessionScope.company.companyname}</td>
+								<td class="column2" onclick="location.href='workman?command=ptevalallcom&companyname=${sessionScope.company.companyname}'">${sessionScope.company.companyname}</td>
 								<td class="column3">${sessionScope.ptlist.workperiod}</td>
 								<td class="column4">${sessionScope.ptlist.worktime}</td>
 								<td class="column5">${sessionScope.ptlist.hourlywage}</td>
@@ -198,8 +198,7 @@
 	  function ptreview() {
 	     axios.get('make', {
 	        params : {
-	           command : "ptreview",
-	           companyname : ${sessionScope.company.companyname} //cu충정로프랑스점
+	           command : "ptreview"
 	        }
 	     }).then(response => {
 	        document.getElementById("ptreView").innerHTML =response.data;
