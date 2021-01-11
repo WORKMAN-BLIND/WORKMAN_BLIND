@@ -1,321 +1,205 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>해당 기업 모든 알바 평가글 조회 페이지</title>
-<link href="${pageContext.request.contextPath}/css/test2.css"
+<title>Table V01</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/images/icons/home.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/util.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/main.css">
+<!--===============================================================================================-->
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900"
 	rel="stylesheet">
+
+<!-- Additional Header CSS Files -->
+<link
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	type="${pageContext.request.contextPath}/text/css"
+	href="assets/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	type="${pageContext.request.contextPath}/text/css"
+	href="assets/css/font-awesome.css">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/templatemo-softy-pinko.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
 </head>
-<body id="ReputeList" class="story albaRepute scroll">
+<body>
+
+
+	<!-- ***** Preloader Start ***** -->
+	<!--     <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>   -->
+
+
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="#" class="logo"> <img
+							src="${pageContext.request.contextPath}/assets/images/pinklogo.PNG"
+							alt="Softy Pinko" width="120" height="50" />
+						</a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="main.jsp" class="active">홈</a></li>
+							<li><a href="#work-process">기업스토리</a></li>
+							<li><a href="workman?command=ptlistall" class="id"
+								accesskey="3" title="">알바 리스트</a></li>
+							<li><a href="partTimeListView2.jsp" accesskey="1"
+								title="parttimestory">알바 리뷰</a></li>
+							<li><a href="#blog">이력서 등록/관리</a></li>
+							<li><a href="#contact-us">지원관리</a></li>
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+
+
 	<c:choose>
 		<c:when test="${sessionScope.type == 1}">
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
 					<a href="workman?command=companyupdatereq" class="id"><i
 						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
-					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
-						style="font-size: 30px; color: grey;"></i><a
-						href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
+					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
+						class="fas fa-sign-out-alt" style="font-size: 30px; color: grey;"></i>
+					<a href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:when>
 
+
 		<c:otherwise>
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
 					<a href="workman?command=memberupdatereq" class="id"><i
-						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
-					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
-						style="font-size: 30px; color: grey;"></i><a
-						href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
+						class="far fa-user" style="font-size: 25px; color: black;"></i>${sessionScope.id}</a>
+					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
+						class="fas fa-sign-out-alt" style="font-size: 30px; color: black;"></i>
+					<a href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:otherwise>
 	</c:choose>
-	<div id="Container">
-		<div id="Location">
-			<a href="main.jsp">홈으로</a>
-		</div>
-
-		<div class="head">
-
-			<div class="heading albaRepute"></div>
 
 
-		</div>
+	<div class="limiter">
 
-		<div class="reputeList">
-			<div id="ReputeCareerList"></div>
-			<script type="text/javascript">
-				ReputeCLS.viewReputeCareerList();
-			</script>
-
-			<div class="repute-select">
-
+		<div class="container-table100">
+			<div class="wrap-table100">
 				<center>
-					<img src="${pageContext.request.contextPath}/images/알바리뷰.jpg"
-						border="0" width="700" height="170">
+					<img src="${pageContext.request.contextPath}/images/알바리뷰.jpg" border="0" width="1120px" height="250px" style="margin-bottom: 100px">
 				</center>
-				<!--	<h2 class="repute-select__h2">주요 태그별 리뷰 보기</h2>
-				<ul class="repute-select__list">
-					<li class="repute-select__list_all on"><a
-						href="/story/repute/ReputeList.asp#ReputeCareerList"><em>전체<br>
-								리뷰 보기
-						</em></a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT1#ReputeCareerList"><em>취업스펙</em><br>
-							도움 되는 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT2#ReputeCareerList"><em>사회경험</em><br>
-							쌓기 좋은 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT3#ReputeCareerList"><em>동료</em>들이<br>
-							좋은 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT4#ReputeCareerList"><em>칼퇴근</em><br>
-							가능한 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT5#ReputeCareerList"><em>충분한
-								교육</em><br> 제공하는 곳</a></li>
-
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT6#ReputeCareerList"><em>친구랑
-								함께</em><br> 가능한 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT7#ReputeCareerList"><em>편안한
-								식사</em><br> 보장되는 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT8#ReputeCareerList"><em>급여지급</em><br>
-							확실한 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT9#ReputeCareerList"><em>근무환경</em><br>
-							좋은 곳</a></li>
-					<li><a
-						href="/story/repute/ReputeList.asp?orderby=TAGGROUPCNT10#ReputeCareerList"><em>관리자가</em><br>
-							좋은 곳</a></li>
-					<li class="repute-select__list_all2"><a
-						href="/story/repute/ReputeList.asp?#ReputeCareerList"><em>전체<br>
-								리뷰 보기
-						</em></a></li>
-				</ul> -->
-			</div>
-			<script type="text/javascript">
-				if ($(".repute-select__list li.on").length == 0) {
-					$(".repute-select__list_all").addClass("on");
-				}
-
-				$(".repute-select-next")
-						.click(
-								function(e) {
-									$(".repute-select__list")
-											.stop()
-											.animate(
-													{
-														marginLeft : "-=1002px"
-													},
-													500,
-													function() {
-														$(
-																".repute-select__list")
-																.css(
-																		"margin-left",
-																		"0")
-																.append(
-																		$(".repute-select__list>li:lt(6)"));
-													});
-									e.preventDefault();
-								});
-				$(".repute-select-prev").click(
-						function(e) {
-							$(".repute-select__list").prepend(
-									$(".repute-select__list>li:gt(5)")).css(
-									"margin-left", "-1070px");
-							$(".repute-select__list").stop().animate({
-								marginLeft : "+=1070px"
-							}, 500);
-							e.preventDefault();
-						});
-
-				var objLeft = $(".repute-select__list li.on").position().left;
-				var objWidth = $(".repute-select__list").width() / 2;
-
-				if (objLeft > objWidth) {
-					$(".repute-select__list").stop().animate(
-							{
-								marginLeft : "-=1002px"
-							},
-							50,
-							function() {
-								$(".repute-select__list").css("margin-left",
-										"0").append(
-										$(".repute-select__list>li:lt(6)"));
-							});
-				}
-			</script>
-
-			<form method="post" name="formSrchPublic" id="formSrchPublic"
-				action="workman">
-
-				<br>
-		</div>
-		<div class="formList">
-			<div class="listTop">
-				<!--p class="total">총 <span></span>건</p-->
-				<p class="total">
-					<!-- <span class="cntRepute"><span></span> 리뷰수 <em>341,481</em>건</span>
-						<span class="cntCompany"><span></span> 기업수 <em>208,662</em>개</span> 나중에-->
-				</p>
-			</div>
-			<hr>
-
-			<h3>
-				<center>${sessionScope.company.companyname}</center>
-			</h3>
-			<div align="right">
-				<c:choose>
-					<c:when
-						test="${sessionScope.type == 2 && sessionScope.comname == sessionScope.company.companyname}">
-						<!--  	<a href="plinsert.jsp">알바 구인글 작성 (기업)</a> -->
-						<button type="button"
-							onclick="location.href='pecrud/peinsert.jsp'">해당 기업 알바리뷰
-							글 작성</button>
-						<br>
-					</c:when>
-					<c:otherwise>
-					</c:otherwise>
-
-				</c:choose>
-			</div>
-			<br>
-			<hr>
-
-			<table>
-				<tr>
-					<td class="cnt"></td>
-					<td class="repcnt">글번호</td>
-					<td class="repcnt">작성자 ID</td>
-					<td class="repcnt">장단점</td>
-					<td class="repcnt">급여 지불</td>
-					<td class="repcnt">근무환경</td>
-					<td class="repcnt">관리자 성향</td>
-					<td class="repcnt">추가의견</td>
-				</tr>
-
-				<c:forEach var="list" items="${sessionScope.ptevalallcom}"
-					varStatus="status">
-					<tr>
-						<td class="cnt">${status.count}</td>
-						<td class="repcnt"><a
-							href="workman?command=ptevalcom&evalnum=${list.evalnum}">${list.evalnum}</a></td>
-						<td class="repcnt">${list.userid.userid}</td>
-						<td class="repcnt">${list.proscons}</td>
-						<td class="repcnt">${list.wagedelay}</td>
-						<td class="repcnt">${list.environment}</td>
-						<td class="repcnt">${list.incline}</td>
-						<td class="repcnt">${list.opinion}</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		</form>
-
-		<!--  	<c:choose>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">글번호</th>
+								<th class="column2">작성자ID</th>
+								<th class="column3">장단점</th>
+								<th class="column4">급여 지불</th>
+								<th class="column5">근무 환경</th>
+								<th class="column6">관리자 성향</th>
+								<th class="column7">추가의견</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="list" items="${sessionScope.ptevalallcom}"
+								varStatus="status">
+								<tr>
+									<td class="column1">${status.count}</td>
+									<td class="column2"><a href="workman?command=ptevalcom&evalnum=${list.evalnum}">${list.evalnum}</a></td>
+									<td class="column3">${list.userid.userid}</td>
+									<td class="column4">${list.proscons}</td>
+									<td class="column5">${list.wagedelay}</td>
+									<td class="column6">${list.environment}</td>
+									<td class="column7">${list.incline}</td>
+									<td class="column7">${list.opinion}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<br>
+					<c:choose>
 						<c:when
-							test="${sessionScope.type == 2 && sessionScope.comname == sessionScope.company.companyname}">
-
-
-							<table>
-								<c:forEach var="list" items="${sessionScope.ptevalallcom}"
-									varStatus="status">
-
-									<tr>
-										<td class="cnt"></td>
-										<td class="repcnt">글번호</td>
-										<td class="repcnt">작성자 ID</td>
-										<td class="repcnt">장단점</td>
-										<td class="repcnt">급여 지불</td>
-										<td class="repcnt">근무환경</td>
-										<td class="repcnt">관리자 성향</td>
-										<td class="repcnt">추가의견</td>
-										<td class="repcnt"></td>
-										<td class="repcnt"></td>
-										
-
-									</tr>
-
-									<tr>
-										<td class="cnt">${status.count}</td>
-										<td class="repcnt">${list.evalnum}</td>
-										<td class="repcnt">${list.userid.userid}</td>
-										<td class="repcnt">${list.proscons}</td>
-										<td class="repcnt">${list.wagedelay}</td>
-										<td class="repcnt">${list.environment}</td>
-										<td class="repcnt">${list.incline}</td>
-										<td class="repcnt">${list.opinion}</td>
-										<td>
-											<button type="button"
-												onclick="location.href='${pageContext.request.contextPath}/workman?evalnum=${list.evalnum}&command=ptevalupdatereq'">
-												수정하기</button>
-										</td>
-
-										<td>
-											<button type="button"
-												onclick="location.href='${pageContext.request.contextPath}/workman?evalnum=${list.evalnum}&command=ptevaldelete'">
-												삭제하기</button>
-										</td>
-									</tr>
-								</c:forEach>
-							</table>
+							test="${sessionScope.id == sessionScope.company.companyname}">
+							<a href="plcrud/plupdate.jsp">해당 글 수정</a> &nbsp;
+							<a
+								href="workman?command=ptlistdelete&listnum=${sessionScope.ptlist.listnum}">해당건
+								마감</a>
 						</c:when>
-						
 						<c:otherwise>
-							
-							<table>
-								<c:forEach var="list" items="${sessionScope.ptevalallcom}"
-									varStatus="status">
 
-									<tr>
-										<td class="cnt"></td>
-										<td class="repcnt">글번호</td>
-										<td class="repcnt">작성자 ID</td>
-										<td class="repcnt">장단점</td>
-										<td class="repcnt">급여 지불</td>
-										<td class="repcnt">근무환경</td>
-										<td class="repcnt">관리자 성향</td>
-										<td class="repcnt">추가의견</td>
-
-										
-
-									</tr>
-
-									<tr>
-										<td class="cnt">${status.count}</td>
-										<td class="repcnt">${list.evalnum}</td>
-										<td class="repcnt">${list.userid.userid}</td>
-										<td class="repcnt">${list.proscons}</td>
-										<td class="repcnt">${list.wagedelay}</td>
-										<td class="repcnt">${list.environment}</td>
-										<td class="repcnt">${list.incline}</td>
-										<td class="repcnt">${list.opinion}</td>
-										
-									</tr>
-								</c:forEach>
-							</table>
-							
 						</c:otherwise>
 
 					</c:choose>
+					<br>
+					<hr>
+					<a
+						href="workman?command=ptevalallcom&companyname=${sessionScope.company.companyname}"
+						style="color: white; font-weight: bold;"> 기업 알바 리뷰 </a>
+					&nbsp;&nbsp;&nbsp;<a
+						href="${pageContext.request.contextPath}/main.jsp"
+						style="color: white; font-weight: bold;">메인 화면 이동</a>
+
 				</div>
+			</div>
+		</div>
+	</div>
 
-			</form> -->
-
-		<!-- 페이징 -->
+	<!-- 페이징 -->
 		<script type="text/javascript">
 			getPagingJob(1, 208662, 20, 10, "");
 		</script>
@@ -337,7 +221,35 @@
 				class="next">&gt;</a> </span>
 		</div>
 		<!-- //페이징 -->
+
+
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/popper.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+	  function ptreview() {
+	     axios.get('make', {
+	        params : {
+	           command : "ptreview"
+	        }
+	     }).then(response => {
+	        document.getElementById("ptreView").innerHTML =response.data;
+	     }).catch(error => {
+	        console.log("예외발생" + error);
+	     });
+	  }
+   
 </body>
 </html>
-
-
