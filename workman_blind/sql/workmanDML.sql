@@ -4,7 +4,7 @@ insert into company values('GS25대구역자이점','기업소개글2','대구�
 insert into company values('이마트 천안서북점 이니스프리','기업소개글3','서북구 삼성대로 20 천안서북점 이니스프리','010-5326-4292');
 
 -- member 테이블 회원 저장
-insert into member values('kwon0329','restplease00','권희성','kwon0329@naver.com');
+insert into member values('kwon0329','restplease00','권희성','kwon0329@naver.com','플레이데이터');
 insert into member values('wook999','chukchuk123','장종욱','wook999@gmail.com');
 insert into member values('moon77','lovecat522','장문희','moon77@naver.com');
 

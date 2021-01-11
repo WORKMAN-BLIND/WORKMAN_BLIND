@@ -62,7 +62,6 @@ public class MemberDAO {
 			tx.commit();
 
 		} catch (Exception e) {
-
 			tx.rollback();
 			e.printStackTrace();
 			result = "fail";
