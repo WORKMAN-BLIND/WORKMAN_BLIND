@@ -433,7 +433,7 @@ public class WorkmanFrontController extends HttpServlet {
 				url = "memcrud/meminssuccess.jsp";
 
 			} else {
-
+				
 				request.setAttribute("msg", "다시 시도하세요");
 
 			}

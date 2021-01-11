@@ -2,15 +2,39 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
+<title>Table V01</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>해당 알바 구인글 출력</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/images/icons/home.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/util.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-<c:choose>
+	<c:choose>
 		<c:when test="${sessionScope.type == 1}">
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
@@ -27,8 +51,7 @@
 		<c:otherwise>
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
-					<a href="workman?command=memberupdatereq" class="id"><i
-						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
+					<a href="workman?command=memberupdatereq" class="id"><i class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
 					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
 						style="font-size: 30px; color: grey;"></i><a
 						href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
@@ -37,70 +60,80 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
-		<span id="Location"><a href="main.jsp">홈으로</a></span> 
+
+	<span id="Location"><a href="main.jsp">홈으로</a></span>
 	<hr>
 	<br>
 	<br>
 
-	
-	<center>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">업종</th>
+								<th class="column2" style="text-align: center;">기업명</th>
+								<th class="column3" style="text-align: center;">근무기간</th>
+								<th class="column4">근무시간</th>
+								<th class="column5">시급</th>
+								<th class="column6" style="text-align: ritght;">주소</th>
+								<th class="column6" style="text-align: center;">연락처</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="column1">${sessionScope.company.category}</td>
+								<td class="column2">${sessionScope.company.companyname}</td>
+								<td class="column3" style="text-align: center;">${sessionScope.ptlist.workperiod}</td>
+								<td class="column4">${sessionScope.ptlist.worktime}</td>
+								<td class="column5">${sessionScope.ptlist.hourlywage}</td>
+								<td class="column6"style="padding: initial; text-align: center;">${sessionScope.company.companyloc}</td>
+								<td class="column6" style="text-align: center;">${sessionScope.company.companynum}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br>
+					<c:choose>
+						<c:when
+							test="${sessionScope.id == sessionScope.company.companyname}">
+							<a href="plcrud/plupdate.jsp">해당 글 수정</a> &nbsp;
+							<a href="workman?command=ptlistdelete&listnum=${sessionScope.ptlist.listnum}">해당건 마감</a>
+						</c:when>
+						<c:otherwise>
+
+						</c:otherwise>
+
+					</c:choose>
+					<br>
+					<hr>
+					<a href="workman?command=ptevalallcom&companyname=${sessionScope.company.companyname}" style="color: white;
+    				font-weight: bold;">
+					기업 알바 리뷰 </a> &nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/main.jsp"style="color: white;
+    				font-weight: bold;">메인 화면 이동</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-		<h3>${sessionScope.ptlist.objective}</h3>
-
-		<table border="1">
-			<tr>
-				<th>근무시간</th>
-				<th>시급</th>
-				<th>근무기간</th>
-			</tr>
-			<tr>
-				<td>${sessionScope.ptlist.worktime}</td>
-				<td>${sessionScope.ptlist.hourlywage}</td>
-				<td>${sessionScope.ptlist.workperiod}</td>
-			</tr>
-		</table>
-
-		<br>
-		<br>
-		<hr>
-		<br>
-
-		<h3>해당 기업 정보</h3>
-
-		<table border="1">
-			<tr>
-				<th>기업명</th>
-				<th>업종</th>
-				<th>주소</th>
-				<th>전화번호</th>
-			</tr>
-			<tr>
-				<td>${sessionScope.company.companyname}</td>
-				<td>${sessionScope.company.category}</td>
-				<td>${sessionScope.company.companyloc}</td>
-				<td>${sessionScope.company.companynum}</td>
-			</tr>
-		</table>
-		<br>
-		<c:choose>
-			<c:when
-				test="${sessionScope.id == sessionScope.company.companyname}">
-				<a href="plcrud/plupdate.jsp">해당 글 수정</a> &nbsp;
-				<a href="workman?command=ptlistdelete&listnum=${sessionScope.ptlist.listnum}">해당 건 마감</a>
-			</c:when>
-			<c:otherwise>
-
-			</c:otherwise>
-
-		</c:choose>
-		<br><hr>
-		<a href="workman?command=ptevalallcom&companyname=${sessionScope.company.companyname}">이 기업의  생생한 알바 리뷰 </a>
 
 
-		&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/main.jsp">메인 화면 이동</a>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/popper.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script
+		src="${pageContext.request.contextPath}/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
-	</center>
 </body>
 </html>
