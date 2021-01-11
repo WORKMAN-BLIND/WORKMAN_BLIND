@@ -27,6 +27,6 @@ out.println(request.getAttribute("msg"));
 <p>
 <p>
 <p>
-<a href="index.html">로그인 페이지</a></center> &nbsp; <a href="workman?command=main">홈 페이지</a></center>
+<a href="index.html">로그인 페이지</a> &nbsp; <a href="workman?command=main">메인 페이지</a></center>
 </body>
 </html>

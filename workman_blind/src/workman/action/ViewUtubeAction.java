@@ -25,7 +25,7 @@ public class ViewUtubeAction {
 			url = "utube.jsp";
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
-			log.info("�뤌 蹂댁뿬二쇨린 �떎�뙣");
+			log.info("유튜브 실행 실패");
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

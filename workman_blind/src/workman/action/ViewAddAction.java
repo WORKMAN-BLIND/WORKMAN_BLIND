@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import lombok.extern.slf4j.Slf4j;
 import workman.model.ParttimeEvalDAO;
-import workman.model.dto.Company;
 
 @Slf4j
 public class ViewAddAction {
@@ -23,7 +22,6 @@ public class ViewAddAction {
 		String url = "view/error.jsp";
 		
 		try {
-			
 			request.setAttribute("add", ParttimeEvalDAO.getAllComPTEval(companyname));
 			url = "form.jsp";
 		} catch (Exception s) {

@@ -67,11 +67,11 @@
 	<div id="menu">
 		<center>
 			<ul>
-				<li><a href="partTimeListView2.jsp" accesskey="1"
-					title="parttimestory">알바스토리</a></li>
 				<li><a href="#" accesskey="2" title="">기업스토리</a></li>
 				<li><a href="workman?command=ptlistall" class="id"
-					accesskey="3" title="">알바리뷰</a></li>
+					accesskey="3" title="">알바 리스트</a></li>
+					<li><a href="partTimeListView2.jsp" accesskey="1"
+					title="parttimestory">알바 리뷰</a></li>
 				<li><a href="#" accesskey="4" title="">이력서등록/관리</a></li>
 				<li><a href="#" accesskey="5" title="">지원관리</a></li>
 
@@ -95,37 +95,105 @@
 							알바도중 <span style="color: red">탈주</span>말고 <span
 								style="color: #ffe200">리뷰</span>보고 <span style="color: #ffe200">광명</span>찾자
 						</h3>
-						
-					</span> <br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br> <img src="images/workmain.PNG" width="1000" height="300" onclick = "settimeoutUtube()">
-					<br>
-					<br>
+
+					</span> <br> <br> <br> <br> <br> <br> <img
+						src="images/workmain.PNG" width="1000" height="300"
+						onclick="settimeoutUtube()"> <br> <br>
 					<div id="utubeView"></div>
 				</center>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+
+		<br> <br> <br> <br> <br> <br>
+
 		<div id="three-column" class="container">
 			<center>
 				<center>
-					<h1>최근에 올라온 REVIEW!</h1>
-					<br>
-					<br>
-					<br>
+					<h1>가입기업</h1>
+					<br> <br> <br>
 				</center>
 				<div>
 					<span class="arrow-down"></span>
 				</div>
+
 				<div id="tbox1" style="display: inline-block">
+					<div class="title">
+						<a href="#"><img src="images/pc.png" alt=""
+							class="image image-full" width="300" height="300" /></a>
+						<h2>${sessionScope.allcompany[0].companyname}</h2>
+					</div>
+					<p>${sessionScope.allcompany[0].category}</p>
+					<a href="#" class="button" style="color: white;">해당 알바</a>
+				</div>
+
+				<div id="tbox1" style="display: inline-block">
+					<div class="title">
+						<a href="#"><img src="images/cu.png" alt=""
+							class="image image-full" width="300" height="300" /></a>
+						<h2>${sessionScope.allcompany[1].companyname}</h2>
+					</div>
+					<p>${sessionScope.allcompany[1].category}</p>
+					<a href="#" class="button" style="color: white;">해당 알바</a>
+				</div>
+				<div id="tbox3" style="display: inline-block">
+					<div class="title">
+						<a href="#"><img src="images/innisfree.jpg" alt=""
+							class="image image-full" width="300" height="300" /></a>
+						<h2>${sessionScope.allcompany[2].companyname}</h2>
+					</div>
+					<p>${sessionScope.allcompany[2].category}</p>
+					<a href="#" class="button" style="color: white;">해당 알바</a>
+				</div>
+
+			</center>
+		</div>
+
+		<br>
+
+
+
+
+
+		<div>
+			<center>
+
+				<div class="title">
+					<a href="#"><img src="images/gs25.png" alt=""
+						class="image image-full" width="300" height="300" /></a>
+					<h2>${sessionScope.allcompany[3].companyname}</h2>
+				</div>
+				<p>${sessionScope.allcompany[3].category}</p>
+				<a href="#" class="button" style="color: white;">해당 알바</a>
+		</div>
+
+		<div class="title">
+			<a href="#"><img src="images/twosome.png" alt=""
+				class="image image-full" width="300" height="300" /></a>
+			<h2>${sessionScope.allcompany[4].companyname}</h2>
+		</div>
+		<p>${sessionScope.allcompany[4].category}</p>
+		<a href="#" class="button" style="color: white;">해당 알바</a>
+	</div>
+
+	<div id="tbox3" style="display: inline-block">
+		<div class="title">
+			<a href="#"><img src="images/hansot.jpg" alt=""
+				class="image image-full" width="300" height="300" /></a>
+			<h2>${sessionScope.allcompany[5].companyname}</h2>
+		</div>
+		<p>${sessionScope.allcompany[5].category}</p>
+		<a href="#" class="button" style="color: white;">해당 알바</a>
+	</div>
+
+	</center>
+	</div>
+
+
+
+
+
+	<!--
+		  	<div id="tbox1" style="display: inline-block">
 					<div class="title">
 						<a href="#"><img src="images/pc.png" alt=""
 							class="image image-full" width="300" height="300" /></a>
@@ -150,79 +218,76 @@
 						<h2>CU 충정로프랑스점</h2>
 					</div>
 					<p>칼퇴 가능해요. 식사제공해요 …</p>
-					<a class="button" id="cu충정로프랑스점" onclick="moreview3()">더보기</a>
-					<!-- <button onclick="moreview3()">더보기</button> -->
+					<a class="button" onclick="moreview3()">더보기</a>
 					<div id="addView"></div>
-				</div>
-			</center>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div id="portfolio" class="container">
+				</div> 
+				-->
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="portfolio" class="container">
+		<center>
 			<center>
-				<center>
-					<h1>최근에 올라온 공고!</h1>
+				<h1>최근에 올라온 공고!</h1>
+				<br> <br> <br>
+			</center>
+			<div class="column1" style="display: inline-block">
+				<div class="box">
+					<a href="#"><img src="images/hansot.jpg" alt=""
+						class="image image-full" width="300" height="300" /></a>
+					<h3>한솥도시락(부산대북문점)</h3>
+					<p>리뷰 총 1개</p>
 					<br>
+					<p>단기</p>
 					<br>
+					<p>채용중</p>
+					<br> <a href="#" class="button button-small">더 알아보기</a>
+				</div>
+			</div>
+			<div class="column2" style="display: inline-block">
+				<div class="box">
+					<a href="#"><img src="images/gs25.png" alt=""
+						class="image image-full" width="300" height="300" /></a>
+					<h3>GS25 대구역자이점</h3>
+					<p>리뷰 총 1개</p>
 					<br>
-				</center>
-				<div class="column1" style="display: inline-block">
-					<div class="box">
-						<a href="#"><img src="images/hansot.jpg" alt=""
-							class="image image-full" width="300" height="300" /></a>
-						<h3>한솥도시락(부산대북문점)</h3>
-						<p>리뷰 총 1개</p>
-						<br>
-						<p>단기</p>
-						<br>
-						<p>채용중</p>
-						<br> <a href="#" class="button button-small">더 알아보기</a>
-					</div>
+					<p>장기</p>
+					<br>
+					<p>채용마감</p>
+					<br> <a href="#" class="button button-small">더 알아보기</a>
 				</div>
-				<div class="column2" style="display: inline-block">
-					<div class="box">
-						<a href="#"><img src="images/gs25.png" alt=""
-							class="image image-full" width="300" height="300" /></a>
-						<h3>GS25 대구역자이점</h3>
-						<p>리뷰 총 1개</p>
-						<br>
-						<p>장기</p>
-						<br>
-						<p>채용마감</p>
-						<br> <a href="#" class="button button-small">더 알아보기</a>
-					</div>
+			</div>
+			<div class="column3" style="display: inline-block">
+				<div class="box">
+					<a href="#"><img src="images/innisfree.jpg" alt=""
+						class="image image-full" width="300" height="300" /></a>
+					<h3>이마트 천안서북점 이니스프리</h3>
+					<p>리뷰 총 2개</p>
+					<br>
+					<p>시간제</p>
+					<br>
+					<p>채용중</p>
+					<br> <a href="#" class="button button-small">더 알아보기</a>
 				</div>
-				<div class="column3" style="display: inline-block">
-					<div class="box">
-						<a href="#"><img src="images/innisfree.jpg" alt=""
-							class="image image-full" width="300" height="300" /></a>
-						<h3>이마트 천안서북점 이니스프리</h3>
-						<p>리뷰 총 2개</p>
-						<br>
-						<p>시간제</p>
-						<br>
-						<p>채용중</p>
-						<br> <a href="#" class="button button-small">더 알아보기</a>
-					</div>
+			</div>
+			<div class="column4" style="display: inline-block">
+				<div class="box">
+					<a href="#"><img src="images/twosome.png" alt=""
+						class="image image-full" width="300" height="300" /></a>
+					<h3>투썸플레이스</h3>
+					<p>리뷰 총 754개</p>
+					<br>
+					<p>단기</p>
+					<br>
+					<p>채용마감</p>
+					<br> <a href="#" class="button button-small">더 알아보기</a>
 				</div>
-				<div class="column4" style="display: inline-block">
-					<div class="box">
-						<a href="#"><img src="images/twosome.png" alt=""
-							class="image image-full" width="300" height="300" /></a>
-						<h3>투썸플레이스</h3>
-						<p>리뷰 총 754개</p>
-						<br>
-						<p>단기</p>
-						<br>
-						<p>채용마감</p>
-						<br> <a href="#" class="button button-small">더 알아보기</a>
-					</div>
-				</div>
-		</div>
+			</div>
+	</div>
 	</div>
 	</center>
 	<br>
@@ -235,16 +300,13 @@
 		<div class="container">
 			<div class="fbox1">
 				<i class="fas fa-map-marker-alt" style="font-size: 50px"></i><br>
-				<br>
-				<br>
-				<br> <span>서울특별시 서초구 서초동 서초대로 1길 <br />102호 워크맨 본사
+				<br> <br> <br> <span>서울특별시 서초구 서초동 서초대로 1길 <br />102호
+					워크맨 본사
 				</span>
 			</div>
 			<div class="fbox1">
-				<i class="fas fa-phone" style="font-size: 50px"></i><br>
-				<br>
-				<br>
-				<br> <span> +82 02-1234-5678 </span>
+				<i class="fas fa-phone" style="font-size: 50px"></i><br> <br>
+				<br> <br> <span> +82 02-1234-5678 </span>
 			</div>
 			<div class="fbox1">
 				<i class="far fa-envelope" style="font-size: 50px"></i> <span
@@ -253,19 +315,19 @@
 		</div>
 	</div>
 
-<script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript" >
-	function moreview3() {
-		axios.get('make', {
-			params : {
-				command : "add"
-			}
-		}).then(response => {
-			document.getElementById("addView").innerHTML = "<div class='txtBox'><a href='partTimeEvalView2.jsp' class='button-small'>占쌘쇽옙占쏙옙占쏙옙占쏙옙</a> "+response.data+"</div>";
-		}).catch(error => {
-			console.log("폼보기 에러" + error);
-		});
-	}
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+//	function moreview3() {
+//		axios.get('make', {
+//			params : {
+//				command : "add"
+//			}
+//		}).then(response => {
+//			document.getElementById("addView").innerHTML = "<div class='txtBox'><a href='partTimeEvalView2.jsp' class='button-small'>占쌘쇽옙占쏙옙占쏙옙占쏙옙</a> "+response.data+"</div>";
+//		}).catch(error => {
+//			console.log("폼보기 에러" + error);
+//		});
+//	}
 	
 	function settimeoutUtube() {
 		setTimeout(function utubeview() {
