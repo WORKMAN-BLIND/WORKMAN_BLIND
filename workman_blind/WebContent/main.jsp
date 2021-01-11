@@ -139,13 +139,13 @@ https://templatemo.com/tm-535-softy-pinko
                      <strong>당신을 </strong>응원합니다.
                   </h1>
                   <p>개미는 뚠뚠 오늘도 뚠뚠 열심히 일을 하네..</p>
-                  <a href="#" class="main-button-slider" onclick="settimeoutUtube()">Discover
-                     More</a> <br> <br>
-                  <center>
-                     <div id="utubeView"></div>
-                  </center>
+                  <a href="#" class="main-button-slider" onclick="settimeoutUtube()">Discover More</a> <br> <br>
+				
                   <br> <br> <br> <br> <br>
                </div>
+
+               	<div id="utubeView" style="margin-bottom: 300px; padding-left: 272px;"></div>
+
             </div>
          </div>
       </div>
@@ -783,7 +783,7 @@ https://templatemo.com/tm-535-softy-pinko
          }).catch(error => {
             console.log("폼보기 에러" + error);
          });
-      }, 3000);
+      }, 1000);
    }
    
 </script>

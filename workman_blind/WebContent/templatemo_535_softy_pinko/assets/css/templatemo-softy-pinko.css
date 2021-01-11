@@ -804,6 +804,12 @@ features
   z-index: 2;
 }
 
+.welcome-area .header-text .container .row .utubebox {
+	margin-bottom: 250px;
+	text-align:right;
+	padding-left: 272px;
+}
+
 .features-small-item p {
   font-weight: 400;
   font-size: 13px;
