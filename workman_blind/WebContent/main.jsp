@@ -679,6 +679,23 @@ https://templatemo.com/tm-535-softy-pinko
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+    
+    
+    <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" >
+	  function ptreview() {
+	     axios.get('make', {
+	        params : {
+	           command : "review"
+	        }
+	     }).then(response => {
+	        document.getElementById("ptreView").innerHTML =response.data;
+	     }).catch(error => {
+	        console.log("예외발생" + error);
+	     });
+	  }
+   
+   
 
   </body>
 </html>

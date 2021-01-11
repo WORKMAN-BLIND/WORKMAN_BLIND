@@ -586,7 +586,7 @@ iframe {
 }
 
 .wrap-table100 {
-  width: 1170px;
+  width: 1123px;  /* #1170px */
 }
 
 table {
@@ -657,11 +657,11 @@ tbody tr:hover {
 
 .column1 {
   width: 260px;
-  padding-left: 62px;
+  padding-left: 42px;
 }
 
 .column2 {
-  width: 160px;
+  width: 164px;
   text-align: center;
 }
 
@@ -689,7 +689,7 @@ tbody tr:hover {
 .column7 {
   width: 223px;
   text-align: center;
-  padding-right: 52px;
+  padding-right: 10px;
 }
 
 
@@ -770,3 +770,9 @@ tbody tr:hover {
     padding-right: 15px;
   }
 }
+
+.heading albaRepute {
+    height: 180px;
+    background-image: url(//image.alba.kr/story/top_repute.png);
+}
+

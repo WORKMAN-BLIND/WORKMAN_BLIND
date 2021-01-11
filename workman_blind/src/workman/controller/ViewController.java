@@ -19,7 +19,7 @@ import workman.model.WorkmanService;
 @WebServlet("/make")
 public class ViewController extends HttpServlet {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response, String companyname) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("utf-8");
 
@@ -28,9 +28,13 @@ public class ViewController extends HttpServlet {
 		if(command != null) {
 			if(command.equals("add")) {
 				ViewAddAction action = ViewAddAction.getInstance();
-				action.service(request, response, companyname);
+				action.service(request, response);
 			}
 			if(command.equals("utube")) {
+				ViewUtubeAction action = ViewUtubeAction.getInstance();
+				action.service(request, response);
+			}
+			if(command.equals("review")) {
 				ViewUtubeAction action = ViewUtubeAction.getInstance();
 				action.service(request, response);
 			}

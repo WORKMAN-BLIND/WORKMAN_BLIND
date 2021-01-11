@@ -7,7 +7,6 @@
 <head>
 <title>Table V01</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 <link rel="icon" type="image/png"
 	href="${pageContext.request.contextPath}/images/icons/home.ico" />
@@ -32,43 +31,102 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/main.css">
 <!--===============================================================================================-->
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+<!-- Additional Header CSS Files -->
+    <link
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial"
+	rel="stylesheet" />
+    <link rel="stylesheet" type="${pageContext.request.contextPath}/text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="${pageContext.request.contextPath}/text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/templatemo-softy-pinko.css">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    
 </head>
 <body>
+
+
+    <!-- ***** Preloader Start ***** -->
+<!--     <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>   -->
+    
+   
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo">
+                            <img src="${pageContext.request.contextPath}/assets/images/pinklogo.PNG" alt="Softy Pinko" width="120" height="50"/>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="main.jsp" class="active">홈</a></li>
+                            <li><a href="#work-process">기업스토리</a></li>
+                            <li><a href="workman?command=ptlistall" class="id" accesskey="3" title="">알바 리스트</a></li>
+                            <li><a href="partTimeListView2.jsp" accesskey="1" title="parttimestory">알바 리뷰</a></li>
+                            <li><a href="#blog">이력서 등록/관리</a></li>
+                            <li><a href="#contact-us">지원관리</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    
+    
 	<c:choose>
 		<c:when test="${sessionScope.type == 1}">
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
 					<a href="workman?command=companyupdatereq" class="id"><i
 						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
-					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
-						style="font-size: 30px; color: grey;"></i><a
-						href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
+					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-sign-out-alt" style="font-size: 30px; color: grey;"></i>
+					<a href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:when>
+		
 
 		<c:otherwise>
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
-					<a href="workman?command=memberupdatereq" class="id"><i class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
-					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
-						style="font-size: 30px; color: grey;"></i><a
-						href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
+					<a href="workman?command=memberupdatereq" class="id"><i class="far fa-user" style="font-size: 25px; color: black;"></i>${sessionScope.id}</a>
+					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-sign-out-alt" style="font-size: 30px; color: black;"></i>
+					<a href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
 			</div>
 		</c:otherwise>
 	</c:choose>
 
-	<span id="Location"><a href="main.jsp">홈으로</a></span>
-	<hr>
-	<br>
-	<br>
-
+	
 	<div class="limiter">
+		
 		<div class="container-table100">
 			<div class="wrap-table100">
+			<div class="heading albaRepute" style="width: 1120px; height: 180px; background-image: url(//image.alba.kr/story/top_repute.png); margin-bottom: 100px; margin-bottom: 100px;"></div>
 				<div class="table100">
 					<table>
 						<thead>
