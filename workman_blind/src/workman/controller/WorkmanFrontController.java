@@ -36,8 +36,8 @@ public class WorkmanFrontController extends HttpServlet {
 		
 		try {
 			
-			if ((String) session.getAttribute("id") == null && !(command.equals("clogin") || command.equals("mlogin"))
-					&& !(command.equals("companyinsert") || command.equals("memberinsert"))) {
+			if ((String) session.getAttribute("id") == null && !(command.equals("clogin") || !(command.equals("mlogin")))
+					&& !(command.equals("companyinsert") || !(command.equals("memberinsert")))) {
 			
 				request.setAttribute("msg", "로그인하세요");
 				request.getRequestDispatcher("view/error.jsp").forward(request, response);
@@ -384,7 +384,7 @@ public class WorkmanFrontController extends HttpServlet {
 
 			}
 		} catch (Exception e) {
-
+			e.printStackTrace();
 			request.setAttribute("msg", "로그인 실패");
 
 		}

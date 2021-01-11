@@ -24,7 +24,8 @@ CREATE TABLE member (
        user_id	 VARCHAR2(20)  PRIMARY KEY,
        user_pw	 VARCHAR2(20) NOT NULL,
        user_name	 VARCHAR2(20) NOT NULL,
-       user_num	 VARCHAR2(50) NOT NULL
+       user_num	 VARCHAR2(50) NOT NULL,
+       company_name          VARCHAR2(50) NOT NULL
 );
 
 
