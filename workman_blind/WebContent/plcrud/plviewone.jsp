@@ -143,7 +143,7 @@
 						<tbody>
 							<tr>
 								<td class="column1">${sessionScope.company.category}</td>
-								<td class="column2">${sessionScope.company.companyname}</td>
+								<td class="column2" onclick="ptreview()">${sessionScope.company.companyname}</td>
 								<td class="column3">${sessionScope.ptlist.workperiod}</td>
 								<td class="column4">${sessionScope.ptlist.worktime}</td>
 								<td class="column5">${sessionScope.ptlist.hourlywage}</td>
@@ -192,6 +192,21 @@
 		src="${pageContext.request.contextPath}/vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
-
+	
+	<script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" >
+	  function ptreview() {
+	     axios.get('make', {
+	        params : {
+	           command : "ptreview",
+	           companyname : ${sessionScope.company.companyname} //cu충정로프랑스점
+	        }
+	     }).then(response => {
+	        document.getElementById("ptreView").innerHTML =response.data;
+	     }).catch(error => {
+	        console.log("예외발생" + error);
+	     });
+	  }
+   
 </body>
 </html>

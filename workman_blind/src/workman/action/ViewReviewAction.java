@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 import workman.model.ParttimeEvalDAO;
 
 @Slf4j
-public class ViewAddAction {
+public class ViewReviewAction {
 
-	private static ViewAddAction instance = new ViewAddAction();
-	private ViewAddAction() {};
-	public static ViewAddAction getInstance() {
+	private static ViewReviewAction instance = new ViewReviewAction();
+	private ViewReviewAction() {};
+	public static ViewReviewAction getInstance() {
 		return instance;
 	}
 	
