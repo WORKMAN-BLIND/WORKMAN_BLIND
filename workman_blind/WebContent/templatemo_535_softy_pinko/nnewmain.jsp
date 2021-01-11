@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.util.ArrayList"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -28,7 +26,7 @@ https://templatemo.com/tm-535-softy-pinko
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
     <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
-    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
     </head>
     
     <body>
@@ -60,10 +58,8 @@ https://templatemo.com/tm-535-softy-pinko
                         <ul class="nav">
                             <li><a href="#welcome" class="active">홈</a></li>
                             <li><a href="#work-process">기업스토리</a></li>
-                            <li><a href="workman?command=ptlistall" class="id"
-					accesskey="3" title="">알바 리스트</a></li>
-                            <li><a href="partTimeListView2.jsp" accesskey="1"
-					title="parttimestory">알바 리뷰</a></li>
+                            <li><a href="#testimonials">알바 리스트</a></li>
+                            <li><a href="#pricing-plans">알바 리뷰</a></li>
                             <li><a href="#blog">이력서 등록/관리</a></li>
                             <li><a href="#contact-us">지원관리</a></li>
                         </ul>
@@ -95,7 +91,8 @@ https://templatemo.com/tm-535-softy-pinko
 					<a href="workman?command=companyupdatereq" class="id"> <i
 						class="far fa-building" style="font-size: 30px; color: white;"></i>
 						${sessionScope.id}
-					</a> (기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-sign-out-alt" style="font-size: 25px; color: white;"></i><a
+					</a> (기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
+						style="font-size: 30px; color: white;"></i><a
 						href="workman?command=logout" class="logout" style="color: white;">
 						[로그아웃]</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
@@ -240,43 +237,43 @@ https://templatemo.com/tm-535-softy-pinko
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="assets/images/pc.png" alt="" width="80" height="80"></i>
-                            <strong>${sessionScope.allcompany[0].companyname}</strong>
-                            <span>${sessionScope.allcompany[0].category}</span>
+                            <strong>샹떼 PC방</strong>
+                            <span>Godard</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="assets/images/cu.png" alt="" width="80" height="80"></i>
-                            <strong>${sessionScope.allcompany[1].companyname}</strong>
-                            <span>${sessionScope.allcompany[1].category}</span>
+                            <strong>CU</strong>
+                            <span>Godard</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="assets/images/innisfree.jpg" alt="" width="80" height="80"></i>
-                            <strong>${sessionScope.allcompany[2].companyname}</strong>
-                            <span>${sessionScope.allcompany[2].category}</span>
+                            <strong>이니스프리</strong>
+                            <span>Godard</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="assets/images/gs25.png" alt="" width="80" height="80"></i>
-                            <strong>${sessionScope.allcompany[3].companyname}</strong>
-                            <span>${sessionScope.allcompany[3].category}</span>
+                            <strong>GS25</strong>
+                            <span>Godard</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="assets/images/hansot.jpg" alt="" width="80" height="80"></i>
-                            <strong>${sessionScope.allcompany[4].companyname}</strong>
-                            <span>${sessionScope.allcompany[4].category}</span>
+                            <strong>한솥도시락</strong>
+                            <span>Godard</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
                             <i><img src="assets/images/twosome.png" alt="" width="80" height="80"></i>
-                            <strong>${sessionScope.allcompany[5].companyname}</strong>
-                            <span>${sessionScope.allcompany[5].category}</span>
+                            <strong>투썸플레이스</strong>
+                            <span>Godard</span>
                         </a>
                     </div>
                 </div>
