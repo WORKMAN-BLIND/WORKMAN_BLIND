@@ -74,23 +74,23 @@
 						<thead>
 							<tr class="table100-head">
 								<th class="column1">업종</th>
-								<th class="column2" style="text-align: center;">기업명</th>
-								<th class="column3" style="text-align: center;">근무기간</th>
+								<th class="column2">기업명</th>
+								<th class="column3">근무기간</th>
 								<th class="column4">근무시간</th>
 								<th class="column5">시급</th>
-								<th class="column6" style="text-align: ritght;">주소</th>
-								<th class="column6" style="text-align: center;">연락처</th>
+								<th class="column6">주소</th>
+								<th class="column7">연락처</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td class="column1">${sessionScope.company.category}</td>
 								<td class="column2">${sessionScope.company.companyname}</td>
-								<td class="column3" style="text-align: center;">${sessionScope.ptlist.workperiod}</td>
+								<td class="column3">${sessionScope.ptlist.workperiod}</td>
 								<td class="column4">${sessionScope.ptlist.worktime}</td>
 								<td class="column5">${sessionScope.ptlist.hourlywage}</td>
-								<td class="column6"style="padding: initial; text-align: center;">${sessionScope.company.companyloc}</td>
-								<td class="column6" style="text-align: center;">${sessionScope.company.companynum}</td>
+								<td class="column6">${sessionScope.company.companyloc}</td>
+								<td class="column7">${sessionScope.company.companynum}</td>
 							</tr>
 						</tbody>
 					</table>
