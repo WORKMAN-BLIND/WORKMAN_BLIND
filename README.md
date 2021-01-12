@@ -7,13 +7,6 @@
 ---
 
 > **팀원 : 장종욱, 권희성, 장문희**
->> 
-:mag: [엑셀문서링크](https://docs.google.com/spreadsheets/d/19So7A99qJnlKGLl4MukpBJ5gDMmvVqs-dZwoCNEFR7c/edit#gid=0)
-
-:mag: [ERDCLOUD 링크 ](https://www.erdcloud.com/d/Hqr6Gx6qMu6i9wZ8i)
-
-:mag: [카카오 오븐 페이지 설계](https://ovenapp.io/project/VAWmAEwLwYoCOj8CLJ8i0hJKVkupt41v#f5ld6)
-
 
 ---
 
@@ -151,8 +144,10 @@
 ## :speech_balloon: WORKMAN_BLIND 기능 설명
 
 ---
+## 💡 Technologies Used
 
-### Structure
+
+### :eyes: Structure
 
 #### 기존 테이블 구조
 ![erd](https://user-images.githubusercontent.com/73862504/103251857-ff8cdb80-49bd-11eb-99ca-70a725b0e7a8.png)
@@ -377,4 +372,10 @@ tomcat 8.5 서버를 이클립스에 연동해서 해결함
   - 장종욱 [(JongwookJang)](https://github.com/kowo1001)
  
 
+## :hammer_and_wrench: 참고
 
+:mag: [엑셀문서링크](https://docs.google.com/spreadsheets/d/19So7A99qJnlKGLl4MukpBJ5gDMmvVqs-dZwoCNEFR7c/edit#gid=0)
+
+:mag: [ERDCLOUD 링크 ](https://www.erdcloud.com/d/Hqr6Gx6qMu6i9wZ8i)
+
+:mag: [카카오 오븐 페이지 설계](https://ovenapp.io/project/VAWmAEwLwYoCOj8CLJ8i0hJKVkupt41v#f5ld6)
