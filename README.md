@@ -156,6 +156,10 @@
 
 ![erd](https://user-images.githubusercontent.com/73862504/103251857-ff8cdb80-49bd-11eb-99ca-70a725b0e7a8.png)
 
+![image](https://user-images.githubusercontent.com/37354978/104269652-28db5a80-54da-11eb-8c69-3bcca26c5c8e.png)
+
+#### 테이블 구조 변경 이유
+- 테이블 간에 관계로 인해 
 
 ---
 
