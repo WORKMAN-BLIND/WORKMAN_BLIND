@@ -539,18 +539,17 @@ https://templatemo.com/tm-535-softy-pinko
          <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                <ul class="social">
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                   <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                  <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                </ul>
             </div>
          </div>
          <div class="row">
             <div class="col-lg-12">
-               <p class="copyright">Copyright &copy; 2020 Softy Pinko Company
-                  - Design: TemplateMo</p>
+               <p class="copyright">WORKMAN &copy; 서울특별시 서초구 서초동 서초대로46길 42 엔코아타워 | 02-1234-5678 | workman@work.co.kr</p>
             </div>
          </div>
       </div>
@@ -588,6 +587,8 @@ https://templatemo.com/tm-535-softy-pinko
          });
       }, 1000);
    }
+   
+
    
 </script>
 </body>
