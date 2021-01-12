@@ -319,49 +319,7 @@ https://templatemo.com/tm-535-softy-pinko
                </div>
             </div>
             
-            <!-- ***** Mini Box End ***** -->
-
-            <!-- 
-            <div class="row">
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/pc.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[0].companyname}</strong> <span>${sessionScope.allcompany[0].category}</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/cu.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[1].companyname}</strong> <span>${sessionScope.allcompany[1].category}</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/innisfree.jpg" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[2].companyname}</strong> <span>${sessionScope.allcompany[2].category}</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/gs25.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[3].companyname}</strong> <span>${sessionScope.allcompany[3].category}</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/hansot.jpg" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[4].companyname}</strong> <span>${sessionScope.allcompany[4].category}</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/twosome.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[5].companyname}</strong> <span>${sessionScope.allcompany[5].category}</span>
-                  </a>
-               </div>
-            </div>
-             -->
-            <!-- ***** Mini Box End ***** -->
+          
          </div>
       </div>
    </section>
@@ -472,24 +430,19 @@ https://templatemo.com/tm-535-softy-pinko
                data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
                <div class="pricing-item">
                   <div class="pricing-header">
-                     <h3 class="pricing-title">세션스코프 컴퍼니네임</h3>
+                     <h3 class="pricing-title">${sessionScope.ptlistall[0].companyname.companyname}</h3>
                   </div>
                   <div class="pricing-body">
                      <div class="price-wrapper">
-                        <span class="currency">₩</span> <span class="price">14.50</span>
-                        <span class="period">monthly</span>
+                        <span class="currency">₩</span> <span class="price">${sessionScope.ptlistall[0].hourlywage}</span>
+                        <span class="period">시급</span>
                      </div>
                      <ul class="list">
-                        <li class="active">60 GB space</li>
-                        <li class="active">600 GB transfer</li>
-                        <li class="active">Pro Design Panel</li>
-                        <li>15-minute support</li>
-                        <li>Unlimited Emails</li>
-                        <li>24/7 Security</li>
+                        <li class="active">${sessionScope.ptlistall[0].objective}</li>
                      </ul>
                   </div>
                   <div class="pricing-footer">
-                     <a href="#" class="main-button">Purchase Now</a>
+                     <a href="#" class="main-button">더 알아보기</a>
                   </div>
                </div>
             </div>
@@ -500,24 +453,19 @@ https://templatemo.com/tm-535-softy-pinko
                data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
                <div class="pricing-item active">
                   <div class="pricing-header">
-                     <h3 class="pricing-title">Premium</h3>
+                     <h3 class="pricing-title">${sessionScope.ptlistall[1].companyname.companyname}</h3>
                   </div>
                   <div class="pricing-body">
                      <div class="price-wrapper">
-                        <span class="currency">₩</span> <span class="price">21.50</span>
-                        <span class="period">monthly</span>
+                        <span class="currency">₩</span> <span class="price">${sessionScope.ptlistall[1].hourlywage}</span>
+                        <span class="period">시급</span>
                      </div>
                      <ul class="list">
-                        <li class="active">120 GB space</li>
-                        <li class="active">1200 GB transfer</li>
-                        <li class="active">Pro Design Panel</li>
-                        <li class="active">15-minute support</li>
-                        <li>Unlimited Emails</li>
-                        <li>24/7 Security</li>
+                        <li class="active">${sessionScope.ptlistall[1].objective}</li>
                      </ul>
                   </div>
                   <div class="pricing-footer">
-                     <a href="#" class="main-button">Purchase Now</a>
+                     <a href="#" class="main-button">더 알아보기</a>
                   </div>
                </div>
             </div>
@@ -528,24 +476,20 @@ https://templatemo.com/tm-535-softy-pinko
                data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
                <div class="pricing-item">
                   <div class="pricing-header">
-                     <h3 class="pricing-title">Advanced</h3>
+                     <h3 class="pricing-title">${sessionScope.ptlistall[3].companyname.companyname}</h3>
                   </div>
+                  
                   <div class="pricing-body">
                      <div class="price-wrapper">
-                        <span class="currency">₩</span> <span class="price">42.00</span>
-                        <span class="period">monthly</span>
+                        <span class="currency">₩</span> <span class="price">${sessionScope.ptlistall[3].hourlywage}</span>
+                        <span class="period">시급</span>
                      </div>
                      <ul class="list">
-                        <li class="active">250 GB space</li>
-                        <li class="active">5000 GB transfer</li>
-                        <li class="active">Pro Design Panel</li>
-                        <li class="active">15-minute support</li>
-                        <li class="active">Unlimited Emails</li>
-                        <li class="active">24/7 Security</li>
+                        <li class="active">${sessionScope.ptlistall[3].objective}</li>
                      </ul>
                   </div>
                   <div class="pricing-footer">
-                     <a href="#" class="main-button">Purchase Now</a>
+                     <a href="#" class="main-button">더 알아보기</a>
                   </div>
                </div>
             </div>

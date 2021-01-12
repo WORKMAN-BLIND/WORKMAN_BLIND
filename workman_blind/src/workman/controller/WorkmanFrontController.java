@@ -371,6 +371,8 @@ public class WorkmanFrontController extends HttpServlet {
 				
 				ArrayList<Company> allcompany = WorkmanService.getAllCompany();
 				session.setAttribute("allcompany", allcompany);
+				
+				session.setAttribute("ptlistall", WorkmanService.getAllPTList());
 
 				url = "main.jsp";
 
