@@ -1,8 +1,19 @@
 # WORKMAN_BLIND Project_V 2.0
 
+
+
+---
+### :sunny: WORKMAN_BLIND 두번째 이야기
+
+안녕하세요! 새롭게 돌아온 **WORKMAN_BLIND**입니다.:smile:
+저희는 템플릿을 대폭 수정하고 각종 기능을 추가하여 더욱 유용한 프로그램으로 거듭났답니다.
+달라진 워크맨의 모습을 지금 바로 영상에서 만나보세요!
+
+
 ---
 
-## WORKMAN BLIND 시연 영상
+
+## :movie_camera:WORKMAN BLIND 시연 영상
 [![workmanblind 시연영상](https://img.youtube.com/vi/HYjsBZNoflA/0.jpg)](https://www.youtube.com/embed/HYjsBZNoflA) 
 ---
 
@@ -55,6 +66,7 @@
 <br><br><br><br>
 
 ---
+
 
 ## :sunny: Service 
 
@@ -147,7 +159,9 @@
 ---
 ## 💡 Technologies Used
 
+<img width="486" alt="technology used" src="https://user-images.githubusercontent.com/37354978/104281745-4ff15680-54f1-11eb-8a4f-9b796d67dcb5.png">
 
+---
 ### :eyes: Structure
 
 #### 기존 테이블 구조
@@ -288,7 +302,7 @@ commit;
 
 ---
 
-## :fire: ISSUE
+## :fire: ISSUE <1> JPA Project
 
 ---
 
@@ -365,6 +379,51 @@ tomcat 8.5 서버를 이클립스에 연동해서 해결함
 - **DDL, DML** : entity와 순서가 다르게 되어있어 생성 및 추가 시 애를 먹었던 테이블도 있었고 구조가 자주 바뀐 점이 아쉬웠다. 그 과정에서 헷갈려하는 팀원들도 있고 오류도 다소 나온편이라 당연한 말이지만 초기에 확실하게 잡아놓는것이 중요하다고 느꼈다.
 
 ---
+## :zap: ISSUE <2> JavaScript project
+
+---
+
+#### 1. ORA-02289: 시퀀스가 존재하지 않습니다.
+
+---
+
+
+테이블 생성 시, @SequenceGenerator 어노테이션 선언을 해놓고 Sequence를 생성하지 않아 위와같은 에러가 발생했었다. 
+시퀀스는 유일한 값을 생성해주는 오라클 객체로 보통 primary key로 사용할 수 있는 순차적으로 증가하는 숫자 컬럼을 생성할 때 사용한다.
+
+
+---
+
+#### 2. 절대경로를 이용한 파일 경로 문제 해결
+
+---
+
+bootstrap의 css를 불러오지 못할때 상위 폴더에 접근하고 싶은데 접근하지 못해서 net::ERR_ABORTED 404 (Not Found) 에러가 뜸
+-${path}.. 경로 앞단에 이 부분을 추가하면 접근 가능
+
+---
+
+#### 3. parttimeList 데이터를 넣어도 전체 불러오지 못하는 문제
+
+---
+parttimelist의 DTO에만 적용되어 있는 시퀀스 값을 DDL에서도 추가함으로써 해결하였다.
+ 
+
+---
+
+#### 4. 이클립스 commit 후 한글 깨짐 현상
+
+---
+pageEncoding="UTF-8"으로 되어있는데도 한글 깨짐 현상이 지속되어 아래 블로그를 참고하여
+
+이클립스의 window-preference의 각종 언어 설정을 utf-8로 변경하여 해결하였다.
+
+https://insight-bgh.tistory.com/117
+
+---
+
+
+
 
 ## ✍️ Author
  Team WORKMAN_BLIND
