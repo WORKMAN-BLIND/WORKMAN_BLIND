@@ -22,10 +22,10 @@ CREATE TABLE company (
 
 CREATE TABLE member (
        user_id    VARCHAR2(50)  PRIMARY KEY,
-       company_name 	VARCHAR2(50) NOT NULL,
-       user_pw    VARCHAR2(20) NOT NULL,
+       user_pw    VARCHAR2(100) NOT NULL,
        user_name    VARCHAR2(20) NOT NULL,
-       user_num    VARCHAR2(50) NOT NULL
+       user_num    VARCHAR2(50) NOT NULL,
+       company_name 	VARCHAR2(50) NOT NULL
 );
 
 
@@ -40,7 +40,7 @@ CREATE TABLE parttimelist (
 
 
 CREATE TABLE parttimeeval (
-      text_eval            NUMBER(10) PRIMARY KEY,
+       eval_num            NUMBER(10) PRIMARY KEY,
        user_id            VARCHAR2(50) NOT NULL,
        company_name         VARCHAR2(50) NOT NULL,
        pros_cons           VARCHAR2(100) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE parttimeeval (
        environment          VARCHAR2(100) NOT NULL,
        incline              VARCHAR2(100) NOT NULL,
        opinion         VARCHAR2(200) NOT NULL
-       );
+);
 
 
 
