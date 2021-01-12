@@ -51,6 +51,7 @@ CREATE TABLE parttimeeval (
 );
 
 
+CREATE SEQUENCE seq_pteval START WITH 1 INCREMENT BY 1 ;
 
 
 ALTER TABLE member  ADD FOREIGN KEY (company_name) REFERENCES company (company_name);

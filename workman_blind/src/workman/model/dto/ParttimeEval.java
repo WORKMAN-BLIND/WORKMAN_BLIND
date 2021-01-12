@@ -33,7 +33,6 @@ import lombok.Setter;
 
 @Entity
 public class ParttimeEval implements Serializable {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parteval_seq_gen")
 	@Column(name = "eval_num")
