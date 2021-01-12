@@ -17,6 +17,7 @@
    rel="stylesheet">
 
 <title>Softy Pinko - Bootstrap 4.0 Theme</title>
+    
 <!--
 SOFTY PINKO
 https://templatemo.com/tm-535-softy-pinko
@@ -284,45 +285,6 @@ https://templatemo.com/tm-535-softy-pinko
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/pc.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[0].companyname}</strong> <span>pc방</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/cu.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[1].companyname}</strong> <span>편의점</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/innisfree.jpg" alt="" width="80" height="80"></i>
-                     <strong>이니스프리<br>천안서북점</strong> <span>화장품가게</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/gs25.png" alt="" width="80" height="80"></i>
-                     <strong>GS25<br>대구역자이점<br></strong> <span>편의점</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/hansot.jpg" alt="" width="80" height="80"></i>
-                     <strong>한솥도시락<br>시화점</strong> <span>음식점</span>
-                  </a>
-               </div>
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/twosome.png" alt="" width="80" height="80"></i>
-                     <strong>투썸플레이스<br>송도점</strong> <span>카페</span>
-                  </a>
-               </div>
-            </div>
-            <!-- 
-            <div class="row">
-               <div class="col-lg-2 col-md-3 col-sm-6 col-6">
-                  <a href="#" class="mini-box"> <i><img
-                        src="assets/images/pc.png" alt="" width="80" height="80"></i>
                      <strong>${sessionScope.allcompany[0].companyname}</strong> <span>${sessionScope.allcompany[0].category}</span>
                   </a>
                </div>
@@ -357,7 +319,7 @@ https://templatemo.com/tm-535-softy-pinko
                   </a>
                </div>
             </div>
-             -->
+            
             <!-- ***** Mini Box End ***** -->
          </div>
       </div>
@@ -559,22 +521,22 @@ https://templatemo.com/tm-535-softy-pinko
             <div class="row">
                <div class="col-lg-3 col-md-6 col-sm-12">
                   <div class="count-item decoration-bottom">
-                     <strong>126</strong> <span>Projects</span>
+                     <strong>126</strong> <span>오늘 올라온 후기</span>
                   </div>
                </div>
                <div class="col-lg-3 col-md-6 col-sm-12">
                   <div class="count-item decoration-top">
-                     <strong>63</strong> <span>Happy Clients</span>
+                     <strong>630</strong> <span>오늘 매칭된 알바</span>
                   </div>
                </div>
                <div class="col-lg-3 col-md-6 col-sm-12">
                   <div class="count-item decoration-bottom">
-                     <strong>18</strong> <span>Awards Wins</span>
+                     <strong>180</strong> <span>오늘 가입한 기업</span>
                   </div>
                </div>
                <div class="col-lg-3 col-md-6 col-sm-12">
                   <div class="count-item">
-                     <strong>27</strong> <span>Countries</span>
+                     <strong>270</strong> <span>오늘 가입한 사람</span>
                   </div>
                </div>
             </div>
@@ -582,153 +544,63 @@ https://templatemo.com/tm-535-softy-pinko
       </div>
    </section>
    <!-- ***** Counter Parallax End ***** -->
-
-   <!-- ***** Blog Start ***** -->
-   <section class="section" id="blog">
+<!-- ***** Features Big Item Start ***** -->
+   <section class="section padding-top-70 padding-bottom-0" id="features">
       <div class="container">
-         <!-- ***** Section Title Start ***** -->
          <div class="row">
-            <div class="col-lg-12">
-               <div class="center-heading">
-                  <h2 class="section-title">Blog Entries</h2>
+               
+               <div id="curve_chart" style="width: 900px; height: 500px;"></div></div>
+            <div class="col-lg-1"></div>
+            <div
+               class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
+               <div class="left-heading">
+                  <h2 class="section-title">전국 구인구직 취업 동향</h2>
                </div>
-            </div>
-            <div class="offset-lg-3 col-lg-6">
-               <div class="center-text">
-                  <p>Integer molestie aliquam gravida. Nullam nec arcu finibus,
-                     imperdiet nulla vitae, placerat nibh. Cras maximus venenatis
-                     molestie.</p>
-               </div>
-            </div>
-         </div>
-         <!-- ***** Section Title End ***** -->
-
-         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-               <div class="blog-post-thumb">
-                  <div class="img">
-                     <img src="assets/images/blog-item-01.png" alt="">
-                  </div>
-                  <div class="blog-content">
-                     <h3>
-                        <a href="#">Vivamus ac vehicula dui</a>
-                     </h3>
-                     <div class="text">Cras aliquet ligula dui, vitae fermentum
-                        velit tincidunt id. Praesent eu finibus nunc. Nulla in sagittis
-                        eros. Aliquam egestas augue.</div>
-                     <a href="#" class="main-button">Read More</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-               <div class="blog-post-thumb">
-                  <div class="img">
-                     <img src="assets/images/blog-item-02.png" alt="">
-                  </div>
-                  <div class="blog-content">
-                     <h3>
-                        <a href="#">Phasellus convallis augue</a>
-                     </h3>
-                     <div class="text">Aliquam commodo ornare nisl, et
-                        scelerisque nisl dignissim ac. Vestibulum finibus urna ut velit
-                        venenatis, vel ultrices sapien mattis.</div>
-                     <a href="#" class="main-button">Read More</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-               <div class="blog-post-thumb">
-                  <div class="img">
-                     <img src="assets/images/blog-item-03.png" alt="">
-                  </div>
-                  <div class="blog-content">
-                     <h3>
-                        <a href="#">Nam gravida purus non</a>
-                     </h3>
-                     <div class="text">Maecenas eu erat vitae dui convallis
-                        consequat vel gravida nulla. Vestibulum finibus euismod odio, ut
-                        tempus enim varius eu.</div>
-                     <a href="#" class="main-button">Read More</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- ***** Blog End ***** -->
-
-   <!-- ***** Contact Us Start ***** -->
-   <section class="section colored" id="contact-us">
-      <div class="container">
-         <!-- ***** Section Title Start ***** -->
-         <div class="row">
-            <div class="col-lg-12">
-               <div class="center-heading">
-                  <h2 class="section-title">Talk To Us</h2>
-               </div>
-            </div>
-            <div class="offset-lg-3 col-lg-6">
-               <div class="center-text">
-                  <p>Maecenas pellentesque ante faucibus lectus vulputate
-                     sollicitudin. Cras feugiat hendrerit semper.</p>
-               </div>
-            </div>
-         </div>
-         <!-- ***** Section Title End ***** -->
-
-         <div class="row">
-            <!-- ***** Contact Text Start ***** -->
-            <div class="col-lg-4 col-md-6 col-sm-12">
-               <h5 class="margin-bottom-30">Keep in touch</h5>
-               <div class="contact-text">
+               <div class="left-text">
                   <p>
-                     110-220 Quisque diam odio, maximus ac consectetur eu, 10260 <br>auctor
-                     non lorem
+                     2012년 2월 ~ 2020년 11월<br>
+                    출처 :고용노동부 
+                    <button onclick="chartView()"> 차트보기 </button>
                   </p>
-                  <p>You are NOT allowed to re-distribute Softy Pinko template
-                     on any template collection websites. Thank you.</p>
                </div>
             </div>
-            <!-- ***** Contact Text End ***** -->
-
-            <!-- ***** Contact Form Start ***** -->
-            <div class="col-lg-8 col-md-6 col-sm-12">
-               <div class="contact-form">
-                  <form id="contact" action="" method="get">
-                     <div class="row">
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                           <fieldset>
-                              <input name="name" type="text" class="form-control" id="name"
-                                 placeholder="Full Name" required="">
-                           </fieldset>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                           <fieldset>
-                              <input name="email" type="email" class="form-control"
-                                 id="email" placeholder="E-Mail Address" required="">
-                           </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                           <fieldset>
-                              <textarea name="message" rows="6" class="form-control"
-                                 id="message" placeholder="Your Message" required=""></textarea>
-                           </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                           <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Send
-                                 Message</button>
-                           </fieldset>
-                        </div>
-                     </div>
-                  </form>
-               </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="hr"></div>
             </div>
-            <!-- ***** Contact Form End ***** -->
          </div>
       </div>
    </section>
-   <!-- ***** Contact Us End ***** -->
+   <!-- ***** Features Big Item End ***** -->
+
+    <section class="section padding-top-70 padding-bottom-0" id="features">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 align-self-center"
+               data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+               <div id="curve_chart" style="width: 900px; height: 500px;"></div>
+            <div class="col-lg-1"></div>
+            <div
+               class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
+               <div class="left-heading">
+                  <h2 class="section-title">알바, 더이상 탈주하지 마세요!</h2>
+               </div>
+               <div class="left-text">
+                  <p>
+                     저희 워크맨은 해당 알바를 직접 경험해본 선배들의 생생한 후기로<br>여러분의 더욱 현명한 알바 지원을
+                     도와드립니다.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="hr"></div>
+            </div>
+         </div>
+      </div>
+   </section>
 
    <!-- ***** Footer Start ***** -->
    <footer>
@@ -787,5 +659,93 @@ https://templatemo.com/tm-535-softy-pinko
    }
    
 </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+    google.charts.load('current', { 'packages': ['corechart'] });
+    
+    let answer = [['년도', '구인인원', '구직자수']]
+    let workdata;
+    let yearcount = [];
+    let wyear;
+    let workyear;
+    let flag;
+
+    function getyear(value) {
+      return String(value.년월).substr(0,4) === workyear;
+    }
+
+    function getsum(total, value) {
+      return total + value;
+    }
+
+    function getemployer(value) {
+      return parseFloat(value.구인인원.replace(",",""));
+    }
+
+    function getemployee(value) {
+      return parseFloat(value.구직자수.replace(",",""));
+    }
+
+    
+
+
+
+    function chartView() {
+
+    var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            workdata = JSON.parse(this.responseText);
+
+            for (var i = 0; i < workdata.length; i++) {
+
+                wyear = String(workdata[i].년월);
+                workyear = wyear.substr(0, 4);
+
+                 flag = true
+
+            for (var j = 0; j < yearcount.length; j++) {
+              if (String(workdata[i].년월).substr(0,4) === yearcount[j]) {
+                flag = false
+              }
+            }
+            
+
+            
+            if(flag) {
+                var yearlist = workdata.filter(getyear);
+                var empr = yearlist.map(getemployer);
+                var empe = yearlist.map(getemployee);
+                var rsum = empr.reduce(getsum);
+               
+                var esum = empe.reduce(getsum);
+                var inlist = [];
+
+                inlist.push(workyear);
+                inlist.push(rsum);
+                inlist.push(esum);
+
+                answer.push(inlist);
+                yearcount.push(workyear);
+                console.log(answer)
+            }
+        }
+        var data = google.visualization.arrayToDataTable(answer);
+        var options = {
+            title: '',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+          };
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+          chart.draw(data, options);
+        }
+    }
+    xhttp.open("GET", "worknet.json", true);
+      xhttp.send();
+    }
+    </script>
 </body>
 </html>
