@@ -3,7 +3,7 @@
 ---
 
 ## PARTTIME-JOB REVIEW
-[![workman(workmanblind)](https://www.youtube.com/embed/HYjsBZNoflA/0.jpg)](https://www.youtube.com/embed/HYjsBZNoflA) 
+[![workmanblind 시연영상](https://www.youtube.com/embed/HYjsBZNoflA/0.jpg)](https://www.youtube.com/embed/HYjsBZNoflA) 
 ---
 
 > **팀원 : 장종욱, 권희성, 장문희**
