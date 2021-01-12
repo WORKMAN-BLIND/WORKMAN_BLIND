@@ -708,8 +708,9 @@ https://templatemo.com/tm-535-softy-pinko
             </div>
             <div class="offset-lg-3 col-lg-6">
                <div class="center-text">
-                  <p>Donec vulputate urna sed rutrum venenatis. Cras consequat
-                     magna quis arcu elementum, quis congue risus volutpat.</p>
+                  <p>Part-time jobs can help people make money to pay off debt, save for emergencies or other financial goals, 
+                  or provide an extra cushion for things like hobbies, travel, or special occasions. While it’s still possible to find part-time jobs by responding to classifieds, 
+                  through word of mouth, or via local flyers, it’s now faster and easier than ever to find part-time work through online job sites.</p>
                </div>
             </div>
          </div>
