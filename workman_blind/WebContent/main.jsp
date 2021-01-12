@@ -279,45 +279,48 @@ https://templatemo.com/tm-535-softy-pinko
                </div>
             </div>
 
-            <!-- ***** Mini Box Start ***** -->
+                <!-- ***** Mini Box Start ***** -->
             <div class="row">
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/pc.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[0].companyname}</strong> <span>pc방</span>
+                     <strong>${sessionScope.allcompany[0].companyname}</strong> <span>${sessionScope.allcompany[0].category}</span>
                   </a>
                </div>
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/cu.png" alt="" width="80" height="80"></i>
-                     <strong>${sessionScope.allcompany[1].companyname}</strong> <span>편의점</span>
+                     <strong>${sessionScope.allcompany[1].companyname}</strong> <span>${sessionScope.allcompany[1].category}</span>
                   </a>
                </div>
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/innisfree.jpg" alt="" width="80" height="80"></i>
-                     <strong>이니스프리<br>천안서북점</strong> <span>화장품가게</span>
+                     <strong>${sessionScope.allcompany[2].companyname}</strong> <span>${sessionScope.allcompany[2].category}</span>
                   </a>
                </div>
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/gs25.png" alt="" width="80" height="80"></i>
-                     <strong>GS25<br>대구역자이점<br></strong> <span>편의점</span>
+                     <strong>${sessionScope.allcompany[3].companyname}</strong> <span>${sessionScope.allcompany[3].category}</span>
                   </a>
                </div>
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/hansot.jpg" alt="" width="80" height="80"></i>
-                     <strong>한솥도시락<br>시화점</strong> <span>음식점</span>
+                     <strong>${sessionScope.allcompany[4].companyname}</strong> <span>${sessionScope.allcompany[4].category}</span>
                   </a>
                </div>
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                   <a href="#" class="mini-box"> <i><img
                         src="assets/images/twosome.png" alt="" width="80" height="80"></i>
-                     <strong>투썸플레이스<br>송도점</strong> <span>카페</span>
+                     <strong>${sessionScope.allcompany[5].companyname}</strong> <span>${sessionScope.allcompany[5].category}</span>
                   </a>
                </div>
             </div>
+            
+            <!-- ***** Mini Box End ***** -->
+
             <!-- 
             <div class="row">
                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
