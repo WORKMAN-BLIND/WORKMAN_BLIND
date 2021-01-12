@@ -7,13 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
+import workman.action.ViewChartAction;
 import workman.action.ViewReviewAction;
 import workman.action.ViewUtubeAction;
-import workman.model.CompanyDAO;
-import workman.model.WorkmanService;
 
 @Slf4j
 @WebServlet("/make")
@@ -28,12 +26,17 @@ public class ViewController extends HttpServlet {
 		if(command != null) {
 			if(command.equals("ptreview")) {
 				ViewReviewAction action = ViewReviewAction.getInstance();
+
 				action.service(request, response);
 			}
 			if(command.equals("utube")) {
 				ViewUtubeAction action = ViewUtubeAction.getInstance();
 				action.service(request, response);
-			}
+			} 
+			if(command.equals("chart")) {
+				ViewChartAction action = ViewChartAction.getInstance();
+				action.service(request, response);
+			} 
 			
 		}
 	}

@@ -497,7 +497,35 @@ https://templatemo.com/tm-535-softy-pinko
       </div>
    </section>
    <!-- ***** Pricing Plans End ***** -->
-
+<section class="section padding-top-70 padding-bottom-0" id="features">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 align-self-center"
+               data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+               <img src="assets/images/left-image.png"
+                  class="rounded img-fluid d-block mx-auto" alt="App">
+            </div>
+            <div class="col-lg-1"></div>
+            <div
+               class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
+               <div class="left-heading">
+                  <h2 class="section-title">전국 구인구직 현황</h2>
+               </div>
+               <div class="left-text">
+                  <p>
+                     2012 - 2019 <br>
+                     출처 : 고용노동부
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="hr"></div>
+            </div>
+         </div>
+      </div>
+   </section>
    <!-- ***** Counter Parallax Start ***** -->
    <section class="counter">
       <div class="content">
@@ -588,8 +616,20 @@ https://templatemo.com/tm-535-softy-pinko
       }, 1000);
    }
    
-
+   function settimeoutChart() {
+	      setTimeout(function chartview() {
+	         axios.get('make', {
+	            params : {
+	               command : "chart"
+	            }
+	         }).then(response => {
+	            document.getElementById("chartView").innerHTML = response.data;
+	         }).catch(error => {
+	            console.log("폼보기 에러" + error);
+	         });
+	      }, 1000);
+	   }
    
 </script>
 </body>
-</html>
+</html>/html>

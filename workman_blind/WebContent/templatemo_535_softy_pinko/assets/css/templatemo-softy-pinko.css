@@ -43,6 +43,17 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+.myloginarea { 
+       clear:both;
+       position: absolute;
+       width: 200;
+       height: 30px;
+       float: right;
+       top: 10px;
+       right: 10px;
+       overflow: hidden;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -324,9 +335,12 @@ a.main-button-slider {
   transition: all 0.3s ease 0s;
 }
 
+
+
 a.main-button-slider:hover {
   background-color: #8261ee;
 }
+
 
 a.main-button {
   font-size: 13px;

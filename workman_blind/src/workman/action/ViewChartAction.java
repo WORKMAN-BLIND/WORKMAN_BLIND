@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import lombok.extern.slf4j.Slf4j;
-import workman.model.ParttimeEvalDAO;
 
 @Slf4j
-public class ViewAddAction {
+public class ViewChartAction {
 
-	private static ViewAddAction instance = new ViewAddAction();
-	private ViewAddAction() {};
-	public static ViewAddAction getInstance() {
+	private static ViewChartAction instance = new ViewChartAction();
+	private ViewChartAction() {};
+	public static ViewChartAction getInstance() {
 		return instance;
 	}
 	
@@ -22,11 +21,10 @@ public class ViewAddAction {
 		String url = "view/error.jsp";
 		
 		try {
-//			request.setAttribute("add", ParttimeEvalDAO.getAllComPTEval(companyname));
-			url = "form.jsp";
+			url = "chart.jsp";
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
-			log.info("폼 보여주기 실패");
+			log.info("차트 보여주기 실패");
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

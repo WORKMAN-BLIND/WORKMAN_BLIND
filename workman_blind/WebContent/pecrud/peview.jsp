@@ -144,10 +144,23 @@
 				</center>
 				<div class="table100">
 				
+				
+				
+				
 				<div align="right">
+				
+				<c:choose>
+					<c:when
+						test="${sessionScope.type == 2 && sessionScope.comname == sessionScope.company.companyname}">
+						<!--  	<a href="plinsert.jsp">알바 구인글 작성 (기업)</a> -->
+						<button type="button" onclick="location.href='pecrud/peinsert.jsp'" style="color: white; font-weight: bold; margin-bottom: 20px;">알바리뷰 글 작성</button>
+						<br>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
 
+				</c:choose>
 
-				<button type="button" onclick="location.href='pecrud/peinsert.jsp'" style="color: white; font-weight: bold; margin-bottom: 20px;">알바리뷰 글 작성</button>
 				<br>
 
 				</div>
