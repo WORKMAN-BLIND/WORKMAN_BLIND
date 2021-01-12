@@ -16,12 +16,21 @@ insert into member values('kwon5678','1234','이순신','010-1234-5655','샹떼p
 
 -- parttimelist 테이블 알바리스트 저장
 insert into parttimelist values(208254,'샹떼pc방인천동춘점','6시간',9000,'1년이상','피씨방 꿀알바 식대무한제공');
+<<<<<<< HEAD
 insert into parttimelist values(208252,'cu충정로프랑스점','3시간',8590,'6개월이상','편의점 알바 급구합니다');
 insert into parttimelist values(208255,'이마트 천안서북점 이니스프리','8시간',9000,'6개월이상','화장품 좋아하는분 환영');
 insert into parttimelist values(208253,'GS25대구역자이점','5시간',8590,'3개월이상','오전알바 구합니다');
 insert into parttimelist values(208258,'한솥도시락시화점','6시간',8590,'6개월이상','식대무료 알바구함');
 insert into parttimelist values(208257,'투썸플레이스송도점','5시간',9500,'6개월이상','카페알바 경력구함');
 insert into parttimelist values(208256,'플레이데이터','5시간',10000,'1년이상','가족같은 직원 구합니다');
+=======
+insert into parttimelist values(208256,'플레이데이터','5시간',10000,'1년이상','가족같은 직원 구합니다');
+insert into parttimelist values(208255,'이마트 천안서북점 이니스프리','8시간',9000,'6개월이상','화장품 좋아하는분 환영');
+insert into parttimelist values(208253,'GS25대구역자이점','5시간',8590,'3개월이상','오전알바 구합니다');
+insert into parttimelist values(208258,'한솥도시락시화점','6시간',8590,'6개월이상','식대무료 알바구함');
+insert into parttimelist values(208252,'cu충정로프랑스점','3시간',8590,'6개월이상','편의점 알바 급구합니다');
+insert into parttimelist values(208257,'투썸플레이스송도점','5시간',9500,'6개월이상','카페알바 경력구함');
+>>>>>>> 009057928b8bd764d58f4de8b22dc300c538bb55
 
 -- parttimeeval 테이블 알바평가게시글 저장-문제
 insert into parttimeeval values(208275,'kwon0329','플레이데이터','칼퇴가능','안밀려요','식사제공','깐깐해요','오래오래 일하고 싶어요');

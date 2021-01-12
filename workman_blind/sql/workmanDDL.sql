@@ -25,7 +25,11 @@ CREATE TABLE member (
        user_pw    VARCHAR2(100) NOT NULL,
        user_name    VARCHAR2(20) NOT NULL,
        user_num    VARCHAR2(50) NOT NULL,
+<<<<<<< HEAD
        company_name    VARCHAR2(50) NOT NULL
+=======
+       company_name 	VARCHAR2(50) NOT NULL
+>>>>>>> 009057928b8bd764d58f4de8b22dc300c538bb55
 );
 
 

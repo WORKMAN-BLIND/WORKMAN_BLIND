@@ -143,6 +143,15 @@
 					<img src="${pageContext.request.contextPath}/images/알바리뷰.jpg" border="0" width="1120px" height="250px" style="margin-bottom: 100px">
 				</center>
 				<div class="table100">
+				
+				<div align="right">
+
+
+				<button type="button" onclick="location.href='pecrud/peinsert.jsp'" style="color: white; font-weight: bold; margin-bottom: 20px;">알바리뷰 글 작성</button>
+				<br>
+
+				</div>
+			
 					<table>
 						<thead>
 							<tr class="table100-head">
