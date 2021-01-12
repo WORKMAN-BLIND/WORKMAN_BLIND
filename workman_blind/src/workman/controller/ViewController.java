@@ -24,8 +24,13 @@ public class ViewController extends HttpServlet {
 		String command = request.getParameter("command");
 		
 		if(command != null) {
+<<<<<<< Updated upstream
 			if(command.equals("ptreview")) {
 				ViewReviewAction action = ViewReviewAction.getInstance();
+=======
+			if(command.equals("add")) {
+				ViewAddAction action = ViewAddAction.getInstance();
+>>>>>>> Stashed changes
 				action.service(request, response);
 			}
 			if(command.equals("utube")) {

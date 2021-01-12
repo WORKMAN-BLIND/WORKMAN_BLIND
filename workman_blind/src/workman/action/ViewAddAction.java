@@ -18,11 +18,11 @@ public class ViewAddAction {
 		return instance;
 	}
 	
-	public void service(HttpServletRequest request, HttpServletResponse response, String companyname) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		
 		try {
-			request.setAttribute("add", ParttimeEvalDAO.getAllComPTEval(companyname));
+//			request.setAttribute("add", ParttimeEvalDAO.getAllComPTEval(companyname));
 			url = "form.jsp";
 		} catch (Exception s) {
 			request.setAttribute("msg", s.getMessage());
