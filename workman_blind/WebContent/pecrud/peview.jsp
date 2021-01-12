@@ -108,7 +108,7 @@
 	<c:choose>
 		<c:when test="${sessionScope.type == 1}">
 			<div class="navi" style="font-color: gray">
-				<p style="text-align: right;">
+				<p style="background: linear-gradient(-135deg, #c850c0, #4158d0);text-align: right;">
 					<a href="workman?command=companyupdatereq" class="id"><i
 						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
 					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i

@@ -10,6 +10,12 @@ DROP TABLE parttimeeval cascade constraint;
 -- 기업
 DROP TABLE company cascade constraint;
 
+-- 알바 리스트 게시판 sequence
+DROP sequence partlist_seq_num;
+
+-- 알바 평가 게시판 sequence
+DROP sequence parteval_seq_id;
+
 
 CREATE TABLE company (
    company_name      VARCHAR2(50)    PRIMARY KEY,
@@ -51,7 +57,9 @@ CREATE TABLE parttimeeval (
 );
 
 
-CREATE SEQUENCE seq_pteval START WITH 1 INCREMENT BY 1 ;
+CREATE SEQUENCE parteval_seq_id START WITH 1 INCREMENT BY 50 ;
+CREATE SEQUENCE partlist_seq_num START WITH 1 INCREMENT BY 50 ;
+
 
 
 ALTER TABLE member  ADD FOREIGN KEY (company_name) REFERENCES company (company_name);

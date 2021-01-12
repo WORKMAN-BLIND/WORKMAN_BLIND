@@ -10,10 +10,11 @@
 <title>해당 알바 리뷰글 출력</title>
 </head>
 <body>
+
 <c:choose>
 		<c:when test="${sessionScope.type == 1}">
 			<div class="navi" style="font-color: gray">
-				<p style="text-align: right;">
+				<p style="background: linear-gradient(-135deg, #c850c0, #4158d0);text-align: right;">
 					<a href="workman?command=companyupdatereq" class="id"><i
 						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
 					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
@@ -26,7 +27,7 @@
 
 		<c:otherwise>
 			<div class="navi" style="font-color: gray">
-				<p style="text-align: right;">
+				<p style="background: linear-gradient(-135deg, #c850c0, #4158d0);text-align: right;">
 					<a href="workman?command=memberupdatereq" class="id"><i
 						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
 					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
@@ -37,6 +38,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
+
 	
 	<div id="Location">
 			<a href="${pageContext.request.contextPath}/main.jsp">홈으로</a>
