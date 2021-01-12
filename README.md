@@ -159,14 +159,8 @@
 ---
 ## 💡 Technologies Used
 
+<img width="486" alt="technology used" src="https://user-images.githubusercontent.com/37354978/104281745-4ff15680-54f1-11eb-8a4f-9b796d67dcb5.png">
 
----
-
-## :사용 기술
-![image](https://user-images.githubusercontent.com/73862504/104275670-a4db9f80-54e6-11eb-8afb-0c40b5fd28e8.png)
-![image](https://user-images.githubusercontent.com/73862504/104275797-e704e100-54e6-11eb-8cdd-bda70eb0213d.png)
-![image](https://user-images.githubusercontent.com/73862504/104275836-f5eb9380-54e6-11eb-841e-127b0c2686d3.png)
-![image](https://user-images.githubusercontent.com/73862504/104275933-26333200-54e7-11eb-9041-b14c40585a1d.png)
 ---
 ### :eyes: Structure
 
