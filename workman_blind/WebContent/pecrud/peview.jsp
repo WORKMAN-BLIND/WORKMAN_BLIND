@@ -147,7 +147,7 @@
 				<div align="right">
 
 
-				<button type="button" onclick="location.href='pecrud/peinsert.jsp'">해당 기업 알바리뷰 글 작성</button>
+				<button type="button" onclick="location.href='pecrud/peinsert.jsp'" style="color: white; font-weight: bold; margin-bottom: 20px;">알바리뷰 글 작성</button>
 				<br>
 
 				</div>
