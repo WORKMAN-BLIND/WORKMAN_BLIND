@@ -1,8 +1,19 @@
 # WORKMAN_BLIND Project_V 2.0
 
+
+
+---
+### :sunny: WORKMAN_BLIND 두번째 이야기
+
+안녕하세요! 새롭게 돌아온 **WORKMAN_BLIND**입니다.:smile:
+저희는 템플릿을 대폭 수정하고 각종 기능을 추가하여 더욱 유용한 프로그램으로 거듭났답니다.
+달라진 워크맨의 모습을 지금 바로 영상에서 만나보세요!
+
+
 ---
 
-## WORKMAN BLIND 시연 영상
+
+## :movie_camera:WORKMAN BLIND 시연 영상
 [![workmanblind 시연영상](https://img.youtube.com/vi/HYjsBZNoflA/0.jpg)](https://www.youtube.com/embed/HYjsBZNoflA) 
 ---
 
@@ -53,16 +64,6 @@
 
 맡겨만 주세요!!:punch::punch::punch:
 <br><br><br><br>
-
----
-
-
-### :sunny: WORKMAN_BLIND 두번째 이야기
-
-안녕하세요! 새롭게 돌아온 **WORKMAN_BLIND**입니다.:smile:
-저희는 템플릿을 대폭 수정하고 각종 기능을 추가하여 더욱 유용한 프로그램으로 거듭났답니다.
-달라진 워크맨의 모습을 지금 바로 확인해 보세요!
-
 
 ---
 
