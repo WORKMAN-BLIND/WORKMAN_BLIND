@@ -22,10 +22,6 @@ import workman.model.dto.ParttimeEval;
 @WebServlet("/workman")
 public class WorkmanFrontController extends HttpServlet {
 
-	public WorkmanFrontController() {
-		super();
-	}
-
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

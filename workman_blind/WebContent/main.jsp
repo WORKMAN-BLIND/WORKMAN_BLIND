@@ -57,9 +57,7 @@ https://templatemo.com/tm-535-softy-pinko
                      <c:when test="${sessionScope.type == 1}">
                         <div class="navi" style="font-color: white">
                            <p style="text-align: right; color: white;">
-                              <a href="workman?command=companyupdatereq" class="id"> <i
-                                 class="far fa-building"
-                                 style="font-size: 30px; color: white;"></i>
+                              <a href="workman?command=companyupdatereq" class="id"> <i class="far fa-building" style="font-size: 30px; color: white;"></i>
                                  ${sessionScope.id}
                               </a> (기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
                                  class="fas fa-sign-out-alt"
@@ -74,8 +72,7 @@ https://templatemo.com/tm-535-softy-pinko
                      <c:otherwise>
                         <div class="navi" style="font-color: white">
                            <p style="text-align: right; color: white;">
-                              <a href="workman?command=memberupdatereq" class="id"> <i
-                                 class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
+                              <a href="workman?command=memberupdatereq" class="id"> <i class="far fa-user" style="font-size: 25px; color: white;"></i>${sessionScope.id}</a>
                               (일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i
                                  class="fas fa-sign-out-alt"
                                  style="font-size: 25px; color: white;"></i><a
@@ -104,8 +101,8 @@ https://templatemo.com/tm-535-softy-pinko
                      <li><a href="#work-process">기업스토리</a></li>
                      <li><a href="workman?command=ptlistall" class="id"
                         accesskey="3" title="">알바 리스트</a></li>
-                     <li><a href="partTimeListView2.jsp" accesskey="1"
-                        title="parttimestory">알바 리뷰</a></li>
+                     <li><a onclick="location.href='workman?command=ptlist&listnum=${sessionScope.ptlistall[0].listnum}&companyname=${sessionScope.ptlistall[0].companyname.companyname}'" accesskey="1"
+                        title="parttimestory" >알바 리뷰</a></li>
                      <li><a href="#blog">이력서 등록/관리</a></li>
                      <li><a href="#contact-us">지원관리</a></li>
                   </ul></center>
@@ -530,7 +527,44 @@ https://templatemo.com/tm-535-softy-pinko
    <!-- ***** Counter Parallax End ***** -->
 
 
+<!-- 	<!--  시작  -->
+	<section class="section padding-top-70 padding-bottom-0" id="features">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 col-md-12 col-sm-12 align-self-center"
+					data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+					<div id="curve_chart" style="width: 500px; height: 300px;"></div>
 
+
+				</div> 
+				
+				
+				<div class="col-lg-1"></div>
+				<div
+					class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
+					<div class="left-heading">
+					
+						<h2 class="section-title">전국 구인구직 현황</h2>
+					</div>
+					<div class="left-text">
+						<p>
+							2012 - 2020 <br> 출처 : 고용노동부 <br>
+						<hr>
+						<br>
+						<button onclick="chartView()">Chart</button>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="hr"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+<!-- 	끝--> 
   
 
    <!-- ***** Footer Start ***** -->
@@ -571,6 +605,97 @@ https://templatemo.com/tm-535-softy-pinko
    <!-- Global Init -->
    <script src="assets/js/custom.js"></script>
 
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>구직자 대비 취업률</title>
+
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+       
+       google.charts.load('current', { 'packages': ['corechart'] });
+       
+       let answer = [['년도', '구인인원', '구직자수']]
+       let workdata;
+       let yearcount = [];
+       let wyear;
+       let workyear;
+       let flag;
+
+       function getyear(value) {
+         return String(value.년월).substr(0,4) === workyear;
+       }
+
+       function getsum(total, value) {
+         return total + value;
+       }
+
+       function getemployer(value) {
+         return parseFloat(value.구인인원.replace(",",""));
+       }
+
+       function getemployee(value) {
+         return parseFloat(value.구직자수.replace(",",""));
+       }
+
+       function chartView() {
+
+       var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+
+               workdata = JSON.parse(this.responseText);
+
+               for (var i = 0; i < workdata.length; i++) {
+
+                   wyear = String(workdata[i].년월);
+                   workyear = wyear.substr(0, 4);
+
+                    flag = true
+
+               for (var j = 0; j < yearcount.length; j++) {
+                 if (String(workdata[i].년월).substr(0,4) === yearcount[j]) {
+                   flag = false
+                 }
+               }
+               
+               if(flag) {
+                   var yearlist = workdata.filter(getyear);
+                   var empr = yearlist.map(getemployer);
+                   var empe = yearlist.map(getemployee);
+                   var rsum = empr.reduce(getsum);
+                  
+                   var esum = empe.reduce(getsum);
+                   var inlist = [];
+
+                   inlist.push(workyear);
+                   inlist.push(rsum);
+                   inlist.push(esum);
+
+                   answer.push(inlist);
+                   yearcount.push(workyear);
+                   console.log(answer)
+               }
+           }
+           var data = google.visualization.arrayToDataTable(answer);
+           var options = {
+               title: '',
+               curveType: 'function',
+               legend: { position: 'bottom' }
+             };
+             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+             chart.draw(data, options);
+           }
+       }
+       xhttp.open("GET", "worknet.json", true);
+         xhttp.send();
+       }
+	</script>
+
+ <!-- CHART END -->
+
+<!-- CHART START -->
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script type="text/javascript">
    

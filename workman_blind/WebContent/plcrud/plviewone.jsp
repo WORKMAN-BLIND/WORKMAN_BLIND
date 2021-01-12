@@ -101,7 +101,7 @@
 				<p style="text-align: right;">
 					<a href="workman?command=companyupdatereq" class="id"><i
 						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
-					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-sign-out-alt" style="font-size: 30px; color: grey;"></i>
+					(기업 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-sign-out-alt" style="font-size: 30px; color: black;"></i>
 					<a href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>

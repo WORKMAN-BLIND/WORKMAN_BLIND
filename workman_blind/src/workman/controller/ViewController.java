@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import lombok.extern.slf4j.Slf4j;
 import workman.action.ViewChartAction;
-import workman.action.ViewReviewAction;
 import workman.action.ViewUtubeAction;
 
 @Slf4j
@@ -24,11 +23,6 @@ public class ViewController extends HttpServlet {
 		String command = request.getParameter("command");
 		
 		if(command != null) {
-			if(command.equals("ptreview")) {
-				ViewReviewAction action = ViewReviewAction.getInstance();
-
-				action.service(request, response);
-			}
 			if(command.equals("utube")) {
 				ViewUtubeAction action = ViewUtubeAction.getInstance();
 				action.service(request, response);

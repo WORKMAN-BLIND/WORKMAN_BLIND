@@ -99,9 +99,9 @@
 			<div class="navi" style="font-color: gray">
 				<p style="text-align: right;">
 					<a href="workman?command=memberupdatereq" class="id"><i
-						class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${sessionScope.id}</a>
-					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-sign-out"
-						style="font-size: 30px; color: grey;"></i><a
+						class="far fa-user" style="font-size: 25px; color: black;"></i>${sessionScope.id}</a>
+					(일반 회원)님 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-sign-out-alt"
+						style="font-size: 25px; color: black;"></i><a
 						href="workman?command=logout" class="logout">[로그아웃]</a>&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;<br>
 				</p>
