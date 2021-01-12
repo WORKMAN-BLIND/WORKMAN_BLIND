@@ -2,7 +2,7 @@
 
 ---
 
-## PARTTIME-JOB REVIEW
+## WORKMAN BLIND 시연 영상
 [![workmanblind 시연영상](https://img.youtube.com/vi/HYjsBZNoflA/0.jpg)](https://www.youtube.com/embed/HYjsBZNoflA) 
 ---
 
