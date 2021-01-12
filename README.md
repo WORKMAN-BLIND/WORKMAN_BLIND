@@ -1,4 +1,4 @@
-# WORKMAN_BLIND Project
+# WORKMAN_BLIND Project_V 2.0
 
 ---
 
@@ -10,7 +10,7 @@
 >> 
 :mag: [엑셀문서링크](https://docs.google.com/spreadsheets/d/19So7A99qJnlKGLl4MukpBJ5gDMmvVqs-dZwoCNEFR7c/edit#gid=0)
 
-:mag: [ERDCLOUD 링크 ](https://www.erdcloud.com/d/4FcQJ7HKsogLmDyL9)
+:mag: [ERDCLOUD 링크 ](https://www.erdcloud.com/d/Hqr6Gx6qMu6i9wZ8i)
 
 :mag: [카카오 오븐 페이지 설계](https://ovenapp.io/project/VAWmAEwLwYoCOj8CLJ8i0hJKVkupt41v#f5ld6)
 
@@ -154,12 +154,15 @@
 
 ### Structure
 
+#### 기존 테이블 구조
 ![erd](https://user-images.githubusercontent.com/73862504/103251857-ff8cdb80-49bd-11eb-99ca-70a725b0e7a8.png)
 
+#### 변경된 테이블 구조
 ![image](https://user-images.githubusercontent.com/37354978/104269652-28db5a80-54da-11eb-8c69-3bcca26c5c8e.png)
 
 #### 테이블 구조 변경 이유
-- 테이블 간에 관계로 인해 
+- 기존 테이블 구조는 하나의 테이블에 모든 참조키를 가지고 있는 구조이어서 기업, 회원, 알바리스트를 모두 참조해야 했습니다
+- 그래서 하나의 테이블에서 모든 부모키를 참조하지 않고, 꼭 필요한 부분에만 부모키를 참조하도록 수정하였습니다
 
 ---
 
@@ -180,76 +183,109 @@ DROP TABLE parttimeeval cascade constraint;
 -- 기업
 DROP TABLE company cascade constraint;
 
+-- 알바 리스트 게시판 sequence
+DROP sequence partlist_seq_num;
+
+-- 알바 평가 게시판 sequence
+DROP sequence parteval_seq_id;
+
+
+CREATE TABLE company (
+   company_name      VARCHAR2(50)    PRIMARY KEY,
+   company_pw        VARCHAR2(50)    NOT NULL,   
+   category          VARCHAR2(50)    NOT NULL,
+   company_loc       VARCHAR2(200)    NOT NULL,
+   company_num       VARCHAR2(50)    NOT NULL
+);
+
 
 CREATE TABLE member (
-       user_id                 VARCHAR2(50)  PRIMARY KEY,
-       user_pw                 VARCHAR2(50) NOT NULL,
-       user_name               VARCHAR2(50) NOT NULL,
-       user_email              VARCHAR2(50) NOT NULL,
-       company_name	       VARCHAR2(50)
+       user_id    VARCHAR2(50)  PRIMARY KEY,
+       user_pw    VARCHAR2(100) NOT NULL,
+       user_name    VARCHAR2(20) NOT NULL,
+       user_num    VARCHAR2(50) NOT NULL,
+       company_name    VARCHAR2(50) NOT NULL
+
 );
 
 
 CREATE TABLE parttimelist (
-       text_list                NUMBER(10) PRIMARY KEY,
-       company_name             VARCHAR2(50) NOT NULL,
-       user_id		  	VARCHAR2(50) NOT NULL,
-       review_num   		NUMBER(10) NOT NULL,
-       review_score             NUMBER(10) NOT NULL,
-       recruit_status           VARCHAR2(50) NOT NULL,
-       regist_date   		VARCHAR2(50) NOT NULL,
-       emp_period   		VARCHAR2(50) NOT NULL
+       list_num             NUMBER(10) PRIMARY KEY,
+       company_name          VARCHAR2(50) NOT NULL,
+       work_time              VARCHAR2(50) NOT NULL,
+       hourly_wage       VARCHAR2(50) NOT NULL,
+       work_period          VARCHAR2(50) NOT NULL,
+       objective         VARCHAR2(50) NOT NULL
 );
 
 
 CREATE TABLE parttimeeval (
-	   text_eval            NUMBER(10) PRIMARY KEY,
-       text_list                NUMBER(10) NOT NULL,
-       user_id      	     	VARCHAR2(50) NOT NULL,
-       company_name		VARCHAR2(50) NOT NULL,
-       pros_cons     	    	VARCHAR2(50) NOT NULL,
-       wage   		        Number(10) NOT NULL,
-       environment              VARCHAR2(50) NOT NULL,
-       incline          	VARCHAR2(50) NOT NULL,
-       work_dif   		VARCHAR2(50) NOT NULL,
-       experience   	    	VARCHAR2(4000) NOT NULL
+       eval_num            NUMBER(10) PRIMARY KEY,
+       user_id            VARCHAR2(50) NOT NULL,
+       company_name         VARCHAR2(50) NOT NULL,
+       pros_cons           VARCHAR2(100) NOT NULL,
+       wage_delay             VARCHAR2(100) NOT NULL,
+       environment          VARCHAR2(100) NOT NULL,
+       incline              VARCHAR2(100) NOT NULL,
+       opinion         VARCHAR2(200) NOT NULL
 );
 
-CREATE TABLE company (
-	company_name	    	VARCHAR2(50)	PRIMARY KEY,
-	company_story	    	VARCHAR2(4000)	NOT NULL,
-	company_loc		VARCHAR2(100)	NOT NULL,
-	company_num		VARCHAR2(50)	NOT NULL
-);
+
+CREATE SEQUENCE parteval_seq_id START WITH 1 INCREMENT BY 50 ;
+CREATE SEQUENCE partlist_seq_num START WITH 1 INCREMENT BY 50 ;
+
 
 
 ALTER TABLE member  ADD FOREIGN KEY (company_name) REFERENCES company (company_name);
-ALTER TABLE parttimelist ADD FOREIGN KEY (user_id)  REFERENCES member (user_id);
-ALTER TABLE parttimeeval ADD FOREIGN KEY (text_list) REFERENCES parttimelist (text_list);
+ALTER TABLE parttimelist ADD FOREIGN KEY (company_name)  REFERENCES company (company_name);
+ALTER TABLE parttimeeval ADD FOREIGN KEY (company_name)  REFERENCES company (company_name);
+ALTER TABLE parttimeeval ADD FOREIGN KEY (user_id) REFERENCES member (user_id);
 ```
 
 * DML
 
 ```sql
 -- company 테이블 기업 저장
-insert into company values('CU 충정로프랑스점','기업소개글1','부산광역시 금정구 장전2동 금강로279번길 81-14','010-9280-7637');
-insert into company values('GS25대구역자이점','기업소개글2','대구광역시 중구 서성로 99 104동 상가 141호 대구역센트럴자이','010-8920-8402');
-insert into company values('이마트 천안서북점 이니스프리','기업소개글3','서북구 삼성대로 20 천안서북점 이니스프리','010-5326-4292');
+insert into company values('샹떼pc방인천동춘점','1234','pc방','인천광역시 연수구 동춘동 933-5번지 영창빌딩 5층','010-9280-4437');
+insert into company values('cu충정로프랑스점','1234','편의점','부산광역시 금정구 장전2동 금강로279번길 81-14','010-9280-7637');
+insert into company values('이마트 천안서북점 이니스프리','1234','화장품가게','대구광역시 중구 서성로 99 104동 상가 141호 대구역센트럴자이','010-9280-7624');
+insert into company values('GS25대구역자이점','1234','편의점','대구광역시 중구 서성로 99 104동 상가 141호 대구역센트럴자이','010-8920-8402');
+insert into company values('한솥도시락시화점','1234','음식점','경기도 시흥시 정왕동 1742-17','010-9280-7629');
+insert into company values('투썸플레이스송도점','1234','카페','인천광역시 연수구 송도1동 컨벤시아대로 69','010-9280-7557');
+insert into company values('플레이데이터','1234','교육기관','서울시 서초구 서초대로46길 42, 엔코아 타워','010-9280-7887');
+
+-- member 테이블 회원 저장 -문제
+insert into member values('kwon0329','1234','권희성','010-1234-5678','플레이데이터');
+insert into member values('jongwook123','1234','장종욱','010-1234-5666','샹떼pc방인천동춘점');
+insert into member values('moonyangels2','1234','장문희','010-1234-5632','이마트 천안서북점 이니스프리');
+insert into member values('kwon1234','1234','홍길동','010-1234-5633','GS25대구역자이점');
+insert into member values('kwon5678','1234','이순신','010-1234-5655','샹떼pc방인천동춘점');
+
 
 -- member 테이블 회원 저장
-insert into member values('kwon0329','restplease00','권희성','kwon0329@naver.com','CU 충정로프랑스점');
-insert into member values('wook999','chukchuk123','장종욱','wook999@gmail.com','GS25대구역자이점');
-insert into member values('moon77','lovecat522','장문희','moon77@naver.com','이마트 천안서북점 이니스프리');
+insert into member values('kwon0329','restplease00','권희성','010-1234-5678','플레이데이터');
+insert into member values('jongwook123','restplease01','장종욱','010-1234-5666','샹떼pc방인천동춘점');
+insert into member values('moonyangels2','restplease02','장문희','010-1234-5632','이마트 천안서북점 이니스프리');
+insert into member values('kwon1234','restplease03','홍길동','010-1234-5633','GS25대구역자이점');
+insert into member values('kwon5678','restplease04','이순신','010-1234-5655','샹떼pc방인천동춘점');
+
 
 -- parttimelist 테이블 알바리스트 저장
-insert into parttimelist values(208252,'CU 충정로프랑스점','kwon0329',1,9,'채용중','2시간전','단기');
-insert into parttimelist values(208253,'GS25대구역자이점','wook999',2,5,'채용마감','3시간전','장기');
-insert into parttimelist values(208254,'이마트 천안서북점 이니스프리','moon77',1,4,'채용중','3시간전','시간제');
+insert into parttimelist values(208254,'샹떼pc방인천동춘점','6시간',9000,'1년이상','피씨방 꿀알바 식대무한제공');
+insert into parttimelist values(208252,'cu충정로프랑스점','3시간',8590,'6개월이상','편의점 알바 급구합니다');
+insert into parttimelist values(208255,'이마트 천안서북점 이니스프리','8시간',9000,'6개월이상','화장품 좋아하는분 환영');
+insert into parttimelist values(208253,'GS25대구역자이점','5시간',8590,'3개월이상','오전알바 구합니다');
+insert into parttimelist values(208258,'한솥도시락시화점','6시간',8590,'6개월이상','식대무료 알바구함');
+insert into parttimelist values(208257,'투썸플레이스송도점','5시간',9500,'6개월이상','카페알바 경력구함');
+insert into parttimelist values(208256,'플레이데이터','5시간',10000,'1년이상','가족같은 직원 구합니다');
 
--- parttimeeval 테이블 알바평가게시글 저장
-insert into parttimeeval values(1,208252,'kwon0329','CU 충정로프랑스점','칼퇴가능','1000000','식사제공','깐깐해요','손님이많아요','경험1');
-insert into parttimeeval values(2,208253,'wook999','GS25대구역자이점','근로계약서 작성','1200000','화장실 깨끗','친절해요','일 많아요','경험2');
-insert into parttimeeval values(3,208254,'moon77','이마트 천안서북점 이니스프리','계속 서있어야함','900000','교통 편리','화가 많아요','힘쓰는일 많아요','경험3');
+
+-- parttimeeval 테이블 알바평가게시글 저장-문제
+insert into parttimeeval values(208275,'kwon0329','플레이데이터','칼퇴가능','안밀려요','식사제공','깐깐해요','오래오래 일하고 싶어요');
+insert into parttimeeval values(208234,'jongwook123','샹떼pc방인천동춘점','칼퇴가능','안밀려요','식사제공','깐깐해요','너무 바빠요');
+insert into parttimeeval values(208211,'moonyangels2','이마트 천안서북점 이니스프리','칼퇴가능','안밀려요','식사제공','깐깐해요','단기로 할거면 추천');
+insert into parttimeeval values(208287,'kwon1234','GS25대구역자이점','칼퇴가능','안밀려요','식사제공','깐깐해요','진상손님이 많아요');
+
 
 commit;
 ```
