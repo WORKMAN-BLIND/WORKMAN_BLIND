@@ -442,7 +442,7 @@ https://templatemo.com/tm-535-softy-pinko
                      </ul>
                   </div>
                   <div class="pricing-footer">
-                     <a href="#" class="main-button">더 알아보기</a>
+                     <a class="main-button" style="color: white;" onclick="location.href='workman?command=ptlist&listnum=${sessionScope.ptlistall[0].listnum}&companyname=${sessionScope.ptlistall[0].companyname.companyname}'">더 알아보기</a>
                   </div>
                </div>
             </div>
@@ -465,7 +465,7 @@ https://templatemo.com/tm-535-softy-pinko
                      </ul>
                   </div>
                   <div class="pricing-footer">
-                     <a href="#" class="main-button">더 알아보기</a>
+                     <a class="main-button" style="color: white;" onclick="location.href='workman?command=ptlist&listnum=${sessionScope.ptlistall[1].listnum}&companyname=${sessionScope.ptlistall[1].companyname.companyname}'">더 알아보기</a>
                   </div>
                </div>
             </div>
@@ -489,7 +489,7 @@ https://templatemo.com/tm-535-softy-pinko
                      </ul>
                   </div>
                   <div class="pricing-footer">
-                     <a href="#" class="main-button">더 알아보기</a>
+                     <a class="main-button" style="color: white;" onclick="location.href='workman?command=ptlist&listnum=${sessionScope.ptlistall[3].listnum}&companyname=${sessionScope.ptlistall[3].companyname.companyname}'">더 알아보기</a>
                   </div>
                </div>
             </div>
